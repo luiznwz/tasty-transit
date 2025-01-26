@@ -1,0 +1,16 @@
+.announcement-bar {
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.announcement-bar__text {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.container {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
