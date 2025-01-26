@@ -1,0 +1,10 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+  "main": {
+  "type": "hello-world"
+  }
+  },
+  "order": ["main"]
+  }

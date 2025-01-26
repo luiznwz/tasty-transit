@@ -1,6 +1,7 @@
-import gsap from 'gsap'
-
 export default class HelloWorld extends window.HTMLElement {
+  button: HTMLButtonElement | null;
+  output: any;
+
   constructor () {
     super()
 
@@ -9,8 +10,8 @@ export default class HelloWorld extends window.HTMLElement {
     if (!this.button) return
 
     this.button.addEventListener('click', () => {
-      gsap.from(this.button, {scale: 1.1, duration: 0.4});
       this.output.innerHTML = String(++this.output.value)
+      console.log('oi')
     })
   }
 }
