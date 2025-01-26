@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "adastra dev -s [URL_DA_LOJA_SHOPIFY]"
+    "dev": "adastra dev -s tasty-transit",
     "build": "adastra build",
     "preview": "adastra preview",
     "check": "adastra check"
