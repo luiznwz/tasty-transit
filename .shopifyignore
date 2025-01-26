@@ -1,12 +1,14 @@
-OS generate
-d files
+# OS generated files
+
 .DS_Store
 .DS_Store?
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
-# Environment files
+
+# Enviroment files
+
 source
 build_tools
 node_modules
@@ -14,21 +16,16 @@ node_modules
 .github
 .vscode
 .docs
-src/public/*.json
-package
-.json
+src/public/\*.json
+package.json
 .gitignore
-uglpfile
-.js
-vite
-.config.js
+gulpfile.js
+vite.config.js
 package-lock.json
 tsconfig.json
 cypress/*
-.
-env.
-example
+.env.example
+
 # Other files
-/\
-.
-(txt|md|lock)$/
+
+/\.(txt|md|lock)$/
