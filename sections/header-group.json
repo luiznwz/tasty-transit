@@ -11,18 +11,18 @@
   "type": "header",
   "name": "Header group",
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {
-        "heading": ""
-      }
-    },
     "announcement_bar_MtLaAa": {
       "type": "announcement-bar",
       "settings": {
         "text": "Welcome to our store!",
         "background_color": "#000000",
-        "text_color": "#FFFFFF"
+        "text_color": "#ffffff"
+      }
+    },
+    "main": {
+      "type": "hello-world",
+      "settings": {
+        "heading": ""
       }
     }
   },
