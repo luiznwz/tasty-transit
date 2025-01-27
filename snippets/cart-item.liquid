@@ -1,0 +1,49 @@
+{% comment %}
+  usage: {% render 'cart-item', product: cart_item %}
+{% endcomment %}
+
+<div
+  class="cart_item__container"
+  data-related-product="{{ product.product.id }}"
+  data-id="{{ product.id }}"
+  data-original-id="{{ product.product.variants[0].id }}"
+  data-quantity="{{ product.quantity }}">
+
+  <img
+    src="{{ product.image |  image_url: width: nil }}"
+    alt="{{ product.title }}"
+    class="cart_item__image"
+    width="auto"
+    height="auto">
+  <div class="cart_item__content">
+    <a href="{{ product.url }}" class="cart_item_title">
+      <h2>{{ product.product.title }}</h2>
+    </a>
+    <div class="price__container">
+      <p class="cart_item_price">
+        {{ product.price | money }}
+      </p>
+    </div>
+    <ul class="cart_item_variants">
+      {% if product.options_with_values[0].value != "Default Title" %}
+        {% for variant in product.options_with_values %}
+          <li>{{ variant.name }}: {{ variant.value }}
+            {% unless forloop.last %}
+              |
+            {% endunless %}
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+    <div class="cart_item_quantity" data-id="{{ product.id }}">
+      <div class="cart_item_quantity-content">
+        <div class="minus_cart">{{ 'minus.svg' | inline_asset_content }}</div>
+        <span class="cart_item__quantity_text">{{ product.quantity }}</span>
+        <div class="plus_cart">{{ 'add.svg' | inline_asset_content }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="cart_remove_icon" data-id="{{ product.id }}">
+    {{ 'icon-close.svg' | inline_asset_content }}
+  </div>
+</div>

@@ -1,4 +1,7 @@
 @import url("../components/AnnouncementBar/announcement-bar.css");
+@import url("../components/Header/header.css");
+@import url("../components/CartItem/cart-item.css");
+@import url("../components/CartDrawer/cart-drawer.css");
 
 * {
   margin: 0;

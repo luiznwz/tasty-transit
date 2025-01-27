@@ -1,0 +1,79 @@
+<cart-drawer
+  data-free-shipping-price="{{ settings.free_shipping_price }}"
+  {% if template.name == 'cart' %}
+  style="display: none;"
+  {% endif %}>
+  <script type="application/json" data-translations>
+        {
+            "free-shipping": {{ 'sections.cart-drawer.congratulations' | t | json }},
+            "missing-free-shipping": {{ 'sections.cart-drawer.missing_free_shipping' | t | json }},
+            "to_be_calculated": {{ 'sections.cart-drawer.to_be_calculated' | t | json }},
+            "free": {{ 'sections.cart-drawer.free' | t | json }}
+        }
+  </script>
+
+  <div class="cart_drawer__content">
+    <div class="cart_body">
+      <div class="cart_heading">
+        <div class="cart_heading__title_close">
+          <h2 class="cart_title">
+            {{ 'sections.cart-drawer.cart' | t }}
+            <span class="cart__item_count">({{ cart.item_count }})</span>
+          </h2>
+          <div class="close-modal">
+            {{ 'icon-close.svg' | inline_asset_content }}
+          </div>
+        </div>
+        <div class="progress_bar__container">
+          <div class="progress_bar">
+            <div class="progress"></div>
+          </div>
+          <span class="progress_span">Parábens você ganhou frete grátis!</span>
+        </div>
+      </div>
+      <div class="cart_products_container">
+        <div id="cart_products_loader"></div>
+        <div class="cart_products">
+          {% if cart.item_count != 0 %}
+            {% for product in cart.items %}
+              {% render 'cart-item'
+                , product: product %}
+            {% endfor %}
+          {% else %}
+            {{ 'cart-drag.svg' | inline_asset_content }}
+            <h3 class="cart_empty_title">{{ 'sections.cart-drawer.empty.title' | t }}</h3>
+            <p class="cart_empty_subtext">{{ 'sections.cart-drawer.empty.subtext' | t }}</p>
+            <a href="/collections/all" class="cart_empty_btn">
+              {{ 'sections.cart-drawer.empty.see_products' | t }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="cart_footer">
+        <div class="cart_subtotal">
+          <h3 class="cart_subtotal_title">{{ 'sections.cart-drawer.subtotal' | t }}</h3>
+          <p class="cart_subtotal_price">{{ cart.total_price | money }}</p>
+        </div>
+        <div class="cart_shipping_value">
+          <h3 class="cart_shipping_title">{{ 'sections.cart-drawer.shipping' | t }}</h3>
+          <p class="cart_shipping_price"></p>
+        </div>
+        <a href="/checkout" class="go_to_checkout">{{ 'sections.cart-drawer.go_to_checkout' | t }}</a>
+        <a href="/cart" class="continue_shopping">{{ 'sections.cart-drawer.see_cart' | t }}</a>
+      </div>
+    </div>
+  </div>
+</cart-drawer>
+
+{% schema %}
+  {
+    "name": "Cart-drawer",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Cart-drawer"
+      }
+    ]
+  }
+{% endschema %}

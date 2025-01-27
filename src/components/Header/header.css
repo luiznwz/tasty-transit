@@ -3,7 +3,7 @@
   width: 100%;
   z-index: 1000;
   top: 0;
-  background: var(--dark-blue);
+  background: var(--black);
 }
 
 header-component {
