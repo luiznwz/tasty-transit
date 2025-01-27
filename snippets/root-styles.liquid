@@ -1,0 +1,161 @@
+{% comment %}
+  Renders a set of color tokens.
+
+  Adastra also teaches you stuff ✦
+  - Use css variables and hsl colors to set different color schemes.
+
+  Usage:
+    {% render 'root-styles' %}
+{% endcomment %}
+
+{% style %}
+
+  @font-face {
+    font-family: 'HeyWow';
+    src: url('{{ "Rebond Grotesque Bold Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Bold.ttf" | asset_url }}') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Extrabold Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Extrabold.ttf" | asset_url }}') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Extralight Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Extralight.ttf" | asset_url }}') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Light Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Light.ttf" | asset_url }}') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Medium Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Medium.ttf" | asset_url }}') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Semibold Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Semibold.ttf" | asset_url }}') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Thin Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Thin.ttf" | asset_url }}') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebon Grotesque Hairline Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Hairline.ttf" | asset_url }}') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque Italic.ttf" | asset_url }}') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap
+  }
+  @font-face {
+    font-family: 'Rebond Grotesque';
+    src: url('{{ "Rebond Grotesque.ttf" | asset_url }}') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+  }
+
+  :root {
+    /* Colors */
+    --black: ##171717;
+    --white: #FFFFFF;
+    --off-white: #F3F1E8;
+    --dark-blue: #181D23;
+    --light-blue: #373F4A;
+    --light-gray: #C1C0BC;
+    --dark-gray: #686D74;
+    --pink: #BF2696;
+
+    /* Fonts */
+    --font-rebond: 'Rebond Grotesque', sans-serif;
+
+    /* Spacing */
+    --page-width: {{ settings.page_width_mobile }}vw;
+
+    @media (min-width: 768px) {
+      --page-width: {{ settings.page_width_desktop }}vw;
+    }
+  }
+{% endstyle %}
