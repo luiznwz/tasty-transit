@@ -20,15 +20,15 @@
             {{ 'sections.cart-drawer.cart' | t }}
             <span class="cart__item_count">({{ cart.item_count }})</span>
           </h2>
-          <div class="close-modal">
-            {{ 'icon-close.svg' | inline_asset_content }}
+          <div class="close-modal" id="cart-drawer-close">
+              {{ 'icon-close.svg' | inline_asset_content }}
           </div>
         </div>
         <div class="progress_bar__container">
           <div class="progress_bar">
             <div class="progress"></div>
           </div>
-          <span class="progress_span">Parábens você ganhou frete grátis!</span>
+          <span class="progress_span">{{ 'sections.cart-drawer.congratulations' | t }}</span>
         </div>
       </div>
       <div class="cart_products_container">

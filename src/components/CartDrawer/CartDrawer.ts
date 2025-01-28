@@ -29,6 +29,9 @@ export default class CartDrawer extends HTMLElement {
     this.fetchData = new FetchData();
     this.translations = this.loadTranslations();
 
+    // Ensure the cart drawer is initially hidden
+    this.style.display = "none";
+
     this.cartProducts = this.querySelector(".cart_products");
     this.loaderProductCart = document.querySelector("#cart_products_loader");
     this.removeIcons = this.querySelectorAll(".cart_remove_icon svg");
@@ -37,7 +40,7 @@ export default class CartDrawer extends HTMLElement {
     );
 
     this.cartIcon = document.querySelector(".header__cart");
-    this.closeIcon = this.querySelector(".close-modal");
+    this.closeIcon = document.querySelector("#cart-drawer-close");
     this.cartItemCount = this.querySelector(".cart__item_count");
     this.bagItemCount = document.querySelector(".bag_count");
 
@@ -68,7 +71,10 @@ export default class CartDrawer extends HTMLElement {
     )
       return;
 
-    this.cartIcon?.addEventListener("click", () => this.toggleCart());
+    this.cartIcon?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.toggleCart();
+    });
     this.closeIcon?.addEventListener("click", () => this.toggleCart());
 
     document.addEventListener("click", (event) =>
@@ -84,7 +90,7 @@ export default class CartDrawer extends HTMLElement {
   private async addToCart(element: HTMLElement) {
     const productId = element.dataset.id as string;
     this.loaderProductCart?.setAttribute("active", "");
-    await this.fetchData.addToCart("", productId, 1);
+    await this.fetchData.addToCart(productId, productId, 1);
     this.fetchNewCart();
   }
 
@@ -317,12 +323,32 @@ export default class CartDrawer extends HTMLElement {
   }
 
   openCart() {
+    this.style.display = "block";
     this.setAttribute("open", "");
     document.body.style.overflow = "hidden";
     this.updateFreeShippingProgress();
+
+    // Show the content with animation
+    if (this.cartDrawerContent) {
+      this.cartDrawerContent.style.display = "flex";
+      requestAnimationFrame(() => {
+        if (this.cartDrawerContent) {
+          this.cartDrawerContent.style.transform = "translateX(0)";
+        }
+      });
+    }
   }
 
   closeCart() {
+    if (this.cartDrawerContent) {
+      this.cartDrawerContent.style.transform = "translateX(100%)";
+      setTimeout(() => {
+        if (this.cartDrawerContent) {
+          this.cartDrawerContent.style.display = "none";
+        }
+        this.style.display = "none";
+      }, 300); // Match the animation duration
+    }
     this.removeAttribute("open");
     document.body.style.overflow = "auto";
   }
@@ -382,3 +408,5 @@ export default class CartDrawer extends HTMLElement {
     return {};
   }
 }
+// ... no final do arquivo, após a definição da classe
+customElements.define('cart-drawer', CartDrawer);

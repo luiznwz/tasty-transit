@@ -16,39 +16,27 @@ export default class Header extends HTMLElement {
   constructor() {
     super();
 
+    // Use querySelector no this para elementos dentro do componente
     this.iconMenu = this.querySelector(".menu_svg") as HTMLElement;
-    this.menuMobile = this.querySelector(
-      ".header__mobile_menu .nav_items"
-    ) as HTMLElement;
-    this.closeMenuMobile = this.querySelector(
-      ".header__mobile_menu .close_nav_items"
-    ) as HTMLElement;
-    this.mainLinkWithMenu = this.querySelectorAll(
-      ".nav_items [data-menu]"
-    ) as NodeListOf<HTMLElement>;
-    this.mainLinks = this.querySelector(
-      ".header__mobile_menu .main_items"
-    ) as HTMLElement;
-    this.submenus = this.querySelectorAll(
-      ".nav_items [data-submenu]"
-    ) as NodeListOf<HTMLElement>;
-    this.submenuBack = this.querySelectorAll(
-      ".nav_items .submenu_back__container"
-    ) as NodeListOf<HTMLElement>;
+    this.menuMobile = this.querySelector(".header__mobile_menu .nav_items") as HTMLElement;
+    this.closeMenuMobile = this.querySelector(".header__mobile_menu .close_nav_items") as HTMLElement;
+    this.mainLinkWithMenu = this.querySelectorAll(".nav_items [data-menu]") as NodeListOf<HTMLElement>;
+    this.mainLinks = this.querySelector(".header__mobile_menu .main_items") as HTMLElement;
+    this.submenus = this.querySelectorAll(".nav_items [data-submenu]") as NodeListOf<HTMLElement>;
+    this.submenuBack = this.querySelectorAll(".nav_items .submenu_back__container") as NodeListOf<HTMLElement>;
 
-    this.searchBtn = this.querySelector(
-      ".header__nav_icons .search_btn"
-    ) as HTMLElement;
-    this.searchInputContainer = this.querySelector(
-      ".header__nav_icons .search_input__container"
-    ) as HTMLElement;
+    // Estes elementos podem estar fora do componente, então use document.querySelector
+    this.searchBtn = document.querySelector(".header__nav_icons .search_btn") as HTMLElement;
+    this.searchInputContainer = document.querySelector(".header__nav_icons .search_input__container") as HTMLElement;
+    this.menuDesktop = document.querySelector(".header__desktop_menu") as HTMLElement;
 
-    this.menuDesktop = this.querySelector(
-      ".header__desktop_menu"
-    ) as HTMLElement;
+    if (!this.iconMenu || !this.menuMobile) {
+        console.error('Required elements not found in Header component');
+        return;
+    }
 
     this.initEventListeners();
-  }
+}
 
   initEventListeners() {
     this.iconMenu.addEventListener("click", () => this.toggleMenuMobile());
@@ -120,3 +108,5 @@ export default class Header extends HTMLElement {
     this.searchInputContainer.toggleAttribute("open");
   }
 }
+// ... no final do arquivo, após a definição da classe
+customElements.define('header-component', Header);

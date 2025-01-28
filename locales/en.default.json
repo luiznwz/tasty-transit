@@ -49,6 +49,24 @@
       "subtext": "The page you requested does not exist."
     }
   },
+  "sections": {
+    "cart-drawer": {
+      "cart": "Cart",
+      "congratulations": "Congratulations! You got free shipping!",
+      "missing_free_shipping": "away from free shipping",
+      "to_be_calculated": "To be calculated",
+      "free": "Free",
+      "empty": {
+        "title": "Your cart is empty",
+        "subtext": "Add some products to your cart to proceed with the purchase",
+        "see_products": "See products"
+      },
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "go_to_checkout": "Go to checkout",
+      "see_cart": "See cart"
+    }
+  },
   "gift_cards": {
     "issued": {
       "title": "Here's your {{ value }} gift card for {{ shop }}!",
