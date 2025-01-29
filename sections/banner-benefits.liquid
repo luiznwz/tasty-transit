@@ -1,0 +1,22 @@
+{% assign banner_benefits = product.metafields.custom.banner_benefits.value %}
+
+{% if banner_benefits != blank %} 
+    <div class="banner-benefits">
+        <div class="banner-benefits-image">
+            <img class="desktop" src="{{banner_benefits.image_desktop |  image_url: width: nil }}" alt="Banner" width="auto" height="auto">
+            <img class="mobile" src="{{banner_benefits.image_mobile | image_url: width: nil }}" alt="Banner" width="auto" height="auto">
+        </div>
+    </div>
+{% endif %}
+
+{% schema %}
+    {
+      "name": "t:sections.banner-benefits.name",
+      "settings": [],
+      "presets": [
+        {
+          "name": "t:sections.banner-benefits.presets.name"
+        }
+      ]
+    }
+{% endschema %}

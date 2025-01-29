@@ -1,0 +1,87 @@
+{% paginate blog.articles by 6 %}
+  <grid-articles>
+    <div class="grid-container">
+      {% for article in blog.articles %}
+        <div class="article-item">
+          <a href="{{ article.url }}" class="article-link">
+            <img
+              src="{{ article.image |  image_url: width: nil }}"
+              alt="{{ article.title }}"
+              height="auto"
+              width="auto"
+              class="article-image"
+              loading="lazy"
+            >
+          </a>
+
+          <div class="content-article">
+            <a href="{{ article.url }}" class="link-title">
+              {% for tag in article.tags %}
+                <h3 class="title-article">{{ tag }}</h3>
+              {% endfor %}
+            </a>
+
+            <a href="{{ article.url }}" class="link-description">
+              {% comment %}
+                {% if article.excerpt.size > 0 %}
+                  <p class="description-article">{{ article.excerpt }}</p>
+                {% else %}
+                  <p class="description-article">{{ article.content | strip_html | truncate: 150 }}</p>
+                {% endif %}
+              {% endcomment %}
+              <p class="description-article">{{ article.title }}</p>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if paginate.pages > 1 %}
+      <div class="pagination">
+        {% if paginate.previous %}
+          <a href="{{ paginate.previous.url }}" class="pagination__arrow pagination__arrow--prev">
+            {{ 'arrow-prev.svg' | inline_asset_content }}
+          </a>
+        {% else %}
+          <span class="pagination__arrow pagination__arrow--prev pagination__arrow--disabled">
+            {{ 'arrow-prev.svg' | inline_asset_content }}
+          </span>
+        {% endif %}
+
+        <div class="pagination__numbers">
+          {% for part in paginate.parts %}
+            {% if part.is_link %}
+              <a href="{{ part.url }}" class="pagination__number">{{ part.title }}</a>
+            {% elsif part.title == paginate.current_page %}
+              <span class="pagination__number pagination__number--current">{{ part.title }}</span>
+            {% else %}
+              <span class="pagination__number">{{ part.title }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if paginate.next %}
+          <a href="{{ paginate.next.url }}" class="pagination__arrow pagination__arrow--next">
+            {{ 'arrow-next.svg' | inline_asset_content }}
+          </a>
+        {% else %}
+          <span class="pagination__arrow pagination__arrow--next pagination__arrow--disabled">
+            {{ 'arrow-next.svg' | inline_asset_content }}
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+  </grid-articles>
+{% endpaginate %}
+
+{% schema %}
+{
+  "name": "t:sections.grid_articles.name",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:sections.grid_articles.name"
+    }
+  ]
+}
+{% endschema %}

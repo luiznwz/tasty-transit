@@ -1,0 +1,247 @@
+{% liquid
+  assign about_product = product.metafields.custom.sobre_o_produto.value
+%}
+
+{% if about_product != blank %}
+  <about-product>
+    <div class="container-main-content">
+      <h2 class="title-about-product">
+        {{ section.settings.title }}
+        {{ product.title }}
+      </h2>
+
+      <div class="container-options-content-options">
+        <div class="container-options">
+          {% for title_option in about_product %}
+            {% assign indexForLoop = forloop.index %}
+            <div>
+              <h3 class="option" data-option-index-forloop="{{ indexForLoop }}">{{ title_option.titulo }}</h3>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="container-content-option desktop">
+          {% for content_option in about_product %}
+            {% assign indexForLoopContent = forloop.index %}
+
+            <p class="title_option" data-content-index-forloop="{{ indexForLoopContent }}">
+              {{ content_option.titulo }}
+            </p>
+
+            <div
+              class="container-container-content-option-texts-main"
+              data-content-index-forloop="{{ indexForLoopContent }}"
+            >
+              <div class="container-content-option-texts">
+                {% if content_option.titulo_item_1 != blank %}
+                  <p class="title_item">{{ content_option.titulo_item_1 }}</p>
+                {% endif %}
+                {% if content_option.imagem_item_1 != blank %}
+                  <img
+                    src="{{ content_option.imagem_item_1 | image_url: width: 60, height: 60 }}"
+                    alt="{{ content_option.texto_item_1 }}"
+                    class="image_item"
+                    width="auto"
+                    height="auto"
+                    loading="eager"
+                  >
+                {% endif %}
+                {% if content_option.texto_item_1 != blank %}
+                  <p class="text">{{ content_option.texto_item_1 }}</p>
+                {% endif %}
+              </div>
+              <div class="container-content-option-texts">
+                {% if content_option.titulo_item_2 != blank %}
+                  <p class="title_item">{{ content_option.titulo_item_2 }}</p>
+                {% endif %}
+                {% if content_option.imagem_item_2 != blank %}
+                  <img
+                    src="{{ content_option.imagem_item_2 | image_url: width: 60, height: 60 }}"
+                    alt="{{ content_option.texto_item_2 }}"
+                    class="image_item"
+                    width="auto"
+                    height="auto"
+                    loading="eager"
+                  >
+                {% endif %}
+                {% if content_option.texto_item_2 != blank %}
+                  <p class="text">{{ content_option.texto_item_2 }}</p>
+                {% endif %}
+              </div>
+              <div class="container-content-option-texts">
+                {% if content_option.titulo_item_3 != blank %}
+                  <p class="title_item">{{ content_option.titulo_item_3 }}</p>
+                {% endif %}
+                {% if content_option.imagem_item_3 != blank %}
+                  <img
+                    src="{{ content_option.imagem_item_3 | image_url: width: 60, height: 60 }}"
+                    alt="{{ content_option.texto_item_3 }}"
+                    class="image_item"
+                    width="auto"
+                    height="auto"
+                    loading="eager"
+                  >
+                {% endif %}
+                {% if content_option.texto_item_3 != blank %}
+                  <p class="text">{{ content_option.texto_item_3 }}</p>
+                {% endif %}
+              </div>
+              <div class="container-content-option-texts">
+                {% if content_option.titulo_item_4 != blank %}
+                  <p class="title_item">{{ content_option.titulo_item_4 }}</p>
+                {% endif %}
+                {% if content_option.imagem_item_4 != blank %}
+                  <img
+                    src="{{ content_option.imagem_item_4 | image_url: width: 60, height: 60 }}"
+                    alt="{{ content_option.texto_item_4 }}"
+                    class="image_item"
+                    width="auto"
+                    height="auto"
+                    loading="eager"
+                  >
+                {% endif %}
+                {% if content_option.texto_item_4 != blank %}
+                  <p class="text">{{ content_option.texto_item_4 }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="container-content-image mobile">
+        {% for image_option in about_product %}
+          {% assign indexForLoopImage = forloop.index %}
+          <img
+            src="{{ image_option.imagem | image_url: width: 475, height: 475 }}"
+            alt="{{ image_option.titulo_item_1 }}"
+            width="auto"
+            height="auto"
+            loading="lazy"
+            class="image"
+            data-image-index-forloop="{{ indexForLoopImage }}"
+          >
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container-content-image desktop">
+      {% for image_option in about_product %}
+        {% assign indexForLoopImage = forloop.index %}
+        <img
+          src="{{ image_option.imagem | image_url: width: 475, height: 475 }}"
+          alt="{{ image_option.titulo_item_1 }}"
+          width="auto"
+          height="auto"
+          loading="lazy"
+          class="image"
+          data-image-index-forloop="{{ indexForLoopImage }}"
+        >
+      {% endfor %}
+    </div>
+    <div class="container-content-option mobile">
+      {% for content_option in about_product %}
+        {% assign indexForLoopContent = forloop.index %}
+
+        <p class="title_option" data-content-index-forloop="{{ indexForLoopContent }}">{{ content_option.titulo }}</p>
+
+        <div
+          class="container-container-content-option-texts-main"
+          data-content-index-forloop="{{ indexForLoopContent }}"
+        >
+          <div class="container-content-option-texts">
+            {% if content_option.titulo_item_1 != blank %}
+              <p class="title_item">{{ content_option.titulo_item_1 }}</p>
+            {% endif %}
+            {% if content_option.imagem_item_1 != blank %}
+              <img
+                src="{{ content_option.imagem_item_1 | image_url: width: 60, height: 60 }}"
+                alt="{{ content_option.texto_item_1 }}"
+                class="image_item"
+                width="auto"
+                height="auto"
+                loading="eager"
+              >
+            {% endif %}
+            {% if content_option.texto_item_1 != blank %}
+              <p class="text">{{ content_option.texto_item_1 }}</p>
+            {% endif %}
+          </div>
+          <div class="container-content-option-texts">
+            {% if content_option.titulo_item_2 != blank %}
+              <p class="title_item">{{ content_option.titulo_item_2 }}</p>
+            {% endif %}
+            {% if content_option.imagem_item_2 != blank %}
+              <img
+                src="{{ content_option.imagem_item_2 | image_url: width: 60, height: 60 }}"
+                alt="{{ content_option.texto_item_2 }}"
+                class="image_item"
+                width="auto"
+                height="auto"
+                loading="eager"
+              >
+            {% endif %}
+            {% if content_option.texto_item_2 != blank %}
+              <p class="text">{{ content_option.texto_item_2 }}</p>
+            {% endif %}
+          </div>
+          <div class="container-content-option-texts">
+            {% if content_option.titulo_item_3 != blank %}
+              <p class="title_item">{{ content_option.titulo_item_3 }}</p>
+            {% endif %}
+            {% if content_option.imagem_item_3 != blank %}
+              <img
+                src="{{ content_option.imagem_item_3 | image_url: width: 60, height: 60 }}"
+                alt="{{ content_option.texto_item_3 }}"
+                class="image_item"
+                width="auto"
+                height="auto"
+                loading="eager"
+              >
+            {% endif %}
+            {% if content_option.texto_item_3 != blank %}
+              <p class="text">{{ content_option.texto_item_3 }}</p>
+            {% endif %}
+          </div>
+          <div class="container-content-option-texts">
+            {% if content_option.titulo_item_4 != blank %}
+              <p class="title_item">{{ content_option.titulo_item_4 }}</p>
+            {% endif %}
+            {% if content_option.imagem_item_4 != blank %}
+              <img
+                src="{{ content_option.imagem_item_4 | image_url: width: 60, height: 60 }}"
+                alt="{{ content_option.texto_item_4 }}"
+                class="image_item"
+                width="auto"
+                height="auto"
+                loading="eager"
+              >
+            {% endif %}
+            {% if content_option.texto_item_4 != blank %}
+              <p class="text">{{ content_option.texto_item_4 }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </about-product>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.about_product.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.about_product.settings.title.label",
+      "default": "t:sections.about_product.settings.title.default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.about_product.name"
+    }
+  ]
+}
+{% endschema %}

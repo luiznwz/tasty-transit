@@ -1,0 +1,45 @@
+{% comment %}
+  Shopify Sort Options with "Ordenar por" default option
+  Usage: {% render 'sort-options', sort_by: collection.sort_by, use_select: true %}
+{% endcomment %}
+
+{% assign sort_options = "price-ascending,price-descending,created-descending,best-selling" | split: "," %}
+
+{% if use_select %}
+  <div class="sort-options">
+    <form action="{{ collection.url }}" method="get">
+      <select name="sort_by" id="SortBy" class="filter-group__select">
+        <option value="">{{ 'collections.sort_options.sort_by' | t }}</option>
+        
+        {% for option in sort_options %}
+          <option value="{{ option }}" {% if collection.sort_by == option %}selected{% endif %}>
+            {{ 'collections.sort_options.' | append: option | replace: '-', '_' | t }}
+          </option>
+        {% endfor %}
+      </select>
+
+      {% for param in params %}
+        {% unless param[0] == 'sort_by' %}
+          <input type="hidden" name="{{ param[0] }}" value="{{ param[1] }}">
+        {% endunless %}
+      {% endfor %}
+    </form>
+  </div>
+{% else %}
+  <ul class="filter__list">
+    {% for option in sort_options %}
+      <li class="filter__item">
+        <label class="filter_label" for="Filter-sort_by-{{ option }}">
+          <input type="radio"
+                 name="sort_by"
+                 value="{{ option }}"
+                 id="Filter-sort_by-{{ option }}"
+                 class="filter-group__checkbox custom-checkbox"
+                 {% if collection.sort_by == option %}checked{% endif %}
+          >
+          {{ 'collections.sort_options.' | append: option | replace: '-', '_' | t }}
+        </label>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

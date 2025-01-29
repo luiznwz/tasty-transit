@@ -1,0 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main_product_iYgx86": {
+      "type": "main-product",
+      "blocks": {
+        "title_price_QMrE7c": {
+          "type": "title-price",
+          "settings": {}
+        },
+        "icones_text_YwwmUi": {
+          "type": "icones-text",
+          "settings": {}
+        },
+        "options_variants_yhpNea": {
+          "type": "options-variants",
+          "settings": {}
+        },
+        "quantity_button_add_fmbKi9": {
+          "type": "quantity-button-add",
+          "settings": {}
+        },
+        "shipping_gAGJ3t": {
+          "type": "shipping",
+          "settings": {}
+        },
+        "details_pXChJb": {
+          "type": "details",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_price_QMrE7c",
+        "icones_text_YwwmUi",
+        "options_variants_yhpNea",
+        "quantity_button_add_fmbKi9",
+        "shipping_gAGJ3t",
+        "details_pXChJb"
+      ],
+      "settings": {}
+    },
+    "shopbar_HB3w67": {
+      "type": "shopbar",
+      "settings": {
+        "shopbar_color": "#d5d8e3"
+      }
+    },
+    "lookbook_8tWbbN": {
+      "type": "lookbook",
+      "settings": {}
+    },
+    "influencers_f9QPhF": {
+      "type": "influencers",
+      "settings": {
+        "title_section": "<p>Veja quem recomenda</p>",
+        "subtitle_section": "",
+        "show_background": false
+      }
+    },
+    "mini_banner_DBbPiQ": {
+      "type": "mini-banner",
+      "settings": {
+        "template_mini_banner": true,
+        "mini_banner_position": "left",
+        "mini_banner_title": "",
+        "mini_banner_content": "",
+        "mini_banner_link": "",
+        "mini_banner_button": "",
+        "primary_color": "#181d23",
+        "secondary_color": "#ffffff"
+      }
+    },
+    "carousel_products_zMPbPM": {
+      "type": "carousel-products",
+      "settings": {
+        "collection": "frontpage",
+        "title_section": "<p>Voce tambem pode gostar</p>",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/flower.png",
+        "text_button": "Ver Todos",
+        "show_discount_tag": true,
+        "show_new_tag": true
+      }
+    },
+    "product_reviews_EcCJKT": {
+      "type": "product-reviews",
+      "settings": {
+        "title": "Avaliações"
+      }
+    }
+  },
+  "order": [
+    "main_product_iYgx86",
+    "shopbar_HB3w67",
+    "lookbook_8tWbbN",
+    "influencers_f9QPhF",
+    "mini_banner_DBbPiQ",
+    "carousel_products_zMPbPM",
+    "product_reviews_EcCJKT"
+  ]
+}

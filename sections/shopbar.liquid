@@ -1,0 +1,97 @@
+{% if product != blank %}
+    <style>
+        shopbar-component{
+            @media screen and (min-width: 768px) {
+                background-color: {{ section.settings.shopbar_color }};
+            }
+
+            .shopbar__content {
+                &[open]{
+                    background-color: {{ section.settings.shopbar_color }};
+                }
+            }
+        }
+    </style>
+    
+    <shopbar-component>
+        <div class="shopbar__content">
+            <div class="shopbar_heading">
+                <div class="shopbar_product_title_image">
+                    <img src="{{ product.images[0] |  image_url: width: 85 }}" alt="{{ product.title }}" width="auto" height="auto">
+                    <div class="shobar_info_container">
+                        <h2 class="shopbar_title">{{ product.title }}</h2>
+                    </div>
+                </div>
+                <div class="shopbar_price_installments">
+                    <h2 class="shopbar_price">{{ product.price | money }}</h2>
+                    {% if settings.show_installments == true %}
+                        <p 
+                            class="shopbar_installment" 
+                            data-price="{{ product.price }}"
+                            data-installments-count="{{ settings.installments_count }}"
+                            data-installments-min-price="{{ settings.installments_min_price }}"
+                            data-show-interest-free="{{ settings.show_interest_free }}"
+                            data-min-installment="{{ settings.min_installment }}"
+                        >
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="shopbar_select_variant-group">
+                <div class="shopbar-mobile">
+                    {% render "shopbar-options", product: product %}
+                </div>
+                <div class="shopbar-desktop">
+                    {% unless product.has_only_default_variant %}
+                        <div class="shopbar_select_variant">
+                            <label for="variant-select-{{ product.id }}" class="shopbar_label">
+                                {% for option in product.options_with_values %}
+                                    {{ option.name }} {% unless forloop.last %}/{% endunless %} {% if forloop.last %}:{% endif %}
+                                {% endfor %}
+                            </label>
+                            <select id="variant-select-{{ product.id }}" class="variant-select">
+                                {% for variant in product.variants %}
+                                    {% if variant.available == true %}                
+                                        <option value="{{ variant.id }}" data-price="{{ variant.price | money }}">{{ variant.title }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    {% endunless %}
+                </div>
+            </div>
+            <div class="add_to_cart_content">
+                <button
+                    class="info_add_to_cart"
+                    data-out-of-stock="{{ 'sections.main-product.out_of_stock' | t }}"
+                    data-default="{{ 'sections.main-product.add_to_cart' | t }}"
+                >
+                    <span class="loader"></span>
+                    <span class="btn_text">{{ 'sections.main-product.add_to_cart' | t }}</span>
+                </button>
+                <div class="buton_open_modal">
+                    {{ 'add.svg' | inline_asset_content }}
+                </div>
+            </div>
+        </div>
+    </shopbar-component>
+{% endif %} 
+
+{% schema %}
+    {
+      "name": "t:sections.shopbar.name",
+      "settings": [
+            {
+                "type": "color",
+                "id": "shopbar_color",
+                "label": "t:sections.shopbar.settings.shopbar_color.label",
+                "default": "#F3F1E8"
+            }
+      ],
+      "presets": [
+        {
+          "name": "t:sections.shopbar.presets.name"
+        }
+      ]
+    }
+{% endschema %}

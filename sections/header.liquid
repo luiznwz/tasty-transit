@@ -1,0 +1,122 @@
+{% liquid 
+    assign sec = section.settings
+
+    assign menu_mobile = sec.menu_mobile
+    assign menu_desktop = sec.menu_desktop
+    assign logo = sec.logo
+
+    assign blocks = section.blocks
+%}
+
+<header-component>
+    <div class="header__content">
+        <div class="header__mobile_menu">
+            <div class="menu_svg">
+                {{ 'menu.svg' | inline_asset_content }}
+            </div>
+            {% render 'nav-items', 
+                items: menu_mobile, 
+                blocks: blocks 
+            %}
+        </div>
+        <a class="header__logo" href="{{ shop.url }}">
+            {% if logo != blank %}
+                <img 
+                    src="{{ logo | image_url: width: 148 }}" 
+                    alt="{{ shop.name }}"
+                    width="auto" height="auto"
+                >
+            {% endif %}
+        </a>
+        <div class="search__desktop">
+            {% render 'search' %}
+        </div>
+        <div class="header__nav_icons">
+            {% render 'search' %}
+            <a href="{% if customer %} /account {% else %} /account/login {% endif %}" class="header__user">
+                {{ 'user.svg' | inline_asset_content }}
+            </a>
+            <a href="/pages/wishlist" class="header__wishlist">
+                {{ 'wishlist.svg' | inline_asset_content }}
+            </a>
+            <div class="header__cart">
+                {{ 'bag.svg' | inline_asset_content }}
+                <span class="bag_count">
+                    {{ cart.item_count }}
+                </span>
+            </div>
+        </div>
+        <div class="header__desktop_menu">
+            {% render 'nav-items', 
+                items: menu_desktop, 
+                blocks: blocks 
+            %}
+        </div>
+    </div>
+</header-component>
+
+{% schema %}
+    {
+      "name": "t:sections.header.name",
+      "class": "header-section",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.header.settings.header.content"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "t:sections.header.settings.logo.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_mobile",
+          "label": "t:sections.header.settings.menu_mobile.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_desktop",
+          "label": "t:sections.header.settings.menu_desktop.label"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "block",
+          "name": "t:sections.header.blocks.image_text.name",
+          "settings": [
+            {
+              "type": "header",
+              "content": "t:sections.header.blocks.image_text.settings.header.content"
+            },
+            {
+              "type": "text",
+              "id": "identifier",
+              "label": "t:sections.header.blocks.image_text.settings.identifier.label",
+              "info": "t:sections.header.blocks.image_text.settings.identifier.info"
+            },
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "t:sections.header.blocks.image_text.settings.image.label"
+            },
+            {
+              "type": "richtext",
+              "id": "text",
+              "label": "t:sections.header.blocks.image_text.settings.text.label"
+            },
+            {
+              "type": "url",
+              "id": "url",
+              "label": "t:sections.header.blocks.image_text.settings.url.label"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "t:sections.header.presets.name"
+        }
+      ]
+    }
+{% endschema %}

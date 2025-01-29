@@ -1,0 +1,49 @@
+{% unless product.has_only_default_variant %}
+  {% for option in product.options_with_values %}
+    {% assign option_forloop = forloop.index0 %}
+    <fieldset class="product-option">
+      <p class="option-title">{{ option.name }}</p>
+
+      <div class="option-values">
+        {% assign lasts_options = '' %}
+        
+        {% for value in product.variants %}
+          {% liquid
+            if option_forloop < 3
+              assign next_options = option_forloop | plus: 1
+            endif
+
+            assign color_boolean = false
+
+            if option.name == 'Cor'
+              assign color_boolean = true
+            endif
+          %}
+
+          {% if value.options[next_options] != blank %}
+            {% unless lasts_options contains value.options[option_forloop] %}
+              {% render 'main-product-label',
+                value: value,
+                option: option,
+                optionForLoop: option_forloop,
+                head: true,
+                color: color_boolean,
+                product: product
+              %}
+              {% assign lasts_options = lasts_options | append: value.options[option_forloop] | append: ' ' %}
+            {% endunless %}
+          {% else %}
+            {% render 'main-product-label',
+              value: value,
+              option: option,
+              optionForLoop: option_forloop,
+              result: true,
+              color: color_boolean,
+              product: product
+            %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </fieldset>
+  {% endfor %}
+{% endunless %}

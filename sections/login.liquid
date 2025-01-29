@@ -1,0 +1,122 @@
+<account-access>
+  <div class="account-acess-login" id="login-form">
+    {% form 'customer_login', novalidate: 'novalidate' %}
+      <h2 class="title">{{ 'customer.login.title' | t | replace: ' ', '' }}</h2>
+
+      {% if form.errors %}
+        <div class="form-error">
+          {{ 'error.svg' | inline_asset_content }}
+          {{ 'customer.errors.invalid_credentials' | t }}
+        </div>
+      {% endif %}
+
+      <div class="container-fields">
+        <div class="form-field">
+          <label for="customer_email">{{ 'customer.login.email' | t }}</label>
+          <input
+            class="input-item"
+            type="email"
+            name="customer[email]"
+            id="customer_email"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="{{ 'customer.login.email_placeholder' | t }}"
+            aria-describedby="{{ 'customer.login.email' | t }}"
+            aria-label="{{ 'general.accessibility.email_label' | t }}"
+            required
+          >
+        </div>
+
+        <div class="form-field form-field-password">
+          <label for="customer_password">{{ 'customer.login.password' | t }}</label>
+          <div class="container-input-password">
+            <input
+              class="input-item input-password"
+              type="password"
+              value=""
+              name="customer[password]"
+              id="customer_password"
+              autocomplete="current-password"
+              aria-label="{{ 'general.accessibility.password_label' | t }}"
+              aria-describedby="{{ 'customer.login.password' | t }}"
+              placeholder="{{ 'customer.login.password_placeholder' | t }}"
+              required
+            >
+            {{ 'eye.svg' | inline_asset_content }}
+          </div>
+
+          <a class="link-recover" href="{{ routes.account_login_url }}#recover" data-toggle-login-form>
+            {{- 'customer.login.forgot_password' | t -}}
+          </a>
+        </div>
+      </div>
+
+      <div class="container-buttons">
+        <div class="form-actions">
+          <button class="btn-submit" type="submit">{{ 'customer.login.sign_in' | t }}</button>
+        </div>
+
+        <a class="link-create-account" href="/account/register">{{ 'customer.login.create_account' | t }}</a>
+      </div>
+    {% endform %}
+  </div>
+
+  <div class="account-acess-login" id="reset-form">
+    {% form 'recover_customer_password' %}
+      <div class="container-heading">
+        <h2 class="title">{{ 'customer.recover_password.title' | t }}</h2>
+        <p class="text-reset-password">{{ 'customer.recover_password.text' | t }}</p>
+      </div>
+
+      {% if form.errors %}
+        <div class="form-error">
+          {{ 'error.svg' | inline_asset_content }}
+          {{ 'customer.errors.invalid_credentials' | t }}
+        </div>
+      {% endif %}
+
+      <div class="container-fields">
+        <div class="form-field">
+          <label for="RecoverEmail">{{ 'customer.recover_password.email' | t }}</label>
+          <input
+            class="input-item"
+            type="email"
+            value=""
+            name="email"
+            id="RecoverEmail"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            placeholder="Insira seu e-mail"
+            aria-describedby="Insira seu e-mail"
+            aria-label="Insira seu e-mail"
+            required
+          >
+        </div>
+      </div>
+
+      <div class="container-buttons">
+        <div class="form-actions">
+          <button class="btn-submit" type="submit">{{ 'customer.recover_password.submit' | t }}</button>
+        </div>
+
+        <a class="link-create-account" href="{{ routes.account_login_url }}" data-toggle-reset-form>
+          {{- 'customer.recover_password.cancel' | t -}}
+        </a>
+      </div>
+    {% endform %}
+  </div>
+</account-access>
+
+{% schema %}
+{
+  "name": "t:sections.login.name",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:sections.login.name"
+    }
+  ]
+}
+{% endschema %}

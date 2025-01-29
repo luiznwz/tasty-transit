@@ -1,0 +1,177 @@
+:root {
+    --collection-empty-title: clamp(2rem, 2vw, 2.4rem);
+    --collection-empty-text: clamp(1.4rem, 2vw, 1.8rem);
+}
+
+collection-grid {
+    display: block;
+    max-width: var(--page-width);
+    margin-inline: auto;
+    position: relative;
+    padding-block: clamp(2.4rem, 5vw, 4rem) clamp(5rem, 9.5vw, 9rem);
+
+    .collection_grid__container:has(product-card) {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+        gap: clamp(1.4rem, 5vw, 10rem);
+        justify-items: flex-start;
+
+        product-card {
+            max-width: 100%;
+        }
+
+        @media screen and (min-width: 480px) {
+            grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        }
+
+        @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+        }
+
+        @media screen and (min-width: 1280px) {
+            grid-template-columns: repeat(auto-fill, minmax(15vw, 1fr));
+        }
+    }
+
+    .collection_grid__container:has(.collection_empty__container) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .collection_empty__container {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.6rem;
+
+            .collection_empty_title {
+                font-size: var(--collection-empty-title);
+                color: var(--dark-blue);
+                /* text-transform: uppercase; */
+            }
+
+            .collection_empty_text {
+                font-size: var(--collection-empty-text);
+                color: var(--dark-gray);
+            }
+
+            .btn-link {
+                background: var(--dark-blue);
+                border: 1px solid var(--dark-blue);
+                color: var(--white);
+                transition: .3s all;
+                min-width: clamp(16.5rem, 13vw, 21.3rem);
+                display: flex;
+                justify-content: center;
+                border-radius: 10rem;
+                text-transform: capitalize;
+
+                &:hover {
+                    background-color: var(--light-blue);
+                    border-color: var(--light-blue);
+                }
+            }
+        }
+
+    }
+
+    #collection_loader {
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        position: absolute;
+        z-index: 2;
+        opacity: 0;
+        display: none;
+        align-items: flex-start;
+        justify-content: center;
+        animation: opacityLoadingExit 0.5s forwards;
+
+        &[active] {
+            animation: opacityLoadingEntry 0.5s forwards;
+            opacity: 1;
+            display: flex;
+        }
+
+        .loader {
+            margin-top: 10vh;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 1s linear infinite
+        }
+
+        .loader::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            inset: 0px;
+            border-radius: 50%;
+            border: 5px solid var(--dark-blue);
+            animation: prixClipFix 2s linear infinite;
+        }
+    }
+}
+
+@keyframes opacityLoadingEntry {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+
+    1% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes opacityLoadingExit {
+    0% {
+        opacity: 1
+    }
+
+    99% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}

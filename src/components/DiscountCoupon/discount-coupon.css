@@ -1,0 +1,138 @@
+discount-coupon {
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: column;
+    position: relative;
+    transition: .3s all;
+
+    .discount_coupon__heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .discount_coupon__heading_btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--dark-gray);
+            cursor: pointer;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+
+            .discount_cupom_text {
+                font-size: clamp(1.4rem, 2vw, 1.6rem);
+            }
+    
+            :is(svg) {
+                width: clamp(1.6rem, 2vw, 1.8rem);
+                height: clamp(1.6rem, 2vw, 1.8rem);
+
+                :is(path) {
+                    fill: var(--dark-gray);
+                    stroke: var(--dark-gray);
+                    transition: .3s;
+                }
+            }
+        }
+
+        .discount_coupon__error, .discount_coupon__success {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--dark-gray);
+        }
+    }
+
+    &:not(:has(.discount_coupon__form[closed])) {
+        .discount_coupon__heading_btn {
+            :is(svg) {
+                path:first-child {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .discount_coupon__form {
+        display: flex;
+        overflow: hidden;
+        transition: .3s all;
+
+        &[closed] {
+            height: 0;
+        }
+
+        .discount_coupon__input {
+            color: var(--dark-blue);
+            font-size: clamp(1.2rem, 2vw, 1.4rem); 
+            font-weight: 400;
+            height: fit-content;
+            padding: 1rem 1.4rem;
+            border: none;
+            border-radius: 10rem 0rem 0rem 10rem;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+            border-left: 1px solid var(--light-gray);
+            transition: .3s border;
+            min-width: 20px;
+            font-family: var(--font-rebond);
+
+            &::placeholder {
+                font-family: var(--font-rebond);
+            }
+
+            &:focus {
+                outline: none;
+                border: 1px solid var(--dark-gray);
+                border-right: none;
+            }
+        }
+
+        .discount_coupon__button {
+            border: none;
+            max-width: 5.6rem;
+            width: 100%;
+            background: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 500;
+            font-family: var(--font-rebond);
+            transition: .3s all ease;
+            cursor: pointer;
+            border-radius: 0rem 10rem 10rem 0rem;
+
+            &:hover {
+                opacity: 0.9;
+            }
+
+            &.loading {
+                opacity: 0.7;
+                cursor: not-allowed;
+            }
+        }
+    }  
+    
+    .discount_coupon__error:empty, .discount_coupon__success:empty, .discount_coupon__applied:empty {
+        display: none;
+    }
+
+    .applied_coupon {
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+        margin-top: 0.8rem;
+        text-transform: uppercase;
+
+        .remove-coupon {
+            background: none;
+            border: none;
+            color:  var(--dark-blue);
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-left: .4rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

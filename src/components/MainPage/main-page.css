@@ -1,0 +1,32 @@
+:root {
+    --main-page-title: clamp(2rem, 2.5vw, 3.2rem);
+    --main-page-content: clamp(1.6rem, 2vw, 1.8rem);
+}
+
+.main-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding-block: clamp(5rem, 8vw, 9rem);
+
+    .main-page-title {
+        color: var(--black);
+        text-align: justify;
+        font-size: var(--main-page-title);
+        font-style: normal;
+        font-weight: 500;
+        font-family: var(--font-rebond);
+    }
+
+    .main-page-content {
+        color: var(--black);
+        text-align: justify;
+        font-size: var(--main-page-content);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        font-family: var(--font-rebond);
+    }
+}

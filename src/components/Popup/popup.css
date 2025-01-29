@@ -1,0 +1,238 @@
+popup-component {
+    width: 100vw;
+    height: 100dvh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+    display: none;
+    opacity: 0;
+    animation: closePopup .6s forwards;
+
+    &.active {
+        animation: openPopup .6s forwards;
+        display: flex;
+        opacity: 1;
+    }
+
+    .popup__overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #00000040;
+        z-index: -1;
+    }
+
+    .popup__content {
+        position: relative;
+        z-index: 2;
+        background: var(--dark-blue);
+        max-width: 90%;
+        padding: 4.6rem 5.3rem;
+        position: relative;
+        border-radius: 1.2rem;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0;
+            width: 80vw;
+            max-width: 120rem;
+        }
+
+        .popup_close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            cursor: pointer;
+
+            :is(svg) {
+                width: 2.4rem;
+                height: 2.4rem;
+                
+                @media screen and (min-width: 768px) {
+                    filter: invert(1);
+                }
+            }
+        }
+
+        .popup__texts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 36rem;
+            margin-inline: auto;
+
+            @media screen and (min-width: 768px) {
+                padding: clamp(3rem, 3vw, 4rem) clamp(2rem, 2vw, 4rem);
+                max-width: 100%;
+
+                @media screen and (min-width: 1200px) {
+                    padding: clamp(2rem, 7vw, 10rem);
+                }
+            }
+
+            .popup_title {
+                color: var(--white);
+                font-size: clamp(2rem, 3vw, 3.2rem);
+                font-weight: 600;
+                margin-top: clamp(1.8rem, 2vw, 2.6rem);
+                margin-bottom: clamp(1.5rem, 2vw, 2.2rem);
+                text-align: center;
+            }
+            
+            .popup_text {
+                color: var(--white);
+                text-align: center;
+                font-size: clamp(1.2rem, 2vw, 1.8rem);
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                margin-bottom: clamp(1.9rem, 2vw, 2.9rem);
+            }
+
+            :is(form) {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .popup__newsletter {
+                    width: 100%;
+
+                    @media screen and (min-width: 768px) {
+                        width: 80%;
+                    }
+
+                    :is(input) {
+                        border-radius: 10rem;
+                        background: var(--light-blue);
+                        color: var(--white);
+                        font-family: var(--font-rebond);
+                        border: none;
+                        padding: 1.2rem 1.4rem;
+                        width: 100%;
+
+                        font-size: clamp(1.2rem, 2vw, 1.4rem);
+                        font-style: normal;
+                        font-weight: 300;
+                        line-height: normal;
+
+                        &::placeholder {
+                            color: var(--white);
+                        }
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        @media screen and (min-width: 768px) {
+                            padding: 1.6rem;
+                        }
+                    }
+                }
+
+                .submit_popup {
+                    width: 100%;
+                    margin-top: clamp(.8rem, 2vw, 1.2rem);
+                    cursor: pointer;
+
+                    @media screen and (min-width: 768px) {
+                        width: 80%;
+                    }
+
+                    :is(input) {
+                        width: 100%;
+                        border: none;
+                        background: var(--white);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        transition: .6s;
+                        padding-block: clamp(1.2rem, 2vw, 1.6rem);
+                        padding-inline: clamp(1.6rem, 2vw, 2.2rem);
+                        border-radius: 10rem;
+                        cursor: pointer;
+                        font-family: var(--font-rebond);
+
+                        color: var(--dark-blue);
+                        font-size: clamp(1.2rem, 2vw, 1.6rem);
+                        font-weight: 500;
+
+                        &:hover {
+                            background: var(--dark-blue);
+                            outline: 1px solid var(--white);
+                            color: var(--white);
+                        }
+                    }
+                }
+            }
+
+            .popup_terms {
+                margin-top: clamp(1.2rem, 2vw, 2.23rem);
+                text-align: center;
+                color: var(--white);
+                font-size: clamp(1rem, 2vw, 1.4rem);
+
+                @media screen and (min-width: 768px) {
+                    width: 80%;
+                }
+            }
+        }
+
+        .popup_image {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: flex;
+                
+                :is(img) {
+                    width: 100%;
+                    object-position: center;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+@keyframes openPopup {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: flex;
+        opacity: 0;
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+@keyframes closePopup {
+    0% {
+        display: flex;
+        opacity: 1;
+    }
+
+    99% {
+        display: flex;
+        opacity: 0;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}

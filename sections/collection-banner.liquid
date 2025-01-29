@@ -1,0 +1,72 @@
+{% liquid
+  assign sec = section.settings
+
+  if collection.metafields.custom.banner_collection != blank
+    assign banner_desktop = collection.metafields.custom.banner_collection.value.banner_desktop
+    assign banner_mobile = collection.metafields.custom.banner_collection.value.banner_mobile
+  else
+    assign banner_desktop = sec.banner_desktop
+    assign banner_mobile = sec.banner_mobile
+  endif
+%}
+
+<div class="collection_banner__container">
+  <img
+    src="{{ banner_desktop | image_url: width: 1920 }}"
+    alt="{{ collection.title }}"
+    width="100%"
+    height="auto"
+    class="collection_banner banner__desktop"
+    alt="Banner {{ collection.title }}"
+  >
+  <img
+    src="{{ banner_mobile | image_url: width: 390 }}"
+    alt="{{ collection.title }}"
+    width="100%"
+    height="auto"
+    class="collection_banner banner__mobile"
+    alt="Banner {{ collection.title }}"
+  >
+  <div class="collection_banner_texts__content">
+    <h1 class="collection_banner_title">{{ collection.title }}</h1>
+    {% if sec.description_active %}
+      {{ collection.description }}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.collection-banner.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.collection-banner.settings.header_image.label",
+      "info": "t:sections.collection-banner.settings.header_image.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_desktop",
+      "label": "t:sections.collection-banner.settings.image.banner_desktop",
+      "info": "t:sections.collection-banner.settings.image.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_mobile",
+      "label": "t:sections.collection-banner.settings.image.banner_mobile",
+      "info": "t:sections.collection-banner.settings.image.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "description_active",
+      "label": "t:sections.collection-banner.settings.description_active.label",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collection-banner.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,39 @@
+{% if article != blank %}
+  <article-component>
+    <div class="article__content">
+      <h1 class="article_title">{{ article.title }}</h1>
+      {% if article.published_at != blank %}
+        {% for tag in article.tags %}
+          <div class="article_published_at">
+            <span>{{ article.published_at | date: '%B %d, %Y' }}</span><span>{{ tag }}</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% if article.image != blank %}
+        <img
+          class="article_image"
+          src="{{ article.image | image_url: width: nil }}"
+          alt="{{ article.image.alt | escape }}"
+          width="auto"
+          height="auto"
+          loading="lazy"
+        >
+      {% endif %}
+      <div class="article_body">
+        {{ article.content }}
+      </div>
+    </div>
+  </article-component>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.article-component.name",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:sections.article-component.presets.name"
+    }
+  ]
+}
+{% endschema %}

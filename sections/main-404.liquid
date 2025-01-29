@@ -1,0 +1,22 @@
+<div class="main-404">
+    <div class="main-404__container">
+        <div class="main-404__content">
+            <h1 class="main-404__title">{{ 'templates.404.title' | t }}</h1>
+            <h2 class="main-404__subtitle">{{'templates.404.sub-title' | t}}</h2>
+            <p class="main-404__text">{{'templates.404.subtext' | t}}</p>
+            <a href="{{ shop.url }}" class="main-404__button">{{'templates.404.button-back' | t}}</a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-404.name",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:sections.main-404.name"
+    }
+  ]
+}
+{% endschema %}

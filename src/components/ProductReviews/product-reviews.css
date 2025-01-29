@@ -1,0 +1,316 @@
+:root {
+    --product-reviews-font-size-title: clamp(2rem, 3vw, 3.2rem);
+    --product-reviews-font-size-btn: clamp(1.4rem, 2vw, 1.8rem);
+    --product-reviews-font-size-jdgm-rev-widg__summary-text: clamp(1.4rem, 1.5vw, 1.8rem);
+    --product-reviews-font-size-jdgm-form__title: clamp(1.8rem, 1.5vw, 2.2rem);
+    --product-reviews-font-size-jdgm-form__fieldset-label: clamp(1.4rem, 1.5vw, 1.6rem);
+    --product-reviews-font-size-jdgm-form__fieldset-p: clamp(1.2rem, 1.5vw, 1.4rem);
+}
+
+body {
+    product-reviews {
+        display: block;
+        max-width: var(--page-width);
+        padding-block: clamp(6rem, 8.25vw, 9rem);
+        margin: 0 auto;
+        font-family: var(--font-rebond);
+
+        .title {
+            color: var(--dark-blue);
+            font-family: var(--font-rebond);
+            text-align: center;
+            font-size: var(--product-reviews-font-size-title);
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 3rem;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 4.5rem;
+            }
+        }
+
+        #judgeme_product_reviews {
+            .jdgm-rev-widg {
+                padding: 0;
+
+                .jdgm-rev-widg__header {
+                    .jdgm-rev-widg__title {
+                        display: none;
+                    }
+
+                    .jdgm-row-stars {
+                        padding: 0;
+
+                        @media screen and (min-width: 768px) {
+                            padding: 0 0 2rem 0;
+                        }
+
+                        .jdgm-rev-widg__summary {
+                            .jdgm-rev-widg__summary-inner {
+                                .jdgm-rev-widg__summary-stars {
+                                    .jdgm-star {
+                                        color: var(--dark-blue);
+                                    }
+                                }
+
+                                .jdgm-rev-widg__summary-text {
+                                    color: var(--dark-blue);
+                                    font-family: var(--font-rebond);
+                                    font-size: var(--product-reviews-font-size-jdgm-rev-widg__summary-text);
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: normal;
+                                }
+                            }
+                        }
+
+                        .jdgm-histogram {
+                            border-color: var(--light-gray);
+                        }
+
+                        .jdgm-widget-actions-wrapper {
+                            padding: 0;
+                            border-color: var(--light-gray);
+
+                            .jdgm-write-rev-link {
+                                background: var(--dark-blue);
+                                color: var(--white);
+                                font-family: var(--font-rebond);
+                                font-size: var(--product-reviews-font-size-btn);
+                                padding: 1.4rem 2.4rem;
+                                border-radius: 10rem;
+                                border: none;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 100%;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                                max-width: 100%;
+                                transition: all 0.3s ease;
+                                opacity: 1;
+                                margin: 0 auto;
+
+                                @media screen and (min-width: 768px) {
+                                    padding: 1.6rem 3.2rem;
+                                    width: fit-content;
+                                }
+
+                                &:hover {
+                                    background: var(--light-blue);
+                                    color: var(--white);
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+
+                    .jdgm-notification__inner {
+                        color: var(--dark-blue);
+                        font-family: var(--font-rebond);
+                        font-size: var(--product-reviews-font-size-jdgm-form__fieldset-p);
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+
+                        :is(a) {
+                            color: var(--pink);
+                        }
+
+                        .jdgm-notification__title {
+                            color: var(--dark-blue);
+                            font-family: var(--font-rebond);
+                            font-size: var(--product-reviews-font-size-jdgm-form__fieldset-label);
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+
+                            &::before {
+                                width: 1.6rem;
+                                height: 1.6rem;
+                                padding: 1rem;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+
+                    .jdgm-form-wrapper {
+                        padding: 2rem 0 0 0;
+
+                        .jdgm-form {
+                            padding: 0;
+                            max-width: 60rem;
+
+                            .jdgm-form__title {
+                                color: var(--dark-blue);
+                                font-family: var(--font-rebond);
+                                font-size: var(--product-reviews-font-size-jdgm-form__title);
+                                font-style: normal;
+                                font-weight: 900;
+                                line-height: normal;
+                                text-transform: uppercase;
+                            }
+
+                            .jdgm-form__fieldset {
+                                :is(label) {
+                                    color: var(--dark-blue);
+                                    font-family: var(--font-rebond);
+                                    font-size: var(--product-reviews-font-size-jdgm-form__fieldset-label);
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: normal;
+                                }
+
+                                :is(p) {
+                                    color: var(--dark-blue);
+                                    font-family: var(--font-rebond);
+                                    font-size: var(--product-reviews-font-size-jdgm-form__fieldset-p);
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: normal;
+
+                                    :is(a) {
+                                        color: var(--pink);
+                                    }
+                                }
+
+                                .jdgm-btn {
+                                    font-family: var(--font-rebond);
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .jdgm-row-actions {
+                    border-top: none;
+
+                    .jdgm-rev-widg__sort-wrapper {
+                        .jdgm-sort-dropdown {
+                            color: var(--dark-blue);
+                            font-family: var(--font-rebond);
+                            font-size: clamp(1.6rem, 1.5vw, 1.8rem);
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+                    }
+                }
+
+                .jdgm-rev-widg__body {
+                    .jdgm-rev-widg__reviews {
+                        .jdgm-rev {
+                            border-color: var(--light-gray);
+
+                            .jdgm-rev__header {
+                                .jdgm-row-profile {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 1.4rem;
+                                    margin-top: 1.8rem;
+
+                                    .jdgm-rev__icon {
+                                        margin: 0;
+                                        width: 4rem;
+                                        height: 4rem;
+                                        background: transparent;
+                                        position: relative;
+
+                                        &::before,
+                                        &::after {
+                                            content: '';
+                                            position: absolute;
+                                            background-repeat: no-repeat;
+                                            background-position: center;
+                                        }
+
+                                        &::before {
+                                            top: 0;
+                                            left: 0;
+                                            width: 4rem;
+                                            height: 4rem;
+                                            background-color: var(--dark-blue);
+                                            border-radius: 50%;
+                                            z-index: 1;
+                                        }
+
+                                        &::after {
+                                            top: 50%;
+                                            left: 50%;
+                                            width: 1.6rem;
+                                            height: 1.6rem;
+                                            background-image: url("../../../assets/user-review.svg");
+                                            background-size: contain;
+                                            z-index: 2;
+                                            transform: translate(-50%, -50%);
+                                            background-color: transparent;
+                                        }
+                                    }
+
+                                    .jdgm-rev__author-wrapper {
+                                        color: var(--dark-blue);
+                                        font-family: var(--font-rebond);
+                                        font-size: clamp(1.6rem, 2vw, 2rem);
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: normal;
+
+                                        :is(span) {
+                                            color: var(--dark-blue);
+                                            font-family: var(--font-rebond);
+                                            font-size: clamp(1.6rem, 2vw, 2rem);
+                                            font-style: normal;
+                                            font-weight: 600;
+                                            line-height: normal;
+                                        }
+                                    }
+                                }
+
+                                .jdgm-row-rating {
+                                    .jdgm-rev__timestamp {
+                                        color: var(--dark-blue);
+                                        text-align: center;
+                                        font-family: var(--font-rebond);
+                                        font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+                                    }
+                                }
+                            }
+
+                            .jdgm-rev__content {
+                                .jdgm-rev__title {
+                                    color: var(--dark-blue);
+                                    font-family: var(--font-rebond);
+                                    font-size: clamp(1.6rem, 1.5vw, 2rem);
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 160%;
+                                }
+
+                                .jdgm-rev__body {
+                                    :is(p) {
+                                        color: var(--dark-blue);
+                                        font-family: var(--font-rebond);
+                                        font-size: clamp(1.4rem, 1.5vw, 1.8rem);
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 160%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .jdgm-paginate {
+                        border-color: var(--light-gray);
+                    }
+                }
+            }
+        }
+    }
+}

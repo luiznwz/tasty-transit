@@ -1,0 +1,326 @@
+:root{
+    --influencers-component-header-title: clamp(2rem, 2.5vw, 3.2rem);
+    --influencers-component-header-subtitle: clamp(1.2rem, 2vw, 1.8rem);
+    --influencers-component-card-instagram: clamp(1.2rem, 2vw, 1.4rem);
+    --influencers-component-card-btn-video: clamp(1.4rem, 2vw, 1.6rem);
+}
+
+influencers-component{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.4rem, 2.5vw, 3.2rem);
+    padding-block: clamp(5rem, 5vw, 9rem);
+    background-color: var(--off-white);
+    overflow: hidden;
+
+    .influencers-component-container{
+        @media screen and (min-width: 768px){
+            max-width: var(--page-width);  
+            margin: 0 auto;      
+            width: 100%;
+        }
+
+        .influencers-component-header{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            max-width: var(--page-width);
+            margin: 0 auto;
+    
+    
+            .influencers-component-header-title{
+                color: var(--dark-blue);
+                text-align: center;
+                font-family: var(--font-rebond);
+                font-size: var(--influencers-component-header-title);
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+    
+                strong{
+                    font-size: calc(var(--influencers-component-header-title) + 0.3rem);
+                }
+            }
+    
+            .influencers-component-header-subtitle{
+                color: var(--dark-gray);
+                text-align: center;
+                font-family: var(--font-rebond);
+                font-size: var(--influencers-component-header-subtitle);
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                width: 95%;
+            }
+        }
+    
+        .influencers-component-blaze-slider{
+            width: 160vw;
+            position: relative;
+            left: -30vw;    
+            
+            @media screen and (min-width: 768px){
+                width: 100%;
+                left: 0;            
+            }
+    
+            .influencers-component-blaze-container{
+                .influencers-component-blaze-track-container{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2.4rem;
+    
+                    .influencers-component-blaze-track{
+                        padding-block: clamp(4.5rem, 12vw, 8rem);
+    
+                        .card-video{
+                            border-radius: 1.2rem;
+                            overflow: hidden;
+                            transition: all 0.3s ease-in-out;
+
+                            @media screen and (min-width: 1024px){
+                                &:hover{
+                                    .video{
+                                        .instagram{
+                                            opacity: 1;
+                                        }
+                                        .btn-video{
+                                            opacity: 1;
+
+                                            :is(a){
+                                                transform: translateY(0);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+    
+                            &.inactive {
+                                opacity: 0.5;
+                                cursor: pointer;
+                            }
+    
+                            &.active {
+                                opacity: 1;
+                                transform: scale(1.2);
+                            }
+    
+                            .video{
+                                position: relative;
+
+                                video{
+                                    width: 100%;
+                                    height: 100%;
+                                    display: block;
+                                }
+    
+                                .instagram{
+                                    position: absolute;
+                                    top: 1rem;
+                                    left: 1rem;
+
+                                    :is(a){
+                                        color: var(--dark-blue);
+                                        font-family: var(--font-rebond);
+                                        font-size: var(--influencers-component-card-instagram);
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: normal;
+                                        text-decoration: none;
+                                    }
+
+                                    &:hover{
+                                        text-decoration: underline;
+                                    }
+
+                                    @media screen and (min-width: 1024px){
+                                        opacity: 0;
+                                        transition: all 0.5s ease-in-out;
+                                    }
+                                }
+    
+                                .btn-video{
+                                    position: absolute;
+                                    bottom: 5%;
+                                    right: 0;
+                                    left: 0;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+    
+                                    :is(a){
+                                        color: var(--white);
+                                        font-family: var(--font-rebond);
+                                        font-size: var(--influencers-component-card-btn-video);
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: normal;
+                                        text-decoration: none;
+                                        padding: 1rem 1.4rem;
+                                        border-radius: 10rem;
+                                        background: var(--dark-blue);
+                                        transition: transform 0.7s ease-in-out, background 0.5s ease-in-out;
+
+                                        @media screen and (min-width: 1024px){
+                                            transform: translateY(100%);
+                                        }
+
+                                        &:hover{
+                                            background-color: var(--white);
+                                            color: var(--dark-blue);   
+                                        }
+                                    }
+
+                                    @media screen and (min-width: 1024px){
+                                        opacity: 0;
+                                        transition: all 0.5s ease-in-out;
+                                        overflow: hidden;
+                                    }
+                                }
+
+                                .btn-play-and-pause{
+                                    border-radius: 2.8rem;
+                                    background: rgba(255, 255, 255, 0.60);
+                                    padding: 1.4rem;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 50%;
+                                    transform: translate(50%, -50%);
+                                    cursor: pointer;
+                                    opacity: 1;
+                                    transition: all 0.5s ease-in-out;
+                                    
+                                    &.play{
+                                        opacity: 0;
+                                    }
+
+                                    :is(svg){
+                                        width: 100%;
+                                        height: 100%;
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .blaze-pagination-influencers-component{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 1rem;
+
+                        @media screen and (min-width: 768px){
+                            display: none;                            
+                        }
+    
+                        :is(button){
+                            border-radius: 50%;
+                            border: 1.14px solid var(--dark-blue);
+                            background: transparent;
+                            width: 1rem;
+                            height: 1rem;
+                            font-size: 0;
+                            transition: all 0.3s ease;
+    
+                            &.active{
+                                border-radius: 3.5rem;
+                                border: 1.14px solid var(--dark-blue);
+                                background: var(--dark-blue);
+                            }
+                        }
+                    }
+                }
+            }
+            .influencers-component--prev{
+                position: absolute;
+                top: 50%;
+                left: -2%;
+                transform: translate(-50%, -50%);
+                border: none;
+                background-color: transparent;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+    
+                @media screen and (min-width: 768px){
+                    display: flex;
+                }
+                
+                &:hover {
+                    :is(svg) {
+                        :is(g) {
+                            :is(rect) {
+                                fill: var(--pink);
+                            }
+                        }
+                    }
+                }
+
+                svg{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    transform: rotate(180deg);
+
+                    :is(g) {
+                        :is(rect) {
+                            fill: var(--dark-blue);
+                            transition: fill 0.3s;
+                        }
+                    }
+                }
+            }
+            .influencers-component--next{
+                position: absolute;
+                top: 50%;
+                right: -5%;
+                transform: translate(-50%, -50%);
+                border: none;
+                background-color: transparent;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                
+                @media screen and (min-width: 768px){
+                    display: flex;
+                }
+
+                &:hover {
+                    :is(svg) {
+                        :is(g) {
+                            :is(rect) {
+                                fill: var(--pink);
+                            }
+                        }
+                    }
+                }
+
+                svg{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+
+                    :is(g) {
+                        :is(rect) {
+                            fill: var(--dark-blue);
+                            transition: fill 0.3s;
+                        }
+    
+                        :is(path) {
+                            stroke: var(--white);
+                            transition: stroke 0.3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+<product-card>
+    <div class="product-card-images">
+        <a href="{{ product.url }}">
+            <img
+                src="{{ product.featured_image |  image_url: width: 300 }}"
+                alt="{{ product.title | escape }}"
+                width="auto"
+                height="auto"
+                class="first-image"
+            >
+        </a>
+        {% if product.images.size > 1 %}
+            <a href="{{ product.url }}">
+                <img
+                src="{{ product.images[1] | image_url: width: 300 }}"
+                alt="{{ product.title | escape }}"
+                width="auto"
+                height="auto"
+                class="second-image"
+                >
+            </a>
+        {% endif %}
+
+        {% render 'tags-card-product' 
+            product_tag: product, 
+            show_discount_tag: show_discount_tag,
+            show_new_tag: show_new_tag 
+        %}
+        <div class="favorite_product_heart" data-handle="{{ product.handle }}">  
+            {{ 'heart.svg' | inline_asset_content }}
+        </div>
+    </div>
+
+    <div class="content-product">
+        <a href="{{ product.url }}">
+            <h2 class="title-product">{{ product.title }}</h2>
+        </a>
+        <div class="product-price-installments">
+            {% if product.compare_at_price > product.price %}
+                <p class="price-product">
+                    <s>{{ product.compare_at_price | money }}</s>
+                    {{ product.price | money }}
+                </p>
+            {% else %}
+                <p class="price-product">{{ product.price | money }}</p>
+            {% endif %}
+            
+            {% render 'product-installments', product_installment: product %}
+        </div>
+    </div>
+</product-card>

@@ -1,0 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer_dFxaxj": {
+      "type": "footer",
+      "settings": {
+        "logo": "shopify://shop_images/logo_cinza.svg",
+        "info_brand": "sac@kufbrand.com.br, (11) XXXXX-XXXX, De segunda a sexta das 9h às 18h",
+        "show_social_media": true,
+        "information_bottom": "<p>LAZU FRAGRANCE & COSMETICS LTDA | 53.179.848/0001-96 | R. Jandiatuba, 506, Bloco A, CJ 205, Vila Andrade, São Paulo - SP, 05716-150</p>",
+        "show_payment_methods": true,
+        "footer_links": "footer",
+        "title_newsletter": "Assine nossa Newsletter",
+        "placeholder_newsletter": "Digite seu e-mail",
+        "text_newsletter": "Assinar"
+      }
+    }
+  },
+  "order": [
+    "footer_dFxaxj"
+  ]
+}

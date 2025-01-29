@@ -1,0 +1,42 @@
+<div>
+    <button class="btn_add_product">Adicionar Produto</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.btn_add_product').addEventListener('click', async () => {
+            try {
+                const data = {
+                    items: [
+                        {
+                            id: 46831744811248,
+                            quantity: 1
+                        }
+                    ]
+                }
+
+                await fetch('/cart/add.js', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Fetch Product",
+    "settings": [],
+    "presets": [
+        {
+            "name": "Fetch Product"
+        }
+    ]
+}
+{% endschema %}

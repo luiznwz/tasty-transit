@@ -1,0 +1,12 @@
+{%- if recommendations.performed? -%}
+    <cart-related-products id="cart-related-products">
+        <div class="cart_related_products__content">
+            <h3 class="related_products_title">{{ 'sections.cart-related-products.see_more' | t }}</h3>
+            <div class="cart_related_carousel">
+                {%- for product in recommendations.products -%}
+                    {% render 'cart-related-product-item', product: product %}
+                {% endfor %}
+            </div>
+        </div>
+    </cart-related-products>
+{% endif %}

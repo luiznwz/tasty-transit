@@ -1,0 +1,23 @@
+{% if collection.metafields.custom.description_seo %}
+    <description-seo>
+        <div class="description_seo__content" closed>
+            <h3 class="description_seo_title">{{ 'sections.description-seo.description-category-title' | t }}</h3>
+            {{ collection.metafields.custom.description_seo }}
+        </div>
+        <div class="description_seo__arrow">
+            {{ 'arrow-down-extend.svg' | inline_asset_content }}
+        </div>
+    </description-seo>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "t:sections.description-seo.name",
+        "settings": [],
+        "presets": [
+            {
+            "name": "t:sections.description-seo.name"
+            }
+        ]
+    }
+{% endschema %}

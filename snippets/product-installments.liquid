@@ -1,0 +1,10 @@
+{% if settings.show_installments == true %}
+  <p 
+      class="info_installment" 
+      data-price="{{ product_installment.selected_or_first_available_variant.price }}"
+      data-installments-count="{{ settings.installments_count }}"
+      data-installments-min-price="{{ settings.installments_min_price }}"
+      data-show-interest-free="{{ settings.show_interest_free }}"
+  >
+  </p>
+{% endif %}

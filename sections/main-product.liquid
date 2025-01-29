@@ -1,0 +1,56 @@
+<main-product id="mainProduct">
+  {% render 'breadcrumb' %}
+
+  <div class="main-product-content">
+    <div class="container-image">
+      {% render 'main-product-slider', product: product %}
+      {% render 'main-product-grid', product: product %}
+    </div>
+
+    {% render 'main-product-infos', product: product %}
+  </div>
+</main-product>
+
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "title-price",
+      "name": "t:sections.main-product.blocks.title-price.name",
+      "limit": 1
+    },
+    {
+      "type": "icones-text",
+      "name": "t:sections.main-product.blocks.icones-text.name",
+      "limit": 1
+    },
+    {
+      "type": "options-variants",
+      "name": "t:sections.main-product.blocks.options-variants.name",
+      "limit": 1
+    },
+    {
+      "type": "quantity-button-add",
+      "name": "t:sections.main-product.blocks.quantity-button-add.name",
+      "limit": 1
+    },
+    {
+      "type": "shipping",
+      "name": "t:sections.main-product.blocks.shipping.name",
+      "limit": 1
+    },
+    {
+      "type": "details",
+      "name": "t:sections.main-product.blocks.details.name",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.main-product.presets.name"
+    }
+  ]
+}
+{% endschema %}

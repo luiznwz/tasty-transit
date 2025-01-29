@@ -1,0 +1,784 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+    "sections": {
+        "main-page": {
+            "name": "Main Page"
+        },
+        "lookbook": {
+            "name": "Lookbook",
+            "presets": {
+                "name": "Lookbook",
+                "category": "Lookbook"
+            }
+        },
+        "header": {
+            "name": "Header",
+            "settings": {
+                "header": {
+                    "content": "Header"
+                },
+                "logo": {
+                    "label": "Logo"
+                },
+                "menu_mobile": {
+                    "label": "Mobile menu"
+                },
+                "menu_desktop": {
+                    "label": "Desktop menu"
+                }
+            },
+            "blocks": {
+                "image_text": {
+                    "name": "Image Text",
+                    "settings": {
+                        "header": {
+                            "content": "Image Text in Nav"
+                        },
+                        "identifier": {
+                            "label": "Identifier",
+                            "info": "Identifier name item in menu list"
+                        },
+                        "image": {
+                            "label": "Image"
+                        },
+                        "text": {
+                            "label": "Text"
+                        },
+                        "url": {
+                            "label": "URL"
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "name": "Header",
+                "category": "Header"
+            }
+        },
+        "wishlist-grid": {
+            "name": "Wishlist Grid",
+            "presets": {
+                "name": "Wishlist Grid",
+                "category": "Wishlist"
+            }
+        },
+        "footer": {
+            "name": "Footer",
+            "settings": {
+                "logo": {
+                    "label": "Logo image"
+                },
+                "info_brand": {
+                    "label": "Brand information",
+                    "info": "This is the brand information, separated by commas"
+                },
+                "show_social_media": {
+                    "label": "Show social media icons"
+                },
+                "information_bottom": {
+                    "label": "Footer information"
+                },
+                "show_payment_methods": {
+                    "label": "Show payment method icons"
+                },
+                "footer_links": {
+                    "label": "Footer links"
+                },
+                "text_newsletter": {
+                    "label": "Newsletter text"
+                },
+                "title_newsletter": {
+                    "label": "Newsletter title"
+                },
+                "placeholder_newsletter": {
+                    "label": "Placeholder"
+                },
+            }
+        },
+        "announcement_bar": {
+            "name": "Announcement Bar",
+            "settings": {
+                "text": {
+                    "label": "Text"
+                }
+            },
+            "presets": {
+                "name": "Announcement Bar",
+                "category": "Announcement Bar"
+            }
+        },
+        "carousel-products": {
+            "name": "Carousel Products",
+            "settings": {
+                "header": {
+                    "content": "Carousel Products"
+                },
+                "collection": {
+                    "label": "Collection",
+                    "info": "Select the collection to display"
+                },
+                "title_section": {
+                    "label": "Title"
+                },
+                "show_icon": {
+                    "label": "Show Icon Title"
+                },
+                "icon_title": {
+                    "label": "Icon Title"
+                },
+                "text_button": {
+                    "label": "Text Button"
+                },
+                "show_discount_tag": {
+                    "label": "Discount Sale"
+                },
+                "show_new_tag": {
+                    "label": "New Tag"
+                }
+            },
+            "presets": {
+                "name": "Carousel Products"
+            }
+        },
+        "main-product": {
+            "name": "Main product",
+            "settings": {},
+            "blocks": {
+                "title-price": {
+                    "name": "Title and Price"
+                },
+                "icones-text": {
+                    "name": "Icons and Text"
+                },
+                "options-variants": {
+                    "name": "Options and Variants"
+                },
+                "quantity-button-add": {
+                    "name": "Quantity and Add Button"
+                },
+                "shipping": {
+                    "name": "Shipping"
+                },
+                "details": {
+                    "name": "Details"
+                }
+            },
+            "presets": {
+                "name": "Main product",
+                "category": "Product"
+            }
+        },
+        "grid-images": {
+            "name": "Grid Images",
+            "blocks": {
+                "image": {
+                    "name": "Image",
+                    "settings": {
+                        "image": {
+                            "label": "Image"
+                        },
+                        "text_image": {
+                            "label": "Text Image"
+                        },
+                        "url": {
+                            "label": "URL"
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "name": "Grid Images"
+            }
+        },
+        "banner-carousel-products": {
+            "name": "Banner Carousel Products",
+            "settings": {
+                "image_banner_desktop": {
+                    "label": "Image Banner Desktop"
+                },
+                "image_banner_mobile": {
+                    "label": "Image Banner Mobile"
+                },
+                "link_banner": {
+                    "label": "Link Banner"
+                },
+                "image_side": {
+                    "label": "Image Side",
+                    "options": {
+                        "left": "Left",
+                        "right": "Right"
+                    }
+                },
+                "header": {
+                    "content": "Banner Carousel Products"
+                },
+                "collection": {
+                    "label": "Select a collection",
+                    "info": "Select a collection to display products from."
+                },
+                "title_section": {
+                    "label": "Title Section"
+                },
+                "show_icon": {
+                    "label": "Show Icon"
+                },
+                "icon_title": {
+                    "label": "Icon Title"
+                },
+                "show_discount_tag": {
+                    "label": "Show Discount Tag"
+                },
+                "show_new_tag": {
+                    "label": "Show New Tag"
+                }
+            },
+            "presets": {
+                "name": "Banner Carousel Products"
+            }
+        },
+        "suggestion": {
+            "name": "Suggestion",
+            "settings": {
+                "section_title": {
+                    "label": "Section Title"
+                },
+                "show_icon": {
+                    "label": "Show Icon"
+                },
+                "icon_title": {
+                    "label": "Icon Title"
+                }
+            },
+            "blocks": {
+                "card": {
+                    "name": "Card",
+                    "settings": {
+                        "title": {
+                            "label": "Title"
+                        },
+                        "subtitle": {
+                            "label": "Subtitle"
+                        },
+                        "image_desktop": {
+                            "label": "Image Desktop"
+                        },
+                        "image_mobile": {
+                            "label": "Image Mobile"
+                        },
+                        "link": {
+                            "label": "Link"
+                        },
+                    }
+                }
+            },
+            "presets": {
+                "name": "Suggestion"
+            }
+        },
+        "banner-benefits": {
+            "name": "Banner Benefits",
+            "presets": {
+                "name": "Banner Benefits"
+            }
+        },
+        "mini-banner": {
+            "name": "Mini Banner",
+            "settings": {
+                "template_mini_banner": {
+                    "label": "Is this banner on the product page?"
+                },
+                "mini_banner_position": {
+                    "label": "Position",
+                    "options": {
+                        "left": "Left",
+                        "right": "Right"
+                    }
+                },
+                "mini_banner_title": {
+                    "label": "Title"
+                },
+                "mini_banner_image": {
+                    "label": "Image"
+                },
+                "mini_banner_logo": {
+                    "label": "Logo"
+                },
+                "mini_banner_content": {
+                    "label": "Content"
+                },
+                "mini_banner_link": {
+                    "label": "Link"
+                },
+                "mini_banner_button": {
+                    "label": "Button"
+                },
+                "styles_color": {
+                    "content": "Styles Color"
+                },
+                "primary_color": {
+                    "label": "Primary Color"
+                },
+                "secondary_color": {
+                    "label": "Secondary Color"
+                }
+            },
+            "presets": {
+                "name": "Mini Banner"
+            }
+        },
+        "product_reviews": {
+            "name": "Product reviews",
+            "settings": {
+                "title": {
+                    "label": "Title"
+                }
+            }
+        },
+        "banner-carrousel": {
+            "name": "Banner Carrousel",
+            "blocks": {
+                "image": {
+                    "name": "Image",
+                    "settings": {
+                        "header": {
+                            "content": "Image Files"
+                        },
+                        "image_desktop": {
+                            "label": "Desktop Image",
+                            "info": "Image for desktop"
+                        },
+                        "image_mobile": {
+                            "label": "Mobile Image",
+                            "info": "Image for mobile"
+                        },
+                        "alt": {
+                            "label": "Alt",
+                            "info": "Alt text for image"
+                        },
+                        "subtitle": {
+                            "label": "Subtitle",
+                        },
+                        "title": {
+                            "label": "Title",
+                        },
+                        "text_button": {
+                            "label": "Button Text",
+                        },
+                        "url_button": {
+                            "label": "Button URL",
+                        }
+                    }
+                },
+                "video": {
+                    "name": "Video",
+                    "settings": {
+                        "header": {
+                            "content": "Video Files"
+                        },
+                        "video_desktop": {
+                            "label": "Desktop Video",
+                            "info": "Video for desktop"
+                        },
+                        "video_mobile": {
+                            "label": "Mobile Video",
+                            "info": "Video for mobile"
+                        },
+                        "video_settings_header": {
+                            "content": "Block Video Settings"
+                        },
+                        "autoplay": {
+                            "label": "Autoplay"
+                        },
+                        "subtitle": {
+                            "label": "Subtitle",
+                        },
+                        "title": {
+                            "label": "Title",
+                        },
+                        "text_button": {
+                            "label": "Button Text",
+                        },
+                        "url_button": {
+                            "label": "Button URL",
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "name": "Banner Carrousel",
+                "category": "Banner"
+            }
+        },
+        "influencers": {
+            "name": "Influencers",
+            "settings": {
+                "title_section": {
+                    "label": "Section Title"
+                },
+                "subtitle_section": {
+                    "label": "Section Subtitle"
+                },
+                "show_background": {
+                    "label": "Show Background"
+                }
+            },
+            "blocks": {
+                "video_card": {
+                    "name": "Video Card",
+                    "settings": {
+                        "instagram_text": {
+                            "label": "@Instagram"
+                        },
+                        "instagram_url": {
+                            "label": "Instagram URL"
+                        },
+                        "btn_text": {
+                            "label": "Button Text"
+                        },
+                        "btn_url": {
+                            "label": "Video URL"
+                        },
+                        "video": {
+                            "label": "Video"
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "name": "Influencers"
+            }
+        },
+        "about_product": {
+            "name": "About product",
+            "settings": {
+                "title": {
+                    "label": "Title",
+                    "default": "Por que escolher o"
+                }
+            }
+        },
+        "text-section": {
+            "name": "Text section",
+            "blocks": {
+                "text": {
+                    "name": "Text",
+                    "settings": {
+                        "text": {
+                            "label": "Text",
+                            "default": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<\/p>"
+                        },
+                        "text_align": {
+                            "label": "Text Align Desktop",
+                            "label_mobile": "Text Align Mobile",
+                            "options": {
+                                "left": "Left",
+                                "center": "Center",
+                                "right": "Right",
+                                "justify": "Justify"
+                            }
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "name": "Text section"
+            }
+        },
+        "image-grid-carousel": {
+            "name": "Image grid carousel",
+            "settings": {
+                "settings_images_desktop": "Settings Images Desktop",
+                "image1": "Image 1",
+                "alt1": {
+                    "label": "Alt text 1",
+                    "default": "Kuf"
+                },
+                "image2": "Image 2",
+                "alt2": {
+                    "label": "Alt text 2",
+                    "default": "Kuf"
+                },
+                "image3": "Image 3",
+                "alt3": {
+                    "label": "Alt text 3",
+                    "default": "Kuf"
+                }
+            },
+            "blocks": {
+                "image": {
+                    "name": "Image",
+                    "settings": {
+                        "settings_image_mobile": "Settings Image Mobile",
+                        "image": "Image",
+                        "alt": {
+                            "label": "Alt text",
+                            "default": "Kuf"
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "name": "Image grid carousel"
+            }
+        },
+        "text-image": {
+            "name": "Text Image",
+            "settings": {
+                "title": {
+                    "label": "Title"
+                },
+                "text": {
+                    "label": "Text"
+                },
+                "image": {
+                    "label": "Image"
+                }
+            },
+            "presets": {
+                "name": "Text Image"
+            }
+        },
+        "cart-section": {
+            "name": "Cart section",
+            "settings": {},
+            "presets": {
+                "name": "Cart section",
+                "category": "cart"
+            }
+        },
+        "collection-banner": {
+            "name": "Collection Banner",
+            "settings": {
+                "header_image": {
+                    "label": "Image Default",
+                    "info": "This image will be used if collection don't have a banner image"
+                },
+                "image": {
+                    "banner_desktop": "Banner Desktop Default",
+                    "banner_mobile": "Banner Mobile Default",
+                    "info": "This image will be used if collection banner metafield in collections is empty."
+                },
+                "description_active": {
+                    "label": "Show Description"
+                }
+            }
+        },
+        "collection-grid": {
+            "name": "Collection grid"
+        },
+        "collection-filter": {
+            "name": "Collection Filter",
+            "settings": {
+                "title": {
+                    "label": "Title"
+                },
+            },
+            "blocks": {
+                "itemFilter": {
+                    "name": "Item Filter",
+                    "settings": {
+                        "image": {
+                            "label": "Image",
+                        },
+                        "identifier": {
+                            "label": "Identifier",
+                        },
+                    }
+                }
+            }
+        },
+        "description-seo": {
+            "name": "Description SEO"
+        },
+        "related-products": {
+            "name": "Related Products",
+            "settings": {},
+            "presets": {
+                "name": "Related Products",
+                "category": "Related Products Section"
+            }
+        },
+        "shopbar": {
+            "name": "Shopbar",
+            "settings": {
+                "shopbar_color": {
+                    "label": "Shopbar Color"
+                },
+            },
+            "presets": {
+                "name": "Shopbar",
+                "category": "Product page"
+            }
+        },
+        "main-404": {
+            "name": "Main 404"
+        },
+        "search-text": {
+            "name": "Search Text"
+        },
+        "login": {
+            "name": "Login"
+        },
+        "register": {
+            "name": "Register"
+        },
+        "reset-password": {
+            "name": "Reset Password"
+        },
+        "account": {
+            "name": "Customer Area",
+            "presets": {
+                "name": "Customer Area"
+            }
+        },
+        "grid_articles": {
+            "name": "Grid Articles"
+        },
+        "article-component": {
+            "name": "Article component",
+            "settings": {},
+            "presets": {
+                "name": "Article"
+            }
+        },
+        "settings_schema": {
+            "page_dimensions": {
+                "name": "Page Dimensions",
+                "settings": {
+                    "page_dimensions_header": {
+                        "content": "Page Dimensions"
+                    },
+                    "page_width_desktop": {
+                        "label": "Page Width Desktop"
+                    },
+                    "page_width_mobile": {
+                        "label": "Page Width Mobile"
+                    }
+                }
+            },
+            "social_media": {
+                "name": "Social Medias",
+                "settings": {
+                    "social_links_header": {
+                        "content": "Social links"
+                    },
+                    "social_instagram_link": {
+                        "label": "Instagram",
+                        "info": "https://instagram.com/shopify"
+                    },
+                    "social_tiktok_link": {
+                        "label": "Tiktok",
+                        "info": "https://tiktok.com/@shopify"
+                    },
+                    "social_facebook_link": {
+                        "label": "Facebook",
+                        "info": "https://facebook.com/shopify"
+                    },
+                    "social_pinterest_link": {
+                        "label": "Pinterest",
+                        "info": "https://pinterest.com/shopify"
+                    },
+                    "social_twitter_link": {
+                        "label": "Twitter",
+                        "info": "https://twitter.com/shopify"
+                    },
+                    "social_youtube_link": {
+                        "label": "Youtube",
+                        "info": "https://www.youtube.com/@shopify"
+                    },
+                    "social_linkedin_link": {
+                        "label": "Linkedin",
+                        "info": "https://linkedin.com/company/shopify"
+                    },
+                    "social_vimeo_link": {
+                        "label": "Vimeo",
+                        "info": "https://vimeo.com/shopify"
+                    },
+                }
+            },
+            "whatsapp-button": {
+                "name": "WhatsApp Button",
+                "settings": {
+                    "header": {
+                        "content": "WhatsApp Button Settings"
+                    },
+                    "whatsapp_button": {
+                        "label": "Enable WhatsApp Button"
+                    },
+                    "whatsapp_number": {
+                        "label": "WhatsApp Number",
+                        "placeholder": "5511999999999"
+                    }
+                }
+            },
+            "installments": {
+                "name": "Installments",
+                "settings": {
+                    "installments_header": {
+                        "content": "Installment Settings"
+                    },
+                    "show_installments": {
+                        "label": "Show installment options"
+                    },
+                    "installments_count": {
+                        "label": "Maximum number of installments"
+                    },
+                    "installments_min_price": {
+                        "label": "Minimum value for installments"
+                    },
+                    "show_interest_free": {
+                        "label": "Show 'interest-free'"
+                    }
+                }
+            },
+            "shipping": {
+                "name": "Shipping",
+                "settings": {
+                    "shipping_header": {
+                        "content": "Shipping Settings"
+                    },
+                    "free_shipping_price": {
+                        "label": "Free Shipping Threshold"
+                    }
+                }
+            },
+            "popup_settings": {
+                "name": "Pop-up Settings",
+                "settings": {
+                    "header": {
+                        "content": "Pop-up Settings"
+                    },
+                    "show_popup": {
+                        "label": "Show Pop-up"
+                    },
+                    "popup_logo": {
+                        "label": "Pop-up Logo"
+                    },
+                    "popup_image": {
+                        "label": "Pop-up Image"
+                    },
+                    "popup_title": {
+                        "label": "Pop-up Title"
+                    },
+                    "popup_description": {
+                        "label": "Pop-up Description"
+                    },
+                    "popup_button_text": {
+                        "label": "Pop-up Button Text"
+                    },
+                    "popup_terms": {
+                        "label": "Pop-up Terms"
+                    }
+                }
+            }
+        }
+    }
+}

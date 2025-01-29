@@ -1,0 +1,43 @@
+<div class="text-image">
+    <div class="text-image-container">
+        <div class="text-image-content">
+            <h2>{{ section.settings.title }}</h2>
+            <div class="text-image-content-text">
+                {{ section.settings.text }}
+            </div>
+        </div>
+        <div class="text-image-image">
+            <img src="{{ section.settings.image | image_url: width: nil }}" alt="Image Text" width="auto" height="auto">
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+      "name": "t:sections.text-image.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.text-image.settings.title.label",
+          "default": "Lorem ipsum amet dolor"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.text-image.settings.text.label",
+          "default": "<p>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.text-image.settings.image.label"
+        }
+      ],
+      "presets": [
+        {
+          "name": "t:sections.text-image.presets.name"
+        }
+      ]
+    }
+{% endschema %}

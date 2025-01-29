@@ -1,8 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": {
-      "type": "hello-world"
+    "collection_banner_KpzqLy": {
+      "type": "collection-banner",
+      "settings": {
+        "banner_desktop": "shopify://shop_images/banner_3.png",
+        "banner_mobile": "shopify://shop_images/banner_4.png",
+        "description_active": false
+      }
+    },
+    "collection_filter_MRCcKz": {
+      "type": "collection-filter",
+      "blocks": {
+        "item_filter_kajVKL": {
+          "type": "itemFilter",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_239.png",
+            "identifier": "Gel de Limpeza"
+          }
+        },
+        "item_filter_LUhEwR": {
+          "type": "itemFilter",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_240.png",
+            "identifier": "Serum"
+          }
+        },
+        "item_filter_XtHbPA": {
+          "type": "itemFilter",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_241.png",
+            "identifier": "Hidratante Corporal"
+          }
+        },
+        "item_filter_tLrG7V": {
+          "type": "itemFilter",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_242.png",
+            "identifier": "Creme Facial"
+          }
+        },
+        "item_filter_FbRVh8": {
+          "type": "itemFilter",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_243.png",
+            "identifier": "Cuidado Diario"
+          }
+        },
+        "item_filter_9ihiU3": {
+          "type": "itemFilter",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_244.png",
+            "identifier": "Mascara Facial"
+          }
+        }
+      },
+      "block_order": [
+        "item_filter_kajVKL",
+        "item_filter_LUhEwR",
+        "item_filter_XtHbPA",
+        "item_filter_tLrG7V",
+        "item_filter_FbRVh8",
+        "item_filter_9ihiU3"
+      ],
+      "settings": {
+        "title": "Do que sua pele precisa"
+      }
+    },
+    "collection_grid_zEwN8Y": {
+      "type": "collection-grid",
+      "settings": {}
+    },
+    "description_seo_eycNBd": {
+      "type": "description-seo",
+      "settings": {}
     }
   },
-  "order": ["main"]
+  "order": [
+    "collection_banner_KpzqLy",
+    "collection_filter_MRCcKz",
+    "collection_grid_zEwN8Y",
+    "description_seo_eycNBd"
+  ]
 }

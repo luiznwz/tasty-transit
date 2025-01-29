@@ -1,0 +1,445 @@
+look-book {
+    display: flex;
+    flex-direction: column;
+
+    .lookbook__content {
+        @media screen and (min-width: 980px) {
+            display: grid;
+            grid-template-columns: 1.3fr .2fr 1fr;
+            column-gap: clamp(3rem, 7vw, 10rem);
+            overflow: hidden;
+        }
+
+        .lookbook__motion {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+
+            @media screen and (min-width: 980px) {
+                grid-column: 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: rotate(-90deg);
+                width: fit-content;
+                justify-self: center;
+                overflow: hidden;
+                z-index: -1;
+            }
+        
+            .lookbook__slide {
+                display: flex;
+                white-space: nowrap;
+                animation: 15s slide infinite linear;
+                align-items: center;
+
+                @media screen and (min-width: 980px) {
+                    animation: 15s slideInverted infinite linear;
+                }
+        
+                .lookbook__text_motion {
+                    padding: 2.4rem;
+                    color: var(--dark-blue);
+                    font-size: clamp(2.8rem, 5vw, 6rem);
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    transform-origin: 100% 0;
+        
+                    &:hover {
+                        background: var(--texts-green);
+                    }
+                }
+            }
+        
+            &::before {
+                content: '';
+                display: block;
+                width: 8%;
+                height: 100%;
+                background: linear-gradient(to right, var(--bg-black) 10%, transparent 100%);
+                position: absolute;
+                z-index: 1;
+            }
+        
+            &::after {
+                content: '';
+                display: block;
+                width: 8%;
+                height: 100%;
+                background: linear-gradient(to left, var(--bg-black) 10%, transparent 100%);
+                position: absolute;
+                z-index: 1;
+                right: 0;
+            }
+        }
+
+        .lookbook_image__container {
+            position: relative;
+
+            @media screen and (min-width: 980px) {
+                grid-area: 1/1/2/2;
+                border-radius: 0rem 2.4rem 2.4rem 0rem;
+                overflow: hidden;
+                height: 60vh;
+            }
+
+            .lookbook__button {
+                position: absolute;
+                background: var(--white);
+                border-radius: 50%;
+                width: clamp(3.2rem, 3vw, 4.8rem);
+                height: clamp(3.2rem, 3vw, 4.8rem);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: .6s;
+
+                :is(svg) {
+                    width: clamp(1.6rem, 2vw, 2.4rem);
+                    height: clamp(1.6rem, 2vw, 2.4rem);
+                }
+
+                &.active {
+                    outline: 1px solid var(--white);
+                    background: var(--dark-blue);
+
+                    :is(svg) {
+                        :is(path) {
+                            fill: var(--white)
+                        }
+                    }
+                }
+            }
+
+            .lookbook__image {
+                max-height: 59rem;
+                height: 85vh;
+                width: 100%;
+
+                @media screen and (min-width: 980px) {
+                    max-height: 100%;
+                    height: 100%;
+                }
+
+                :is(img) {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .lookbook__modal_products {
+            background: #0000004D;
+            width: 100vw;
+            height: 100dvh;
+            position: fixed;
+            top: 0;
+            z-index: 100000;
+            left: 0;
+            align-items: center;
+            justify-content: center;
+            display: none;
+            opacity: 0;
+            animation: modalClose 0.3s ease-in-out;
+
+            @media screen and (min-width: 980px) {
+                background: transparent;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                position: static;
+                opacity: 1;
+                z-index: 1;
+                justify-content: flex-start;
+                padding-inline: 0 clamp(7rem, 10vw, 15rem);
+            }
+
+            &[open] {
+                display: flex;
+                opacity: 1;
+                animation: modalOpen 0.3s ease-in-out;
+            }
+
+            .lookbook__modal_products__content {
+                background: var(--white);
+                width: 90vw;
+                max-width: 34rem;
+                border-radius: 1.2rem;
+                max-height: 58.8rem;
+                overflow: auto;
+                padding: 5rem 2rem;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                @media screen and (min-width: 980px) {
+                    width: 90vw;
+                    max-width: 41rem;
+                    height: 100%;
+                    max-height: 80rem;
+                    padding: 0;
+                    justify-content: center;
+                    padding-inline: 5rem;
+                }
+
+                .lookbook__modal_close {
+                    display: flex;
+                    align-self: flex-end;
+                    position: absolute;
+                    right: 2rem;
+                    top: 2rem;
+
+                    @media screen and (min-width: 980px) {
+                        display: none;
+                    }
+                }
+                
+                .lookbook__title {
+                    text-align: center;
+                    color: var(--dark-blue);
+                    font-size: 2rem;
+                    font-weight: 700;
+                    line-height: 140%;
+
+                    @media screen and (min-width: 980px) {
+                        display: none;
+                    }
+                }
+                .product__carrousel{
+                    position: relative;
+
+                    .product__item {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+    
+                        :is(img) {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            max-height: 30rem;
+    
+                            @media screen and (min-width: 980px) {
+                                height: 55vh;
+                            }
+                        }
+    
+                        .product__title {
+                            margin-top: clamp(1.4rem, 2vw, 1.6rem);
+                            color: var(--dark-blue);
+                            font-size: clamp(1.6rem, 2vw, 2.2rem);
+                            font-weight: 600;
+                        }
+    
+                        .product__price {
+                            margin-top: clamp(.6rem, 2vw, 1rem);
+                            color: var(--dark-blue);
+                            font-size: clamp(1.4rem, 2vw, 1.8rem);
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+    
+                        .product__link {
+                            margin-top: clamp(1.4rem, 2vw, 2rem);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: var(--dark-blue);
+                            text-decoration: none;
+                            color: var(--white);
+                            font-size: clamp(1.4rem, 2vw, 1.8rem);
+                            font-weight: 600;
+                            background: var(--dark-blue);
+                            padding: 1.6rem 3.2rem;
+                            width: 100%;
+                            border-radius: 10rem;
+                            cursor: pointer;
+                            transition: .3s;
+                            width: 97%;
+    
+                            &:hover {
+                                background: var(--white);
+                                outline: 1px solid var(--dark-blue);
+                                color: var(--dark-blue);
+                            }
+                        }
+                    }
+    
+                    .blaze-pagination {
+                        margin-top: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 1rem;
+    
+                        :is(button) {
+                            width: clamp(0.8rem, 1vw, 1rem);
+                            height: clamp(0.8rem, 1vw, 1rem);
+                            border-radius: 3.5rem;
+                            border: 1px solid var(--dark-blue);
+                            background: transparent;
+                            color: transparent;
+                            transition: .3s;
+                            cursor: pointer;
+    
+                            &.active {
+                                background: var(--dark-blue);
+                            }
+                        }
+                    }
+
+                    .lookbook--prev {
+                        position: absolute;
+                        top: 50%;
+                        left: -8%;
+                        transform: translate(-50%, -50%);
+                        border: none;
+                        background-color: transparent;
+                        display: none;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+            
+                        @media screen and (min-width: 980px) {
+                            display: flex;
+                        }
+            
+                        &:hover {
+                            :is(svg) {
+                                :is(g) {
+                                    :is(rect) {
+                                        fill: var(--light-blue);
+                                    }
+                                }
+                            }
+                        }
+            
+                        svg {
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                            transform: rotate(180deg);
+            
+                            :is(g) {
+                                :is(rect) {
+                                    fill: var(--dark-blue);
+                                    transition: fill 0.3s;
+                                }
+            
+                                :is(path) {
+                                    stroke: var(--white);
+                                    transition: stroke 0.3s;
+                                }
+                            }
+                        }
+                    }
+            
+                    .lookbook--next {
+                        position: absolute;
+                        top: 50%;
+                        right: -19%;
+                        transform: translate(-50%, -50%);
+                        border: none;
+                        background-color: transparent;
+                        display: none;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+            
+                        @media screen and (min-width: 980px) {
+                            display: flex;
+                        }
+            
+                        &:hover {
+                            :is(svg) {
+                                :is(g) {
+                                    :is(rect) {
+                                        fill: var(--light-blue);
+                                    }
+                                }
+                            }
+                        }
+            
+                        svg {
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+            
+                            :is(g) {
+                                :is(rect) {
+                                    fill: var(--dark-blue);
+                                    transition: fill 0.3s;
+                                }
+            
+                                :is(path) {
+                                    stroke: var(--white);
+                                    transition: stroke 0.3s;
+                                }
+                            }
+                        }
+                    }
+
+                    .lookbook--prev[disabled], .lookbook--next[disabled] {
+                        opacity: 0.5;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes modalOpen {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+
+    1% {
+        display: flex;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes modalClose {
+    0% {
+        opacity: 1;
+        display: flex;
+    }
+
+    99% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        display: none;
+    }
+}
+
+
+@keyframes slide {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideInverted {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}

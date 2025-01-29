@@ -1,0 +1,31 @@
+# OS generated files
+
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Enviroment files
+
+source
+build_tools
+node_modules
+.config
+.github
+.vscode
+.docs
+src/public/\*.json
+package.json
+.gitignore
+gulpfile.js
+vite.config.js
+package-lock.json
+tsconfig.json
+cypress/*
+.env.example
+
+# Other files
+
+/\.(txt|md|lock)$/

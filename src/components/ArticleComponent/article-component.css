@@ -1,0 +1,118 @@
+article-component {
+    display: block;
+    padding-block: clamp(4rem, 6vw, 6rem) clamp(5rem, 9vw, 9rem);
+
+    .article__content {
+        max-width: var(--page-width);
+        margin-inline: auto;
+
+        .article_title {
+            color: var(--dark-blue);
+            font-family: var(--font-rebond);
+            font-size: clamp(1.8rem, 2vw, 3.2rem);
+            font-weight: 500;
+            text-align: center;
+            font-style: normal;
+            line-height: normal;
+            margin-bottom: 1.3rem;
+        }
+
+        .article_published_at {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2.4rem;
+
+            @media screen and (min-width: 768px) {
+                margin-bottom: 4rem;
+            }
+
+            :is(span) {
+                color: var(--dark-gray);
+                text-align: center;
+                font-family: var(--font-rebond);
+                font-size: clamp(1.2rem, 2vw, 1.8rem);
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+
+        .article_image {
+            width: 100%;
+            height: fit-content;
+            margin-bottom: clamp(5rem, 5vw, 9rem);
+            max-height: 84.4rem;
+            object-fit: cover;
+            border-radius: 1.2rem;
+
+            @media screen and (min-width: 768px) {
+                border-radius: 2.4rem;
+            }
+        }
+
+        .article_body {
+
+            :is(p, div) {
+                color: var(--dark-blue);
+                font-family: var(--font-rebond);
+                font-size: clamp(1.4rem, 2vw, 1.8rem);
+                font-style: normal;
+                font-weight: 400;
+                line-height: 160%;
+            }
+
+            .grid_two,
+            .grid_three {
+                padding-block: clamp(5rem, 5vw, 9rem);
+            }
+
+            .grid_two {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 2rem;
+
+                @media screen and (min-width: 768px) {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 4rem;
+                }
+
+                :is(img) {
+                    width: 100%;
+                    height: fit-content;
+                    max-height: 80rem;
+                    object-fit: cover;
+                    border-radius: 1.2rem;
+
+                    @media screen and (min-width: 768px) {
+                        border-radius: 2.4rem;
+                    }
+                }
+            }
+
+            .grid_three {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 2rem;
+
+                @media screen and (min-width: 768px) {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 4rem;
+                }
+
+                :is(img) {
+                    width: 100%;
+                    height: fit-content;
+                    max-height: 64rem;
+                    object-fit: cover;
+                    border-radius: 1.2rem;
+
+                    @media screen and (min-width: 768px) {
+                        border-radius: 2.4rem;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,131 @@
+<image-grid-carousel>
+  {% if section.settings.image1 != blank and section.settings.image2 != blank and section.settings.image3 != blank %}
+    <div class="container-grid">
+      <img
+        src="{{ section.settings.image1 |  image_url: width: nil }}"
+        alt="{{ section.settings.alt1 }}"
+        width="auto"
+        height="auto"
+        loading="lazy"
+        class="image-grid-image"
+      >
+      <img
+        src="{{ section.settings.image2 |  image_url: width: nil }}"
+        alt="{{ section.settings.alt2 }}"
+        width="auto"
+        height="auto"
+        loading="lazy"
+        class="image-grid-image"
+      >
+      <img
+        src="{{ section.settings.image3 |  image_url: width: nil }}"
+        alt="{{ section.settings.alt3 }}"
+        width="auto"
+        height="auto"
+        loading="lazy"
+        class="image-grid-image"
+      >
+    </div>
+  {% endif %}
+
+  <div class="container-carousel">
+    <div class="blaze-slider grid-image-slider">
+      <div class="blaze-container">
+        <div class="blaze-track-container">
+          <div class="blaze-track">
+            {% for block in section.blocks %}
+              {% if block.type == 'image' %}
+                {% if block.settings.image != blank %}
+                  <div class="slide-container-image">
+                    <img
+                      src="{{ block.settings.image |  image_url: width: nil }}"
+                      alt="{{ block.settings.alt }}"
+                      width="auto"
+                      height="auto"
+                      loading="lazy"
+                      class="image-grid-carousel-slide"
+                    >
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="blaze-pagination blaze-pagination-grid-image"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</image-grid-carousel>
+
+{% schema %}
+{
+  "name": "t:sections.image-grid-carousel.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.image-grid-carousel.settings.settings_images_desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "t:sections.image-grid-carousel.settings.image1"
+    },
+    {
+      "type": "text",
+      "id": "alt1",
+      "label": "t:sections.image-grid-carousel.settings.alt1.label",
+      "default": "t:sections.image-grid-carousel.settings.alt1.default"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "t:sections.image-grid-carousel.settings.image2"
+    },
+    {
+      "type": "text",
+      "id": "alt2",
+      "label": "t:sections.image-grid-carousel.settings.alt2.label",
+      "default": "t:sections.image-grid-carousel.settings.alt2.default"
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "t:sections.image-grid-carousel.settings.image3"
+    },
+    {
+      "type": "text",
+      "id": "alt3",
+      "label": "t:sections.image-grid-carousel.settings.alt3.label",
+      "default": "t:sections.image-grid-carousel.settings.alt3.default"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:sections.image-grid-carousel.blocks.image.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.image-grid-carousel.blocks.image.settings.settings_image_mobile"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.image-grid-carousel.blocks.image.settings.image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "t:sections.image-grid-carousel.blocks.image.settings.alt.label",
+          "default": "t:sections.image-grid-carousel.blocks.image.settings.alt.default"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image-grid-carousel.presets.name"
+    }
+  ]
+}
+{% endschema %}

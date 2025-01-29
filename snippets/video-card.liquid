@@ -1,0 +1,44 @@
+{% if video_metafields != blank %}
+    {% for videoItem in video_metafields %}
+        <div class="card-video inactive">
+            <div class="video">            
+                <video width="auto" height="auto" preload="metadata" muted loop>
+                    <source src="{{ videoItem.video.value.sources[1].url }}" type="video/mp4">
+                </video>
+                <div class="instagram">
+                    <a href="{{  videoItem.instagram_url.value.url }}" target="_blank">{{ videoItem.instagram_url.value.text
+                        }}</a>
+                </div>
+                <div class="btn-video">
+                    <a href="{{ videoItem.button_url.value.url }}" target="_blank">{{ videoItem.button_url.value.text }}</a>
+                </div>
+
+                <div class="btn-play-and-pause">
+                    {{ 'play.svg' | inline_asset_content }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    {% if template.name != 'product' %}
+        {% for block in blocks %}
+            <div class="card-video inactive">
+                <div class="video">
+                    <video width="auto" height="auto" preload="metadata" muted loop>
+                        <source src="{{ block.settings.video.sources[1].url }}" type="video/mp4">
+                    </video>
+                    <div class="instagram">
+                        <a href="{{ block.settings.instagram_url }}" target="_blank">{{ block.settings.instagram_text }}</a>
+                    </div>
+                    <div class="btn-video">
+                        <a href="{{ block.settings.btn_url }}" target="_blank">{{ block.settings.btn_text }}</a>
+                    </div>
+
+                    <div class="btn-play-and-pause">
+                        {{ 'play.svg' | inline_asset_content }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endif %}

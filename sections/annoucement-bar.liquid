@@ -1,0 +1,30 @@
+{% liquid 
+    assign text = section.settings.text
+%}
+
+<div class="annoucement_bar__container">
+    <div class="annoucement_bar__content">
+        {% if text != blank %}
+            <p class="annoucement_bar__text">{{ text }}</p>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+    {
+      "name": "t:sections.announcement_bar.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.announcement_bar.settings.text.label",
+          "default": "Frete grátis acima de R$ 500 | 10% OFF na primeira compra"
+        }
+      ],
+      "presets": [
+        {
+          "name": "t:sections.announcement_bar.presets.name"
+        }
+      ]
+    }
+{% endschema %}

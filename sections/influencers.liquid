@@ -1,0 +1,112 @@
+{% liquid
+    assign video_metafields = product.metafields.custom.videos.value
+%}
+
+{% style  %}  
+  influencers-component{
+    {% if section.settings.show_background == true %}
+      background-color: var(--off-white);
+    {% else %}
+      background-color: transparent;
+    {% endif %}
+  }
+{% endstyle %}
+
+{% if video_metafields != blank or template.name != 'product' %}
+  <influencers-component>
+      <div class="influencers-component-container">
+          <div class="influencers-component-header">
+              <div class="influencers-component-header-title">
+                  {{ section.settings.title_section }}
+              </div>
+              <div class="influencers-component-header-subtitle">
+                  {{ section.settings.subtitle_section }}
+              </div>
+          </div>
+          <div class="blaze-slider influencers-component-blaze-slider">
+              <div class="blaze-container influencers-component-blaze-container">
+                  <div class="blaze-track-container influencers-component-blaze-track-container">
+                      <div class="blaze-track influencers-component-blaze-track">
+                        {% render 'video-card', 
+                          video_metafields: video_metafields,
+                          blocks: section.blocks 
+                        %}
+                      </div>
+                      <div class="blaze-pagination blaze-pagination-influencers-component"></div>
+                  </div>
+              </div>
+              <button class="blaze-prev influencers-component--prev" aria-label="Previous Slide">
+                  {{ 'icon-arrow.svg' | inline_asset_content }}
+              </button>
+              <button class="blaze-next influencers-component--next" aria-label="Next Slide">
+                  {{ 'icon-arrow.svg' | inline_asset_content }}
+              </button>
+          </div>
+      </div>
+  </influencers-component>
+{% endif %}
+{% schema %}
+    {
+      "name": "t:sections.influencers.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title_section",
+          "label": "t:sections.influencers.settings.title_section.label",
+          "default": "<p>Quem usa Kuf</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle_section",
+          "label": "t:sections.influencers.settings.subtitle_section.label",
+          "default": "<p>Veja o que a nossa comunidade de influencers esta usando e siga as recomendacoes! </p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_background",
+          "label": "t:sections.influencers.settings.show_background.label",
+          "default": true
+        }
+      ],
+      "blocks": [
+        {
+          "type": "video-card",
+          "name": "t:sections.influencers.blocks.video_card.name",
+          "settings": [
+            {
+              "type": "text",
+              "id": "instagram_text",
+              "label": "t:sections.influencers.blocks.video_card.settings.instagram_text.label",
+              "default": "@annasuy"
+            },
+            {
+              "type": "url",
+              "id": "instagram_url",
+              "label": "t:sections.influencers.blocks.video_card.settings.instagram_url.label"
+            },
+            {
+              "type": "text",
+              "id": "btn_text",
+              "label": "t:sections.influencers.blocks.video_card.settings.btn_text.label",
+              "default": "Ver Produto"
+            },
+            {
+              "type": "url",
+              "id": "btn_url",
+              "label": "t:sections.influencers.blocks.video_card.settings.btn_url.label"
+            },
+            {
+              "type": "video",
+              "id": "video",
+              "label": "t:sections.influencers.blocks.video_card.settings.video.label"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "t:sections.influencers.presets.name"
+        }
+      ]
+    }
+{% endschema %}

@@ -1,11 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
+    "banner_carrousel_zz9ArP": {
+      "type": "banner-carrousel",
+      "blocks": {
+        "image_PbxMwU": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/banner_1.png",
+            "image_mobile": "shopify://shop_images/banner_2.png",
+            "alt": "Kuf",
+            "subtitle": "NEW COLLECTION",
+            "title": "Barbara Labres",
+            "text_button": "Descobrir",
+            "url_button": "shopify://collections/frontpage"
+          }
+        },
+        "image_YzYNag": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/banner_1.png",
+            "image_mobile": "shopify://shop_images/banner_2.png",
+            "alt": "Kuf",
+            "subtitle": "NEW COLLECTION",
+            "title": "Barbara Labres",
+            "text_button": "Descobrir",
+            "url_button": "shopify://collections/frontpage"
+          }
+        },
+        "image_dffQ6j": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/banner_1.png",
+            "image_mobile": "shopify://shop_images/banner_2.png",
+            "alt": "Kuf",
+            "subtitle": "NEW COLLECTION",
+            "title": "Barbara Labres",
+            "text_button": "Descobrir",
+            "url_button": "shopify://collections/frontpage"
+          }
+        }
+      },
+      "block_order": [
+        "image_PbxMwU",
+        "image_YzYNag",
+        "image_dffQ6j"
+      ],
+      "settings": {}
+    },
+    "carousel_products_UrdJ8t": {
+      "type": "carousel-products",
       "settings": {
-        "heading": "Welcome to Adastra ✨ with GSAP."
+        "collection": "frontpage",
+        "title_section": "<p>Best Sellers</p>",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/9004759_star_favorite_award_like_icon_ec9e4d71-2d5d-4857-a706-a8d7568eb057.png",
+        "text_button": "Ver Todos",
+        "show_discount_tag": true,
+        "show_new_tag": true
+      }
+    },
+    "section_grid_yiD3Ld": {
+      "type": "section-grid",
+      "blocks": {
+        "image_CTBVN4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/categoria.png",
+            "text_image": "Perfumes",
+            "url": "shopify://collections/frontpage"
+          }
+        },
+        "image_gWPzKk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/categoriaa.png",
+            "text_image": "Skincare",
+            "url": "shopify://collections/frontpage"
+          }
+        },
+        "image_aLneBB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/categoriaaa.png",
+            "text_image": "Body Splash",
+            "url": ""
+          }
+        },
+        "image_EzCMQt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/categoriaaaa.png",
+            "text_image": "Roupas",
+            "url": "shopify://collections/frontpage"
+          }
+        }
+      },
+      "block_order": [
+        "image_CTBVN4",
+        "image_gWPzKk",
+        "image_aLneBB",
+        "image_EzCMQt"
+      ],
+      "settings": {}
+    },
+    "banner_carousel_products_RpbBTG": {
+      "type": "banner-carousel-products",
+      "settings": {
+        "image_banner_desktop": "shopify://shop_images/asdasdimage.png",
+        "image_banner_mobile": "shopify://shop_images/Rectangle_125_03e15e4b-da48-40d7-8250-38eb286be60a.png",
+        "image_side": "left",
+        "collection": "frontpage",
+        "title_section": "<p><strong>KUF</strong> + Barbara Labres </p>",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/9004759_star_favorite_award_like_icon_ec9e4d71-2d5d-4857-a706-a8d7568eb057.png",
+        "show_discount_tag": false,
+        "show_new_tag": true
+      }
+    },
+    "mini_banner_JG8hHa": {
+      "type": "mini-banner",
+      "settings": {
+        "template_mini_banner": false,
+        "mini_banner_position": "right",
+        "mini_banner_title": "",
+        "mini_banner_image": "shopify://shop_images/0be92064ed99c8108c475a92942dd320.png",
+        "mini_banner_logo": "shopify://shop_images/logo_cosmetics_cinza.png",
+        "mini_banner_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend purus velit, sit amet accumsan libero porta at. Duis suscipit, sapien eget imperdiet feugiat, eros tellus rhoncus est, non posuere lectus purus vitae nibh.",
+        "mini_banner_link": "shopify://products/rose-mist",
+        "mini_banner_button": "Descobrir",
+        "primary_color": "#181d23",
+        "secondary_color": "#ffffff"
+      }
+    },
+    "carousel_products_XhGiHM": {
+      "type": "carousel-products",
+      "settings": {
+        "collection": "frontpage",
+        "title_section": "<p>Fragrancias que sao a nossa cara </p>",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/flower.png",
+        "text_button": "Ver Todos",
+        "show_discount_tag": false,
+        "show_new_tag": true
+      }
+    },
+    "influencers_whtngY": {
+      "type": "influencers",
+      "blocks": {
+        "video_card_QJjAHm": {
+          "type": "video-card",
+          "settings": {
+            "instagram_text": "@annasuy",
+            "instagram_url": "shopify://collections/all",
+            "btn_text": "Ver Produto",
+            "btn_url": "shopify://products/body-splash-rose-mist-2",
+            "video": "shopify://files/videos/1.mp4"
+          }
+        },
+        "video_card_kxJCha": {
+          "type": "video-card",
+          "settings": {
+            "instagram_text": "@annasuy",
+            "instagram_url": "shopify://collections/all",
+            "btn_text": "Ver Produto",
+            "btn_url": "shopify://products/body-splash-rose-mist-2",
+            "video": "shopify://files/videos/2.mp4"
+          }
+        },
+        "video_card_TKHwfQ": {
+          "type": "video-card",
+          "settings": {
+            "instagram_text": "@annasuy",
+            "instagram_url": "shopify://collections/all",
+            "btn_text": "Ver Produto",
+            "btn_url": "shopify://products/body-splash-rose-mist-2",
+            "video": "shopify://files/videos/3.mp4"
+          }
+        },
+        "video_card_d6zPG8": {
+          "type": "video-card",
+          "settings": {
+            "instagram_text": "@annasuy",
+            "instagram_url": "shopify://collections/all",
+            "btn_text": "Ver Produto",
+            "btn_url": "shopify://products/body-splash-rose-mist-2",
+            "video": "shopify://files/videos/5.mp4"
+          }
+        },
+        "video_card_TAd6RD": {
+          "type": "video-card",
+          "settings": {
+            "instagram_text": "@annasuy",
+            "instagram_url": "shopify://collections/all",
+            "btn_text": "Ver Produto",
+            "btn_url": "shopify://products/body-splash-rose-mist-2",
+            "video": "shopify://files/videos/6.mp4"
+          }
+        },
+        "video_card_JBTQcn": {
+          "type": "video-card",
+          "settings": {
+            "instagram_text": "@annasuy",
+            "instagram_url": "shopify://collections/all",
+            "btn_text": "Ver Produto",
+            "btn_url": "shopify://products/body-splash-rose-mist-2",
+            "video": "shopify://files/videos/4.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "video_card_QJjAHm",
+        "video_card_kxJCha",
+        "video_card_TKHwfQ",
+        "video_card_d6zPG8",
+        "video_card_TAd6RD",
+        "video_card_JBTQcn"
+      ],
+      "settings": {
+        "title_section": "<p>Quem usa Kuf</p>",
+        "subtitle_section": "<p>Veja o que a nossa comunidade de influencers esta usando e siga as recomendacoes! </p>"
+      }
+    },
+    "banner_carousel_products_BJJQra": {
+      "type": "banner-carousel-products",
+      "settings": {
+        "image_banner_desktop": "shopify://shop_images/imagesdasd.png",
+        "image_banner_mobile": "shopify://shop_images/Rectangle_1as25.png",
+        "image_side": "right",
+        "collection": "frontpage",
+        "title_section": "<p>Favoritos para cuidados com a pele</p>",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/9004759_star_favorite_award_like_icon_ec9e4d71-2d5d-4857-a706-a8d7568eb057.png",
+        "show_discount_tag": false,
+        "show_new_tag": true
+      }
+    },
+    "suggestion_V6F7dp": {
+      "type": "suggestion",
+      "blocks": {
+        "card_BUgzFJ": {
+          "type": "card",
+          "settings": {
+            "title": "Camisetas",
+            "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque lacinia, lectus quis.",
+            "image_desktop": "shopify://shop_images/53126d5e1bbcabbd2d960848a096711e.png",
+            "image_mobile": "shopify://shop_images/53126d5e1bbcabbd2d960848a096711e.png"
+          }
+        },
+        "card_nLFC3X": {
+          "type": "card",
+          "settings": {
+            "title": "Skincare Routine",
+            "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "image_desktop": "shopify://shop_images/27ec2ec3acbcc78ee887070ebb03e9ad.png",
+            "image_mobile": "shopify://shop_images/27ec2ec3acbcc78ee887070ebb03e9ad_54b19f2b-cc7c-4ba1-bcf5-c318241c0c19.png"
+          }
+        },
+        "card_mxVC8c": {
+          "type": "card",
+          "settings": {
+            "title": "Deo Colonia",
+            "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "image_desktop": "shopify://shop_images/7c490d1de1c849bf18c12e0432eb0a4f.png",
+            "image_mobile": "shopify://shop_images/7c490d1de1c849bf18c12e0432eb0a4f_6b9791d1-17a0-4cc2-ae1d-651035f5eca6.png"
+          }
+        },
+        "card_aqyghG": {
+          "type": "card",
+          "settings": {
+            "title": "Serum Capilar",
+            "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit quisque lacinia, lectus quis.",
+            "image_desktop": "shopify://shop_images/d1ad7f72bbd5cb0f68e66276d29eeed1_447160fb-1f60-44a3-a084-bc6960ef0e3c.png",
+            "image_mobile": "shopify://shop_images/d1ad7f72bbd5cb0f68e66276d29eeed1.png"
+          }
+        }
+      },
+      "block_order": [
+        "card_BUgzFJ",
+        "card_nLFC3X",
+        "card_mxVC8c",
+        "card_aqyghG"
+      ],
+      "settings": {
+        "section_title": "Suggestion",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/9004759_star_favorite_award_like_icon_ec9e4d71-2d5d-4857-a706-a8d7568eb057.png"
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "banner_carrousel_zz9ArP",
+    "carousel_products_UrdJ8t",
+    "section_grid_yiD3Ld",
+    "banner_carousel_products_RpbBTG",
+    "mini_banner_JG8hHa",
+    "carousel_products_XhGiHM",
+    "influencers_whtngY",
+    "banner_carousel_products_BJJQra",
+    "suggestion_V6F7dp"
+  ]
 }

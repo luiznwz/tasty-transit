@@ -1,0 +1,179 @@
+:root {
+    --wishlist-empty-title: clamp(1.8rem, 2vw, 2.4rem);
+    --wishlist-empty-text: clamp(1.4rem, 2vw, 1.8rem);
+}
+
+wishlist-grid {
+    display: block;
+    max-width: var(--page-width);
+    margin-inline: auto;
+    position: relative;
+    padding-block: clamp(3rem, 5vw, 6rem);
+
+    .wishlist-grid__title {
+        color: var(--black);
+        text-align: center;
+        font-size: clamp(2rem, 2vw, 3.2rem);
+        font-weight: 500;
+        margin-bottom: clamp(3rem, 3vw, 4rem);
+    }
+
+    .wishlist-grid-container {
+        position: relative;
+
+        &:has(.wishlist-grid__content:empty) {
+            .wishlist-empty__content {
+                display: flex;
+            }
+
+            .wishlist-grid__content {
+                display: none;
+            }
+        }
+
+
+        .wishlist-grid__content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+            gap: clamp(1.4rem, 5vw, 10rem);
+            justify-items: flex-start;
+
+            :is(product-card) {
+                max-width: 100%;
+
+                .favorite_product_heart {
+                    display: flex;
+                }
+            }
+
+            @media screen and (min-width: 480px) {
+                grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+            }
+
+            @media screen and (min-width: 768px) {
+                grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+            }
+
+            @media screen and (min-width: 1280px) {
+                grid-template-columns: repeat(auto-fill, minmax(15vw, 1fr));
+            }
+        }
+
+        .wishlist-empty__content {
+            display: none;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding-block: 2rem;
+            opacity: 0;
+
+            .wishlist-empty__title {
+                color: var(--black);
+                font-size: var(--wishlist-empty-title);
+                font-weight: 600;
+                margin-bottom: clamp(1rem, 2vw, 1.2rem);
+            }
+
+            .wishlist-empty__text {
+                color: var(--dark-gray);
+                font-size: var(--wishlist-empty-text);
+                font-weight: 400;
+                margin-bottom: clamp(3.2rem, 3vw, 4rem);
+            }
+
+            .wishlist-empty__btn {
+                background: var(--white);
+                border: 1px solid var(--black);
+                color: var(--black);
+                transition: .3s all;
+                min-width: clamp(16.5rem, 13vw, 21.3rem);
+                display: flex;
+                justify-content: center;
+                padding: 1.2rem 2.4rem;
+                text-decoration: none;
+                font-weight: 600;
+                text-transform: none;
+                border-radius: 10rem;
+
+                &:hover {
+                    background: var(--black);
+                    border-color: var(--white);
+                    color: var(--white);
+                }
+            }
+        }
+    }
+
+    .loader_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: none;
+        animation: opacityExit 0.3s ease-in-out forwards;
+
+        &.loader_container--active {
+            display: flex;
+            opacity: 1;
+            animation: opacityEntry 0.3s ease-in-out forwards;
+        }
+
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background:
+                radial-gradient(farthest-side, var(--wine) 94%,  var(--black)) top/8px 8px no-repeat,
+                conic-gradient(#0000 30%,  var(--wine));
+            -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+            animation: l13 1s infinite linear;
+        }
+    }
+}
+
+@keyframes l13 {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes opacityEntry {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+
+    1% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes opacityExit {
+    0% {
+        opacity: 1;
+        display: flex;
+    }
+
+    99% {
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        display: none;
+    }
+}

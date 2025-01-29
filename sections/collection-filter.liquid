@@ -1,0 +1,221 @@
+{% if collection != blank or search.results != blank %}
+  <collection-filter>
+
+    {% assign filters = collection.filters %}
+    {% if search != blank %}
+      {% assign filters = search.filters %}
+    {% endif %}
+
+    {% assign itens_identifiers_array = '' %}
+    {% assign existing_identifiers = '' %}
+
+    {% assign block_count = 0 %}
+
+    {% for filter in filters %}
+      {% if filter.type == 'list' and filter.param_name == 'filter.p.product_type' %}
+        {% for filter_value in filter.values %}
+          {% for block in section.blocks %}
+            {% if block.type == 'itemFilter' and filter_value.label == block.settings.identifier %}
+              {% assign block_count = block_count | plus: 1 %}
+              {% assign identifier_item_exists = block.settings.identifier %}
+              {% unless existing_identifiers contains identifier_item_exists %}
+                {% assign itens_identifiers_array = itens_identifiers_array
+                  | append: identifier_item_exists
+                  | append: ','
+                %}
+                {% assign existing_identifiers = existing_identifiers | append: identifier_item_exists | append: ',' %}
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+    {% if block_count > 0 %}
+      <form class="filter__carousel collection__filter_form" id="filterForCarousel">
+        <div class="blaze-slider carousel-filter-slider">
+          <div class="carousel-filter-slider_heading">
+            <h3 class="title_filter__carousel">{{ section.settings.title }}</h3>
+
+            <div class="container-buttons-carousel-filter">
+              <button class="blaze-prev carousel-filter--prev" aria-label="Previous Slide">
+                {{ 'icon-arrow.svg' | inline_asset_content }}
+              </button>
+              <button class="blaze-next carousel-filter--next" aria-label="Next Slide">
+                {{ 'icon-arrow.svg' | inline_asset_content }}
+              </button>
+            </div>
+          </div>
+
+          <div class="blaze-container carousel-filter-blaze-container">
+            <div class="blaze-track-container carousel-filter-blaze-track-container">
+              <div class="blaze-track carousel-filter-blaze-track">
+                {% assign identifiers_array = itens_identifiers_array | split: ',' %}
+                {% for identifier in identifiers_array %}
+                  {% for block in section.blocks %}
+                    {% if block.type == 'itemFilter' and block.settings.identifier == identifier %}
+                      {% for filter in filters %}
+                        {% if filter.type == 'list' and filter.param_name == 'filter.p.product_type' %}
+                          {% for filter_value in filter.values %}
+                            {% if filter_value.label == identifier %}
+                              <label
+                                class="card_filter_slide filter_label"
+                                for="Filter-{{ filter.param_name }}-{{ forloop.index }}-c"
+                              >
+                                <input
+                                  type="checkbox"
+                                  name="{{ filter.param_name }}"
+                                  value="{{ filter_value.value }}"
+                                  id="Filter-{{ filter.param_name }}-{{ forloop.index }}-c"
+                                  class="filter-group__checkbox custom-checkbox"
+                                  {% if filter_value.active %}
+                                    checked
+                                  {% endif %}
+                                  style="display: none;"
+                                >
+                                <div class="card_filter">
+                                  <img
+                                    src="{{ block.settings.image | image_url: width: 220, height: 220 }}"
+                                    alt="{{ block.settings.identifier }}"
+                                    width="auto"
+                                    height="auto"
+                                    loading="lazy"
+                                    class="card_filter__img"
+                                  >
+                                  <p class="card_filter__identifier">{{ block.settings.identifier }}</p>
+                                </div>
+                              </label>
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+              </div>
+              <div class="blaze-pagination blaze-pagination-carousel-filter"></div>
+            </div>
+          </div>
+        </div>
+      </form>
+    {% endif %}
+
+    <div class="filter__heading">
+      <div class="filter__text">
+        {{ 'filtro.svg' | inline_asset_content }}
+        <h2 class="filter_title">{{ 'collections.filters.filters' | t }}</h2>
+      </div>
+      {% render 'sort-options', sort_by: params.sort_by, use_select: true %}
+    </div>
+    <div class="filter__modal">
+      <div class="filter__modal__heading">
+        <h2 class="filter_title">{{ 'collections.filters.filters' | t }}</h2>
+        {{ 'x.svg' | inline_asset_content }}
+      </div>
+      <form class="filter__dropdown collection__filter_form" id="filterForm">
+        {% assign filters = collection.filters %}
+        {% if search != blank %}
+          {% assign filters = search.filters %}
+        {% endif %}
+
+        {%- for filter in filters -%}
+          {% if filter.type == 'list' %}
+            <div class="filter__container">
+              <h3 class="filter_name">{{ filter.label }}</h3>
+              <ul class="filter__list">
+                {% for filter_value in filter.values %}
+                  <li class="filter__item">
+                    <label class="filter_label" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                      <input
+                        type="checkbox"
+                        name="{{ filter.param_name }}"
+                        value="{{ filter_value.value }}"
+                        id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                        class="filter-group__checkbox custom-checkbox"
+                        {% if filter_value.active -%}
+                          checked
+                        {%- endif %}
+                      >
+                      {{ filter_value.label }}
+                    </label>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% if filter.type == 'price_range' %}
+            <div class="filter__container">
+              <h3 class="filter_name">{{ filter.label }}</h3>
+              <div class="price-range-slider__container">
+                <div class="price-range-slider__content">
+                  <div
+                    class="price-range-slider"
+                    data-min="{{ 0 | money_without_currency }}"
+                    data-max="{{ filter.range_max | money_without_currency }}"
+                    data-max-name="filter.v.price.lte"
+                    data-min-name="filter.v.price.gte"
+                  >
+                    <span class="range_select range_min"></span>
+                    <span class="range_select range_max"></span>
+                  </div>
+                </div>
+                <div class="price-range-text">
+                  <span class="price-range-text__min">{{ 0 | money }}</span>
+                  <span class="price-range-text__max">{{ filter.range_max | money }}</span>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {%- endfor -%}
+        {% comment %}
+          <div class="filter__container">
+            <h3 class="filter_name">{{ 'collections.sort_by' | t }}</h3>
+            {% render 'sort-options', sort_by: params.sort_by %}
+          </div>
+        {% endcomment %}
+        <div class="filter__btns">
+          <button type="reset" class="filter_btn filter_reset">{{ 'collections.filters.clear' | t }}</button>
+          <button type="submit" class="filter_btn filter_submit">{{ 'collections.filters.apply' | t }}</button>
+        </div>
+      </form>
+    </div>
+  </collection-filter>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.collection-filter.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.collection-filter.settings.title.label",
+      "default": "Do que sua pele precisa"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "itemFilter",
+      "name": "t:sections.collection-filter.blocks.itemFilter.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.collection-filter.blocks.itemFilter.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "identifier",
+          "label": "t:sections.collection-filter.blocks.itemFilter.settings.identifier.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collection-filter.name"
+    }
+  ]
+}
+{% endschema %}

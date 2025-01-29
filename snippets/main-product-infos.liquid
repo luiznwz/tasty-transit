@@ -1,0 +1,71 @@
+{% assign icons_texts = product.metafields.custom._cone_texto.value %}
+{% assign details = product.metafields.custom.product_details.value %}
+
+<div class="container-infos">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {% when 'title-price' %}
+        <div class="container-title-price">
+          <div class="title-heart">
+            <h1 class="title">{{ product.title }}</h1>
+            <div class="favorite_product_heart" data-handle="{{ product.handle }}">  
+              {{ 'heart.svg' | inline_asset_content }}
+            </div>
+          </div>
+
+          <div class="product-price-installments">
+            {% if product.first_available_variant.compare_at_price > product.first_available_variant.price %}
+              <p class="price-product">
+                <s>{{ product.first_available_variant.compare_at_price | money }}</s>
+                {{ product.first_available_variant.price | money }}
+              </p>
+            {% else %}
+              <p class="price-product">{{ product.first_available_variant.price | money }}</p>
+            {% endif %}
+
+            {% render 'product-installments', product_installment: product %}
+          </div>
+        </div>
+
+      {% when 'icones-text' %}
+        {% if icons_texts != blank %}
+          <div class="container-icones-text">
+            {% for icon_text in icons_texts %}
+              <div class="icone-texto">
+                <img src="{{ icon_text.icone | image_url: width: 32, height: 32 }}" alt="{{ icon_text.texto }}" height="auto" width="auto" loading="lazy">
+                {{ icon_text.text | metafield_tag }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+      {% when 'options-variants' %}
+        <div class="container-options">
+          {% render 'main-product-options', product: product %}
+        </div>
+
+      {% when 'quantity-button-add' %}
+        {% render 'main-product-quantity--button-add' %}
+
+      {% when 'shipping' %}
+        {% render 'shipping' %}
+
+      {% when 'details' %}
+        {% if details != blank %}
+          <div class="container-details">
+            {% for detail in details %}
+              <div class="detail">
+                <div class="detail-headings">
+                  <h3>{{ detail.titulo }}</h3>
+                  {{ 'plus.svg' | inline_asset_content }}
+                </div>
+                <div class="detail-content" closed>
+                  {{ detail.descricao | metafield_tag }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+    {% endcase %}
+  {% endfor %}
+</div>

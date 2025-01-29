@@ -1,0 +1,76 @@
+<div class="nav_items">
+    <div class="close_nav_items">
+        {{ 'close.svg' | inline_asset_content }}
+    </div>
+    <ul class="main_items">
+        {% for item in items.links %}
+            <li 
+                {% if item.links != blank %}
+                    data-menu="{{ forloop.index }}"
+                {% endif %}
+            >
+                <a 
+                    href="{{ item.url }}" 
+                >
+                        {{ item.title }}
+                        {% if item.links != blank %}
+                            {{ 'menu-arrow-go.svg' | inline_asset_content }}
+                        {% endif %}
+                </a>
+                <div class="line"></div>
+            </li>
+        {% endfor %}
+        <li class="item_user_access">
+            <a href="/pages/wishlist">
+                {{ 'wishlist.svg' | inline_asset_content }}
+                {{ 'sections.header.wishlist' | t }}
+            </a>
+        </li>
+        <li class="item_user_access">
+            <a href="/account">
+                {{ 'user.svg' | inline_asset_content }}
+                {{ 'sections.header.login_or_register' | t }}
+            </a>
+        </li>
+    </ul>
+
+    {% for item in items.links %}
+
+        {% liquid 
+            assign index = forloop.index
+            assign identifier = item.title
+        %}
+
+        {% if item.links != blank %}
+            <div class="submenu__container" data-submenu="{{ index }}" closed>
+                <p class="submenu_back__container">
+                    {{ 'menu-arrow-back.svg' | inline_asset_content }}
+                    {{ item.title }}
+                </p>
+                <ul class="sublink__container">
+                    {% for sublink in item.links %}
+                        <li>
+                            <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                            <div class="line"></div>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="submenu_grid_images">
+                    {%- for block in blocks -%}
+                        {%- if block.settings.identifier == identifier -%}
+                            <a class="image_text" href="{{ block.settings.url }}">
+                                <img 
+                                    src="{{ block.settings.image | image_url: width: 305, height: 208 }}" 
+                                    alt="{{ block.settings.text }}"
+                                    width="auto" height="auto"
+                                >
+                                <div class="image_title">{{ block.settings.text }}</div>
+                            </a>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
