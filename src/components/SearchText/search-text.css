@@ -1,0 +1,31 @@
+:root{
+    --search-text-title: clamp(1.6rem, 3vw, 2.4rem);
+    --search-text-subtitle: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.search_text__container {
+    margin-top: clamp(4rem, 13vw, 8.5rem);
+    padding-top: clamp(1rem, 5vw, 4rem);
+    max-width: var(--page-width);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.6rem, 2vw, 2rem);
+
+    .search_text_title {
+        color: var(--dark-blue);
+        font-family: var(--font-rebond);
+        font-size: var(--search-text-title);
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .search_text_subtitle{
+        color: var(--dark-blue);
+        font-family: var(--font-rebond);
+        font-size: var(--search-text-subtitle);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}

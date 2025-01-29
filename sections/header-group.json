@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "annoucement_bar_MmxtmW": {
+      "type": "annoucement-bar",
+      "settings": {
+        "text": "Frete grátis acima de R$ 500 | 10% OFF na primeira compra"
+      }
+    },
+    "header_zU9Mm7": {
+      "type": "header",
+      "blocks": {
+        "block_aYnwMC": {
+          "type": "block",
+          "settings": {
+            "identifier": "Skincare",
+            "image": "shopify://shop_images/cuidado_diario.jpg",
+            "text": "<p>Cuidado Diário</p>",
+            "url": "#"
+          }
+        },
+        "block_QXxKQq": {
+          "type": "block",
+          "settings": {
+            "identifier": "Skincare",
+            "image": "shopify://shop_images/Kits_Especiais.jpg",
+            "text": "<p>Kits Especiais</p>",
+            "url": "#"
+          }
+        },
+        "block_wB7jWB": {
+          "type": "block",
+          "settings": {
+            "identifier": "Skincare",
+            "image": "shopify://shop_images/Antiacne_Hidratante.jpg",
+            "text": "<p>Antiacne Hidratante</p>",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "block_aYnwMC",
+        "block_QXxKQq",
+        "block_wB7jWB"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/logo_cinza_01e5c5e8-6b7a-41aa-a32f-acfbd8508885.svg",
+        "menu_mobile": "menu_mobile",
+        "menu_desktop": "menu_mobile"
+      }
+    },
+    "cart_drawer_bpPhRB": {
+      "type": "cart-drawer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "annoucement_bar_MmxtmW",
+    "header_zU9Mm7",
+    "cart_drawer_bpPhRB"
+  ]
+}

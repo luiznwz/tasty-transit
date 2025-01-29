@@ -1,0 +1,50 @@
+<cart-related-product class="cart_related_product__container" data-first-variant="{{ product.first_available_variant.id }}">
+    <a href="{{ product.url }}">
+        <img src="{{ product.featured_image |  image_url: width: nil }}" alt="{{ product.title }}" class="cart_related_product_image" width="auto" height="auto">
+    </a>
+    <div class="cart_related_product__content">
+        <a href="{{ product.url }}"><h4 class="cart_related_product_title">{{ product.title }}</h4></a>
+        <p class="cart_related_product_price">{{ product.selected_or_first_available_variant.price | money }}</p>
+        {% if settings.show_installments == true %}
+            <p
+                class="info_installment" 
+                data-price="{{ product.price }}"
+                data-installments-count="{{ settings.installments_count }}"
+                data-installments-min-price="{{ settings.installments_min_price }}"
+                data-show-interest-free="{{ settings.show_interest_free }}"
+                data-min-installment="{{ settings.min_installment }}"
+            >
+            </p>
+        {% endif %}
+
+        {% unless product.has_only_default_variant %}
+            <div class="cart_related_product_select_variant">
+                <label for="variant-select-{{ product.id }}" class="cart_related_product_label">
+                    {% for option in product.options_with_values %}
+                        {{ option.name }} {% unless forloop.last %}/{% endunless %} {% if forloop.last %}:{% endif %}
+                    {% endfor %}
+                </label>
+                <select id="variant-select-{{ product.id }}" class="variant-select">
+                    {% for variant in product.variants %}
+                        {% if variant.available == true %}                
+                            <option value="{{ variant.id }}" data-price="{{ variant.price | money }}">{{ variant.title }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        {% endunless %}
+        <div class="cart_related_product_button">
+            <a class="cart_related_product_add" data-id="{{ product.first_available_variant.id }}">{{ 'sections.cart-related-products.add' | t }}</a>
+        </div>
+    </div>
+    <div class="related_product_section_add">
+        <a 
+            data-added="{{ 'sections.cart-section.added_item' | t }}" 
+            data-add="{{ 'sections.cart-related-products.add' | t }}" 
+            class="related_product_section_add__a"
+            data-id="{{ product.first_available_variant.id }}"
+        >
+            {{ 'sections.cart-related-products.add' | t }}
+        </a>
+    </div>
+</cart-related-product>

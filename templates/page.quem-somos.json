@@ -1,0 +1,161 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "hello-world",
+      "disabled": true,
+      "settings": {
+        "heading": ""
+      }
+    },
+    "banner_carrousel_jNjWUX": {
+      "type": "banner-carrousel",
+      "blocks": {
+        "image_y4TeA6": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/bannesddr.png",
+            "image_mobile": "shopify://shop_images/banneasdr.png",
+            "alt": "Kuf",
+            "subtitle": "",
+            "title": "Quem somos",
+            "text_button": "",
+            "url_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_y4TeA6"
+      ],
+      "settings": {}
+    },
+    "text_section_QKXw7R": {
+      "type": "text-section",
+      "blocks": {
+        "text_FUE96p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach \"lorem ipsum\" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).<br/><br/>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach \"lorem ipsum\" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).<br/><br/>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach \"lorem ipsum\" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).</p>",
+            "text_align": "left",
+            "text_align_mobile": "left"
+          }
+        }
+      },
+      "block_order": [
+        "text_FUE96p"
+      ],
+      "settings": {}
+    },
+    "text_image_gARgF6": {
+      "type": "text-image",
+      "settings": {
+        "title": "Lorem ipsum amet dolor",
+        "text": "<p>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.<br/><br/>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.</p>",
+        "image": "shopify://shop_images/iasdasdmg.png"
+      }
+    },
+    "text_section_KKRVEW": {
+      "type": "text-section",
+      "blocks": {
+        "text_gE9gX8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach \"lorem ipsum\" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).<br/>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach \"lorem ipsum\" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).<br/><br/>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach \"lorem ipsum\" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).</p>",
+            "text_align": "left",
+            "text_align_mobile": "left"
+          }
+        }
+      },
+      "block_order": [
+        "text_gE9gX8"
+      ],
+      "settings": {}
+    },
+    "image_grid_carousel_xQqG8e": {
+      "type": "image-grid-carousel",
+      "blocks": {
+        "image_qfayUp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/imggg.png",
+            "alt": "Kuf"
+          }
+        },
+        "image_tVHLbr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/imggg.png",
+            "alt": "Kuf"
+          }
+        },
+        "image_ULTCCK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/imggg.png",
+            "alt": "Kuf"
+          }
+        }
+      },
+      "block_order": [
+        "image_qfayUp",
+        "image_tVHLbr",
+        "image_ULTCCK"
+      ],
+      "settings": {
+        "image1": "shopify://shop_images/Rectangle_110.png",
+        "alt1": "Kuf",
+        "image2": "shopify://shop_images/Rectangle_112.png",
+        "alt2": "Kuf",
+        "image3": "shopify://shop_images/Rectangle_111.png",
+        "alt3": "Kuf"
+      }
+    },
+    "text_section_HWHWET": {
+      "type": "text-section",
+      "blocks": {
+        "text_4zMxKp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).<br/>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach \"lorem ipsum\" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).<br/><br/>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zunutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht.Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach \"lorem ipsum\" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).</p>",
+            "text_align": "left",
+            "text_align_mobile": "left"
+          }
+        }
+      },
+      "block_order": [
+        "text_4zMxKp"
+      ],
+      "settings": {}
+    },
+    "carousel_products_CgGUVM": {
+      "type": "carousel-products",
+      "settings": {
+        "collection": "frontpage",
+        "title_section": "<p>Best Sellers</p>",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/9004759_star_favorite_award_like_icon_ec9e4d71-2d5d-4857-a706-a8d7568eb057.png",
+        "text_button": "Ver Todos",
+        "show_discount_tag": false,
+        "show_new_tag": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_carrousel_jNjWUX",
+    "text_section_QKXw7R",
+    "text_image_gARgF6",
+    "text_section_KKRVEW",
+    "image_grid_carousel_xQqG8e",
+    "text_section_HWHWET",
+    "carousel_products_CgGUVM"
+  ]
+}

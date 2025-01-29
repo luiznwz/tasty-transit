@@ -1,67 +1,291 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "general": {
-    "social": {
-      "links": {
-        "twitter": "Twitter",
-        "facebook": "Facebook",
-        "pinterest": "Pinterest",
-        "instagram": "Instagram",
-        "tumblr": "Tumblr",
-        "snapchat": "Snapchat",
-        "youtube": "YouTube",
-        "vimeo": "Vimeo",
-        "tiktok": "TikTok"
-      }
+    "general": {
+        "accessibility": {
+            "email_label": "Enter your email",
+            "password_label": "Enter your password"
+        }
     },
-    "continue_shopping": "Continue shopping"
-  },
-  "accessibility": {
-    "skip_to_text": "Skip to content",
-    "loading": "Loading",
-    "close": "Close",
-    "link_messages": {
-      "new_window": "Opens in a new window."
-    }
-  },
-  "products": {
-    "product": {
-      "quantity": {
-        "label": "Quantity",
-        "input_label": "Quantity for {{ product }}",
-        "increase": "Increase quantity for {{ product }}",
-        "decrease": "Decrease quantity for {{ product }}"
-      },
-      "price": {
-        "regular_price": "Regular price",
-        "sale_price": "Sale price",
-        "from_price_html": "From {{ min_price }}",
-        "unit_price": "Unit price"
-      },
-      "add_to_cart": "Add to cart",
-      "sold_out": "Sold out",
-      "unavailable": "Unavailable",
-      "product_variants": "Product variants"
-    }
-  },
-  "templates": {
-    "404": {
-      "title": "404 Page Not Found",
-      "subtext": "The page you requested does not exist."
-    }
-  },
-  "gift_cards": {
-    "issued": {
-      "title": "Here's your {{ value }} gift card for {{ shop }}!",
-      "subtext": "Your gift card",
-      "gift_card_code": "Gift card code",
-      "shop_link": "Continue shopping",
-      "remaining_html": "Remaining {{ balance }}",
-      "add_to_apple_wallet": "Add to Apple Wallet",
-      "qr_image_alt": "QR code — scan to redeem gift card",
-      "copy_code": "Copy code",
-      "expired": "Expired",
-      "copy_code_success": "Code copied successfully",
-      "print_gift_card": "Print"
-    }
-  }
+    "sections": {
+        "lookbook": {
+            "shop_the_look": "Shop the Look",
+            "add_to_cart": "Add to Cart"
+        },
+        "shopbar": {
+            "color": "Color:",
+            "add_to_cart": "Add to Cart",
+        },
+        "main-product": {
+            "variant_select": {
+                "unique": "Unique",
+                "size": "Size",
+                "colors": "Colors"
+            },
+            "add_to_cart": "Add to cart",
+            "out_of_stock": "Out of Stock",
+            "details": "Details",
+            "measurements": "Measurements"
+        },
+        "breadcrumbs": {
+            "home": "Home"
+        },
+        "shipping": {
+            "shipping_calculate": "Calculate shipping",
+            "cep": "Zip code",
+            "calculate": "Calculate"
+        },
+        "header": {
+            "wishlist": "Wishlist",
+            "login_or_register": "Login or Register",
+            "search_placeholder": "What are you looking for today?"
+        },
+        "cart-section": {
+            "cart": "Cart",
+            "order_summary": "Order Summary",
+            "added_item": "Added Item",
+            "continue_shopping": "Continue Shopping",
+        },
+        "cart-related-products": {
+            "see_more": "See more",
+            "add": "Add"
+        },
+        "cart-drawer": {
+            "cart": "Cart",
+            "discount_cupom": "Discount coupon",
+            "subtotal": "Subtotal",
+            "shipping": "Shipping",
+            "to_be_calculated": "To be calculated",
+            "free": "Free",
+            "go_to_checkout": "Go to checkout",
+            "see_cart": "See cart",
+            "congratulations": "Congratulations! You have free shipping",
+            "missing_free_shipping": "is missing for free shipping!",
+            "empty": {
+                "title": "Your cart is empty",
+                "subtext": "Explore our products and get free shipping on your first purchase",
+                "see_products": "See products"
+            }
+        },
+        "related-products": {
+            "related-products": "Related products",
+            "i_want_to": "I want to"
+        },
+        "popup": {
+            "type_your_email": "Type your email",
+        },
+        "discount_coupon": {
+            "code": "Coupon code",
+            "apply": "Apply"
+        },
+        "description-seo": {
+            "description-category-title": "Collection description"
+        },
+        "search-text": {
+            "search_results": "Search results for:",
+            "search_numbers": "results"
+        }
+    },
+    "templates": {
+        "404": {
+            "title": "404",
+            "sub-title": "Page not found",
+            "subtext": "It appears that the page you are looking for does not exist.",
+            "button-back": "Back to home"
+        }
+    },
+    "wishlist": {
+        "title": "Wishlist",
+        "empty": {
+            "title": "Your wishlist is empty",
+            "subtext": "Explore our products and add your favorites here!",
+            "see_products": "See products"
+        }
+    },
+    "products": {
+        "product": {
+            "sold_out": "Sold Out",
+            "add_to_cart": "Add to Cart",
+            "mensage_alert": "Select a variant before adding to cart",
+        }
+    },
+    "collections": {
+        "sort_by": "Sort by",
+        "sort_options": {
+            "sort_by": "Sort by",
+            "price_ascending": "Price: Low to high",
+            "price_descending": "Price: High to low",
+            "created_descending": "New In",
+            "best_selling": "Best Sellers"
+        },
+        "filters": {
+            "filters": "Filters",
+            "products": "products",
+            "clear": "Clear",
+            "apply": "Apply"
+        },
+        "empty": {
+            "title": "No products were found for your search",
+            "subtext": "Explore our products and find what you need!",
+            "see_products": "See all products"
+        }
+    },
+    "customer": {
+        "login": {
+            "title": "Log in",
+            "email": "E-mail",
+            "password": "Password",
+            "forgot_password": "Forgot your password?",
+            "sign_in": "Sign in",
+            "create_account": "Create account",
+            "email_placeholder": "Enter your email",
+            "password_placeholder": "Enter your password"
+        },
+        "errors": {
+            "invalid_credentials": "Incorrect email or password."
+        },
+        "create_account": {
+            "title": "Create account",
+            "form": {
+                "first_name": {
+                    "label": "First Name",
+                    "placeholder": "Enter your first name"
+                },
+                "last_name": {
+                    "label": "Last Name",
+                    "placeholder": "Enter your last name"
+                },
+                "email": {
+                    "label": "Email",
+                    "placeholder": "Enter your email"
+                },
+                "password": {
+                    "label": "Password",
+                    "placeholder": "Enter your password"
+                }
+            },
+            "submit": "Create"
+        },
+        "reset_password": {
+            "title": "Reset account password",
+            "text": "Enter a new password",
+            "label-password": "Password",
+            "label-confirm-password": "Confirm password",
+            "btn-text": "Reset"
+        },
+        "recover_password": {
+            "title": "Recover password",
+            "text": "Enter your email address below and we'll send you a link to reset your password.",
+            "email": "Email",
+            "submit": "Submit",
+            "cancel": "Cancel"
+        }
+    },
+    "account": {
+        "menu": {
+            "personal_data": "Personal Data",
+            "address": "Address",
+            "orders": "Orders",
+            "logout": "Logout"
+        },
+        "personal_data": {
+            "title": "Personal Data",
+            "name": "Name",
+            "surname": "Surname",
+            "email": "Email"
+        },
+        "newsletter": {
+            "title": "Subscribe to our Newsletter",
+            "placeholder": "Enter your email",
+            "submit": "Subscribe",
+            "success": "Thank you for subscribing!",
+            "marketing_consent": "I want to receive promotional emails."
+        },
+        "addresses": {
+            "title": "Account Details",
+            "default_address": "Default Address",
+            "view_addresses": "View addresses"
+        },
+        "order_history": {
+            "title": "Order History",
+            "table": {
+                "order": "Order",
+                "date": "Date",
+                "payment_status": "Payment Status",
+                "fulfillment_status": "Fulfillment Status",
+                "total": "Total"
+            },
+            "no_orders": "You have no recent orders."
+        },
+        "address": {
+            "title": "Address",
+            "return_to_account": "Return to account details",
+            "add_new_title": "Add new address",
+            "button": {
+                "edit": "Edit",
+                "delete": "Delete",
+                "default": "Default",
+                "add_new": "Add address",
+                "no_addresses": "You have no saved addresses."
+            },
+            "edit-address": {
+                "title": "Edit Address",
+                "form": {
+                    "first_name": "First Name",
+                    "first_name_placeholder": "Enter your first name",
+                    "last_name": "Last Name",
+                    "last_name_placeholder": "Enter your last name",
+                    "company": "Company",
+                    "company_placeholder": "Enter your company name",
+                    "address1": "Address",
+                    "address1_placeholder": "Enter your address",
+                    "address2": "Address 2",
+                    "address2_placeholder": "Enter additional address info",
+                    "city": "City",
+                    "city_placeholder": "Enter your city",
+                    "country": "Country",
+                    "province": "State",
+                    "province_placeholder": "Select your state",
+                    "zip": "Postal code",
+                    "zip_placeholder": "Enter your postal code",
+                    "phone": "Phone Number",
+                    "phone_placeholder": "Enter your phone number",
+                    "submit": "Submit",
+                    "define": "Define as default"
+                }
+            }
+        }
+    },
+    "order": {
+        "title": "Order",
+        "return_to_account": "Return to account details",
+        "placed_on": "Placed on",
+        "table": {
+            "products": "Products",
+            "sku": "SKU",
+            "price": "Price",
+            "quantity": "Quantity",
+            "total": "Total"
+        },
+        "subtotal": "Subtotal",
+        "discount": "Discount:",
+        "shipping": "Shipping:",
+        "tax": "Tax:",
+        "total_price": "Total",
+        "billing_address": {
+            "title": "Billing Address",
+            "payment_status": "Payment status:"
+        },
+        "shipping_address": {
+            "title": "Shipping Address",
+            "fulfillment_status": "Fulfillment status:"
+        }
+    },
 }

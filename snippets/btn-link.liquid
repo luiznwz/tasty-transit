@@ -1,0 +1,39 @@
+{% comment %}
+  Usage:
+  {%  render 'btn-link' with
+      link: 'https://www.google.com',
+      text: 'Google',
+      mobile-full-width: true // se ele fica de ponta a ponta no width do mobile,
+      color: Cor do texto // section.settings.text_color or '#fff',
+      padding-block-inline: '1.4rem 3.4rem',
+      background-hover: '--dark-blue' // variavel de cor do background hover
+      text-color-hover: '--orange' // variavel de cor do texto hover
+  %}
+{% endcomment %}
+
+<a
+  href="{{ link }}"
+  class="btn-link btn-link--{{section.id}}{% if mobile_full_width %} btn-link--mobile-full-width{% endif %}"
+>
+  {{ text }}
+</a>
+
+<style>
+  {% if color %}
+      .btn-link--{{section.id}} {
+          color: {{ color }};
+          border-color: {{ color }};
+      }
+  {% endif %}
+  {% if padding-block-inline != blank %}
+      .btn-link--{{section.id}} {
+          padding: {{ padding-block-inline }};
+      }
+  {% endif %}
+
+  .btn-link--{{section.id}}:hover {
+      background-color: var({{ background-hover }});
+      border-color: var({{ background-hover }});
+      color: var({{ text-color-hover }})
+  }
+</style>

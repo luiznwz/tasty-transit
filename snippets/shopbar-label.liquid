@@ -1,0 +1,82 @@
+<label
+  class="
+    option-value
+    {% if result == true and optionForLoop != 0 %}
+      hidden
+    {% endif %}
+    {% if result == true %}
+      {% if value.available != true %} soldout {% endif %}
+    {% endif %}
+    {% if color == true %} color {% endif %}
+  "
+  for="shop-{{ value.options[optionForLoop] }}--{{ value.id }}"
+
+  {% if color == true %}
+    {% assign colors_main_product = product.metafields.shopify['color-pattern'].value %}
+    {% for color_main_product in colors_main_product %}
+      {% if color_main_product.label == value.options[optionForLoop] %}
+        style="background-color: {{ color_main_product.color.value }};"
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+>
+  {% if result == true %}
+    {% if value.available != true %}
+      <img
+        src="{{ 'line-soldout.png' |  asset_url }}"
+        alt="Sold Out"
+        height="auto"
+        width="auto"
+        loading="lazy"
+        class="soldout-image"
+      >
+    {% endif %}
+  {% endif %}
+
+  {% liquid
+    assign identifier = ''
+
+    for option_selected in value.options
+      if forloop.index0 < optionForLoop
+        assign identifier = identifier | append: option_selected
+
+        assign optionForLoopNext = optionForLoop | minus: 1
+
+        if forloop.index0 < optionForLoopNext
+          assign identifier = identifier | append: ','
+        endif
+      endif
+    endfor
+  %}
+
+  <input
+  {% if result == true %}
+    data-variant-option="{{ identifier }}"
+    value="{{ value.id }}"
+    data-price="{{ value.price | money }}"
+
+    {% if value.available != true %}
+      disabled
+    {% endif %}
+
+    {% if product.first_available_variant.id == value.id %}
+      checked
+    {% endif %}
+  {% else %}
+    data-head-position="{{optionForLoop}}"
+    data-variant-head="{{ value.options[optionForLoop] }}"
+    {% if product.first_available_variant.title contains value.title %}
+      checked
+    {% endif %}
+  {% endif %}
+
+    type="radio"
+    name="shop-{{ product.id }}-{{ option.name | replace: ' ', '-' }}"
+    id="shop-{{ value.options[optionForLoop] }}--{{ value.id }}"
+    style="display: none;"
+  >
+
+  {% if color == false %}
+    {{ value.options[optionForLoop] }}
+  {% endif %}
+</label>

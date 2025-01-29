@@ -1,0 +1,64 @@
+<cart-section
+    data-free-shipping-price="{{ settings.free_shipping_price }}"
+>
+    <script type="application/json" data-translations>
+        {
+            "free-shipping": {{ 'sections.cart-drawer.congratulations' | t | json }},
+            "missing-free-shipping": {{ 'sections.cart-drawer.missing_free_shipping' | t | json }},
+            "to_be_calculated": {{ 'sections.cart-drawer.to_be_calculated' | t | json }},
+            "free": {{ 'sections.cart-drawer.free' | t | json }}
+        }
+    </script>
+    <h2 class="cart_section_title">{{ 'sections.cart-section.cart' | t }} <span class="cart__item_count">({{ cart.item_count }})</span></h2>
+    <div class="cart_section__content">
+        <div class="cart_section_products__container">
+            <div id="cart_section_products_loader">
+            </div>
+            <div class="cart_section_cart_products">
+                {% if cart.item_count != 0 %}
+                    {% for product in cart.items %}
+                        {% render 'cart-item', product: product %}
+                    {% endfor %}
+                {% else %}
+                    <h3 class="cart_empty_title">{{ 'sections.cart-drawer.empty.title' | t }}</h3>
+                    <p class="cart_empty_subtext">{{ 'sections.cart-drawer.empty.subtext' | t }}</p>
+                    <a href="/collections/all" class="cart_empty_btn">
+                        {{ 'sections.cart-drawer.empty.see_products' | t }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="cart_footer">
+            <div class="progress_bar__container">
+                <div class="progress_bar">
+                    <div class="progress"></div>
+                </div>
+                <span class="progress_span"></span>
+            </div>
+            <h3 class="cart_order_summary">{{ 'sections.cart-section.order_summary' | t }}</h3>
+            <div class="cart_subtotal">
+                <h3 class="cart_subtotal_title">{{ 'sections.cart-drawer.subtotal' | t }}</h3>
+                <p class="cart_subtotal_price">{{ cart.total_price | money }}</p>
+            </div>
+            <div class="cart_shipping_value">
+                <h3 class="cart_shipping_title">{{ 'sections.cart-drawer.shipping' | t }}</h3>
+                <p class="cart_shipping_price"></p>
+            </div>
+            {% render 'discount-coupon' %}
+            <a href="/checkout" class="go_to_checkout">{{ 'sections.cart-drawer.go_to_checkout' | t }}</a>
+            <a href="/collections/all" class="continue_shopping">{{ 'sections.cart-section.continue_shopping' | t }}</a>
+        </div>
+    </div>
+</cart-section>
+
+{% schema %}
+    {
+      "name": "t:sections.cart-section.name",
+      "settings": [],
+      "presets": [
+        {
+          "name": "t:sections.cart-section.presets.name"
+        }
+      ]
+    }
+{% endschema %}

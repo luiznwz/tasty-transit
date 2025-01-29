@@ -1,0 +1,135 @@
+{% if template == 'search' %}
+  {% if search.results == blank and search.results_count == 0 %}
+    <carousel-products>
+        <div class="header-carousel-products">
+            <div class="title">
+                {{ section.settings.title_section }}
+
+                {% if section.settings.show_icon %}
+                  <img src="{{ section.settings.icon_title |  image_url: width: 100 }}" alt="Icon" width="auto" height="auto">
+                {% endif %}
+            </div>
+        </div>
+        <div class="blaze-slider carousel-product-slider">
+            <div class="blaze-container carousel-product-blaze-container">
+                <div class="blaze-track-container carousel-product-blaze-track-container">
+                    <div class="blaze-track carousel-product-blaze-track">
+                        {% for product in section.settings.collection.products %}
+                            {% render 'product-card', 
+                                product: product,
+                                show_new_tag: section.settings.show_new_tag,
+                                show_discount_tag: section.settings.show_discount_tag
+                            %}
+                        {% endfor %}
+                    </div>
+                    <div class="blaze-pagination blaze-pagination-carousel-product"></div>
+                </div>
+            </div>
+            <button class="blaze-prev carousel-product--prev" aria-label="Previous Slide">
+                {{ 'icon-arrow.svg' | inline_asset_content }}
+            </button>
+            <button class="blaze-next carousel-product--next" aria-label="Next Slide">
+                {{ 'icon-arrow.svg' | inline_asset_content }}
+            </button>
+        </div>
+        <div class="button-carousel-products">
+            <a href="{{ section.settings.collection.url }}" class="button">{{ section.settings.text_button }}</a>
+        </div>
+    </carousel-products>
+  {% endif %}
+{% else %}
+  <carousel-products>
+      <div class="header-carousel-products">
+          <div class="title">
+              {{ section.settings.title_section }}
+
+              {% if section.settings.show_icon %}
+                <img src="{{ section.settings.icon_title |  image_url: width: 100 }}" alt="Icon" width="auto" height="auto">
+              {% endif %}
+          </div>
+      </div>
+      <div class="blaze-slider carousel-product-slider">
+          <div class="blaze-container carousel-product-blaze-container">
+              <div class="blaze-track-container carousel-product-blaze-track-container">
+                  <div class="blaze-track carousel-product-blaze-track">
+                      {% for product in section.settings.collection.products %}
+                          {% render 'product-card', 
+                              product: product,
+                              show_new_tag: section.settings.show_new_tag,
+                              show_discount_tag: section.settings.show_discount_tag
+                          %}
+                      {% endfor %}
+                  </div>
+                  <div class="blaze-pagination blaze-pagination-carousel-product"></div>
+              </div>
+          </div>
+          <button class="blaze-prev carousel-product--prev" aria-label="Previous Slide">
+              {{ 'icon-arrow.svg' | inline_asset_content }}
+          </button>
+          <button class="blaze-next carousel-product--next" aria-label="Next Slide">
+              {{ 'icon-arrow.svg' | inline_asset_content }}
+          </button>
+      </div>
+      <div class="button-carousel-products">
+          <a href="{{ section.settings.collection.url }}" class="button">{{ section.settings.text_button }}</a>
+      </div>
+  </carousel-products>
+{% endif %}
+
+{% schema %}
+    {
+      "name": "t:sections.carousel-products.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.carousel-products.settings.header.content"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.carousel-products.settings.collection.label",
+          "info": "t:sections.carousel-products.settings.collection.info"
+        },
+        {
+          "type": "richtext",
+          "id": "title_section",
+          "label": "t:sections.carousel-products.settings.title_section.label",
+          "default": "<p>Best Sellers</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_icon",
+          "label": "t:sections.carousel-products.settings.show_icon.label",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_title",
+          "label": "t:sections.carousel-products.settings.icon_title.label"
+        },
+        {
+          "type": "text",
+          "id": "text_button",
+          "label": "t:sections.carousel-products.settings.text_button.label",
+          "default": "Ver Todos"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_discount_tag",
+          "label": "t:sections.carousel-products.settings.show_discount_tag.label",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_new_tag",
+          "label": "t:sections.carousel-products.settings.show_new_tag.label",
+          "default": true
+        }
+      ],
+      "presets": [
+        {
+          "name": "t:sections.carousel-products.presets.name"
+        }
+      ]
+    }
+{% endschema %}

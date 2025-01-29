@@ -1,0 +1,258 @@
+:root{
+    --carousel-products-title: clamp(2rem, 2.5vw, 3.2rem);
+}
+
+banner-carousel-products{
+    max-width: var(--page-width);
+    margin: 0 auto;
+    width: 100%;
+    padding-block: clamp(5rem, 5.5vw, 9rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 2.5vw, 4rem);
+
+    .header-banner-carousel-products{
+        .title{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            p{
+                color: var(--dark-blue);
+                text-align: center;
+                font-family: var(--font-rebond);
+                font-size: var(--carousel-products-title);
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+
+                strong{
+                    font-weight: 700;
+                }
+            }
+
+            img{
+                width: clamp(2rem, 2.5vw, 3rem);
+                height: clamp(2rem, 2.5vw, 3rem);
+            }
+        }
+
+    }
+
+    .banner-carousel-products-container{
+        display: grid;
+
+        &.left{
+            grid-template-columns: minmax(0, 1fr);
+            gap: clamp(2.5rem, 5vw, 4rem);
+
+            @media screen and (min-width: 768px){
+                grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+                gap: clamp(6rem,6vw,12rem); 
+            }
+            .banner-carousel-products__banner{
+                order: 1;
+            }
+
+            .banner-carousel-products-slider{
+                order: 2;
+            }
+        }
+
+        &.right{
+            grid-template-columns: minmax(0, 1fr);
+            gap: clamp(2.5rem, 5vw, 4rem);
+
+            @media screen and (min-width: 768px){
+                grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+                gap: clamp(6rem,6vw,12rem); 
+            }
+            
+            @media screen and (min-width: 768px){
+                .banner-carousel-products__banner{
+                    order: 2;
+                }
+    
+                .banner-carousel-products-slider{
+                    order: 1;
+                }
+            }
+        }
+
+        .banner-carousel-products__banner{
+            border-radius: 2rem;
+            overflow: hidden;
+
+            :is(img){
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                &.desktop{
+                    display: none;
+
+                    @media screen and (min-width: 768px){
+                        display: block;
+                    }
+                }
+
+                &.mobile{
+                    display: block;
+
+                    @media screen and (min-width: 768px){
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .banner-carousel-products-slider{
+            position: relative;
+            
+            .banner-carousel-products-blaze-container{
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .banner-carousel-products-blaze-track-container{
+                    display: flex;
+                    flex-direction: column;
+                    gap: clamp(2rem, 2.5vw, 4rem);
+    
+                    .banner-carousel-products-blaze-track{
+                        product-card{
+                            max-width: unset;
+                        }
+                    }
+
+                    .blaze-pagination-banner-carousel-products{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 1rem;
+    
+                        :is(button){
+                            border-radius: 50%;
+                            border: 1.14px solid var(--dark-blue);
+                            background: transparent;
+                            width: 1rem;
+                            height: 1rem;
+                            font-size: 0;
+                            transition: all 0.3s ease;
+    
+                            &.active{
+                                border-radius: 3.5rem;
+                                border: 1.14px solid var(--dark-blue);
+                                background: var(--dark-blue);
+                            }
+                        }
+                    }
+                }
+            }
+            .banner-carousel-products--prev{
+                position: absolute;
+                top: 50%;
+                left: -4%;
+                transform: translate(-50%, -50%);
+                border: none;
+                background-color: transparent;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+    
+                @media screen and (min-width: 768px){
+                    display: flex;
+                }
+    
+                &:hover {
+                    :is(svg) {
+                        :is(g) {
+                            :is(rect) {
+                                fill: var(--light-blue);
+                            }
+                        }
+                    }
+                }
+
+                svg{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    transform: rotate(180deg);
+
+                    :is(g) {
+                        :is(rect) {
+                            fill: var(--dark-blue);
+                            transition: fill 0.3s;
+                        }
+    
+                        :is(path) {
+                            stroke: var(--white);
+                            transition: stroke 0.3s;
+                        }
+                    }
+                }
+            }
+            .banner-carousel-products--next{
+                position: absolute;
+                top: 50%;
+                right: -8%;
+                transform: translate(-50%, -50%);
+                border: none;
+                background-color: transparent;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                
+                @media screen and (min-width: 768px){
+                    display: flex;
+                }
+
+                &:hover {
+                    :is(svg) {
+                        :is(g) {
+                            :is(rect) {
+                                fill: var(--light-blue);
+                            }
+                        }
+                    }
+                }
+
+                svg{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+
+                    :is(g) {
+                        :is(rect) {
+                            fill: var(--dark-blue);
+                            transition: fill 0.3s;
+                        }
+    
+                        :is(path) {
+                            stroke: var(--white);
+                            transition: stroke 0.3s;
+                        }
+                    }
+                }
+            }
+
+            .banner-carousel-products--prev[disabled], .banner-carousel-products--next[disabled] {            
+                pointer-events: none;
+    
+                svg {
+                    :is(g) {
+                        :is(rect) {
+                            fill: var(--light-gray);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+<shipping-calculator-cart-drawer class="shipping__container-cart-drawer">
+    <h3 class="shipping__title">{{ 'sections.shipping.shipping_calculate' | t }}{{ 'add.svg' | inline_asset_content }}</h3>
+    <form class="shipping__form" closed>
+        <div class="shipping__input-wrapper">
+            <input type="text" name="cep" id="cep" placeholder="{{ 'sections.shipping.cep' | t }}" maxlength="9">
+            <button type="submit" class="shipping_submit">{{ 'arrow-right.svg' | inline_asset_content }}</button>
+        </div>
+        <div class="shipping__response"></div>
+    </form>
+</shipping-calculator-cart-drawer>

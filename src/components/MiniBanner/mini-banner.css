@@ -1,0 +1,162 @@
+:root{
+    --mini-banner-title: clamp(1.6rem, 2.5vw,2.4rem);
+    --mini-banner-content: clamp(1.2rem, 2.5vw, 1.6rem);
+    --mini-banner-button: clamp(1.4rem, 2.5vw, 1.6rem);
+}
+
+.mini-banner{
+    .mini-banner-container{
+        border-radius: 1.2rem;
+        /* background: var(--dark-blue); */
+        overflow: hidden;
+        max-width: var(--page-width);
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @media screen and (min-width: 768px){
+            border-radius: 2.4rem;
+        }
+
+        &.mini-banner-left{
+            @media screen and (min-width: 768px){
+                grid-template-columns: 1fr 0.8fr;
+            }
+
+            .mini-banner-image{
+                @media screen and (min-width: 768px){
+                    order: 1;
+                }
+            }
+
+            .mini-banner-content{
+                @media screen and (min-width: 768px){
+                    order: 2;
+                }
+            }
+        }
+
+        &.mini-banner-right{
+            @media screen and (min-width: 768px){
+                grid-template-columns: 0.8fr 1fr;
+            }
+
+            .mini-banner-image{
+                @media screen and (min-width: 768px){
+                    order: 2;
+                }
+            }
+
+            .mini-banner-content{
+                @media screen and (min-width: 768px){
+                    order: 1;
+                }
+            }
+        }
+
+        .mini-banner-image{
+            width: 100%;
+            :is(img){
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+            }
+        }
+
+        .mini-banner-content{
+            display: flex;
+            flex-direction: column;
+            gap: clamp(2rem, 2.5vw, 4.8rem);
+            padding-block: clamp(2rem, 5vw, 3.4rem);
+            padding-inline: clamp(3rem, 5vw, 4rem);
+
+            @media screen and (min-width: 768px){
+                order: 1;
+                padding-block: clamp(5rem, 7vw, 9.9rem);
+                padding-inline: clamp(5rem, 7vw, 10.9rem);
+            }
+
+            .mini-banner-logo-title{
+                width: 85%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: clamp(1.6rem, 2.5vw, 2rem);
+                margin: 0 auto;
+
+                @media screen and (min-width: 768px){
+                    width: 100%;
+                }
+
+                .mini-banner-title{
+                    :is(h2){
+                        /* color: var(--white); */
+                        font-family: var(--font-rebond);
+                        font-size: var(--mini-banner-title) ;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 140%; /* 3.36rem */
+                    }
+                }
+
+                :is(img){
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .mini-banner-info{
+                display: flex;
+                flex-direction: column;
+                gap: clamp(2rem, 2.5vw, 3.2rem);
+                align-items: center;
+
+                @media screen and (min-width: 768px){
+                    align-items: start;
+                }
+
+                :is(p){
+                    /* color: var(--white); */
+                    font-family: var(--font-rebond);
+                    font-size: var(--mini-banner-content);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%; /* 2.24rem */
+                    text-align: center;
+
+                    @media screen and (min-width: 768px){
+                        text-align: left;
+                    }
+                }
+    
+                :is(a){
+                    text-decoration: none;
+                    /* color: var(--dark-blue); */
+                    font-family: var(--font-rebond);
+                    font-size: var(--mini-banner-button);
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    border-radius: 10rem;
+                    /* background: var(--white); */
+                    /* border: 1px solid var(--white); */
+                    padding: 1.2rem 2.4rem;
+                    text-align: center;
+                    transition: all 0.3s ease-in-out;
+                    cursor: pointer;
+
+                    /* &:hover{
+                        background: var(--dark-blue);
+                        color: var(--white);
+                        border: 1px solid var(--white);
+                    } */
+
+                    @media screen and (min-width: 768px){
+                        padding: 1.2rem 3.2rem; 
+                    }
+                }
+            }
+        }
+    }
+}

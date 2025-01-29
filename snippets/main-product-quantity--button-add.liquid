@@ -1,0 +1,31 @@
+<div class="container-quantity-add-cart">
+  <div class="container-quantity-add-cart-content">
+    <div class="container-quantity-buttons">
+      <button disabled data-main-product-quantity-decrease type="button">
+        {{ 'minus-pdp.svg' | inline_asset_content }}
+      </button>
+      <input type="text" value="1" data-main-product-quantity>
+      <button data-main-product-quantity-increase type="button">{{ 'plus-pdp.svg' | inline_asset_content }}</button>
+    </div>
+    <button
+      {% if product.available == false %}
+        disabled
+      {% endif %}
+      class="main-product-form-add-to-cart"
+      data-out-of-stock="{{ 'products.product.sold_out' | t }}"
+      data-default="{{ 'products.product.add_to_cart' | t }}"
+    >
+      <span class="btn_text">
+        {% if product.available == false %}
+          {{ 'products.product.sold_out' | t }}
+        {% else %}
+          {{ 'products.product.add_to_cart' | t }}
+        {% endif %}
+      </span>
+      <span class="loader"></span>
+    </button>
+  </div>
+  <div class="product-add-to-cart-message" data-main-product-add-to-cart-message>
+    <p>{{ 'products.product.mensage_alert' | t }}</p>
+  </div>
+</div>

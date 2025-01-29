@@ -1,0 +1,98 @@
+<account-access>
+  <div class="account-acess-login">
+    {% form 'create_customer' %}
+      <h2 class="title">{{ 'customer.create_account.title' | t }}</h2>
+
+      {% if form.errors %}
+        <div class="form-error">
+          {{ 'error.svg' | inline_asset_content }}
+          {{ 'customer.errors.invalid_credentials' | t }}
+        </div>
+      {% endif %}
+
+      <div class="container-fields">
+        <div class="form-field">
+          <label for="RegisterForm-FirstName">{{ 'customer.create_account.form.first_name.label' | t }}</label>
+          <input
+            class="input-item"
+            type="text"
+            name="customer[first_name]"
+            id="RegisterForm-FirstName"
+            autocomplete="given-name"
+            placeholder="{{ 'customer.create_account.form.first_name.placeholder' | t }}"
+            aria-describedby="{{ 'customer.create_account.form.first_name.placeholder' | t }}"
+            aria-label="{{ 'customer.create_account.form.first_name.placeholder' | t }}"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="RegisterForm-LastName">{{ 'customer.create_account.form.last_name.label' | t }}</label>
+          <input
+            class="input-item"
+            type="text"
+            name="customer[last_name]"
+            id="RegisterForm-LastName"
+            autocomplete="family-name"
+            placeholder="{{ 'customer.create_account.form.last_name.placeholder' | t }}"
+            aria-describedby="{{ 'customer.create_account.form.last_name.placeholder' | t }}"
+            aria-label="{{ 'customer.create_account.form.last_name.placeholder' | t }}"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="customer_email">{{ 'customer.create_account.form.email.label' | t }}</label>
+          <input
+            class="input-item"
+            type="email"
+            name="customer[email]"
+            id="customer_email"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="{{ 'customer.create_account.form.email.placeholder' | t }}"
+            aria-describedby="{{ 'customer.create_account.form.email.label' | t }}"
+            aria-label="{{ 'general.accessibility.email_label' | t }}"
+            required
+          >
+        </div>
+
+        <div class="form-field form-field-password">
+          <label for="customer_password">{{ 'customer.create_account.form.password.label' | t }}</label>
+          <div class="container-input-password">
+            <input
+              class="input-item input-password"
+              type="password"
+              value=""
+              name="customer[password]"
+              id="customer_password"
+              autocomplete="new-password"
+              aria-label="{{ 'general.accessibility.password_label' | t }}"
+              aria-describedby="{{ 'customer.create_account.form.password.label' | t }}"
+              placeholder="{{ 'customer.create_account.form.password.placeholder' | t }}"
+              required
+            >
+            {{ 'eye.svg' | inline_asset_content }}
+          </div>
+        </div>
+      </div>
+
+      <div class="container-buttons">
+        <div class="form-actions">
+          <button class="btn-submit" type="submit">{{ 'customer.create_account.submit' | t }}</button>
+        </div>
+      </div>
+    {% endform %}
+  </div>
+</account-access>
+
+{% schema %}
+{
+  "name": "t:sections.register.name",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:sections.register.name"
+    }
+  ]
+}
+{% endschema %}

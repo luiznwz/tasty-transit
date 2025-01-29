@@ -1,0 +1,54 @@
+{% liquid
+    assign mini_banner_metafields = product.metafields.custom.mini_banner.value
+
+    if mini_banner_metafields != blank 
+        assign primary_color = mini_banner_metafields.primary
+        assign secondary_color = mini_banner_metafields.secondary
+    else
+        if template.name != 'product'
+            assign primary_color = section.settings.primary_color
+            assign secondary_color = section.settings.secondary_color
+        endif
+    endif
+
+    assign template_mini_banner = section.settings.template_mini_banner
+%}
+
+<style>
+.mini-banner--{{ section.id }}{
+    {% if template_mini_banner %}
+        padding-block: clamp(5rem, 5vw, 9rem);
+    {% endif %}
+
+    .mini-banner-container{
+        background: {{ primary_color }};
+
+        .mini-banner-content{
+            .mini-banner-logo-title{
+                .mini-banner-title{
+                    :is(h2){
+                        color: {{ secondary_color }};
+                    }
+                }
+            }
+            .mini-banner-info{
+                :is(p){
+                    color: {{ secondary_color }};
+                }
+    
+                :is(a){
+                    color: {{ primary_color}};
+                    background: {{ secondary_color }};
+                    border: 1px solid {{ secondary_color }};
+
+                    &:hover{
+                        background-color: {{ primary_color}};
+                        color: {{ secondary_color }};
+                        border: 1px solid {{ secondary_color }};
+                    }
+                }
+            }
+        }
+    }
+}
+</style>

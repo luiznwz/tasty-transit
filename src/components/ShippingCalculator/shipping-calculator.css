@@ -1,0 +1,146 @@
+.shipping__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.2rem;
+
+    .shipping__title {
+        color: var(--dark-blue);
+        font-family: var(--font-rebond);
+        font-size: clamp(1.4rem, 2vw, 1.8rem);
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .shipping__form {
+        display: flex;
+        align-items: stretch;
+
+        .shipping__input-wrapper {
+            display: flex;
+            width: 100%;
+            height: 4.2rem;
+
+            @media screen and (min-width: 768px) {
+                height: 4.6rem;
+            }
+
+            :is(input) {
+                color: var(--dark-blue);
+                font-family: var(--font-rebond);
+                font-size: clamp(1.2rem, 2vw, 1.6rem);
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                text-transform: uppercase;
+                padding: 1.4rem clamp(1.8rem, 2vw, 2.4rem);
+                border: none;
+                border-radius: 100px 0rem 0rem 100px;
+                border-top: 1px solid var(--dark-gray);
+                border-bottom: 1px solid var(--dark-gray);
+                border-left: 1px solid var(--dark-gray);
+                transition: .3s border;
+                min-width: 0px;
+                height: 4.2rem;
+
+                @media screen and (min-width: 768px) {
+                    height: 4.6rem;
+                }
+
+                &::placeholder {
+                    color: var(--dark-blue);
+                    font-family: var(--font-rebond);
+                    font-size: clamp(1.2rem, 2vw, 1.6rem);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    text-transform: uppercase;
+                }
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid var(--light-blue);
+                    border-right: none;
+                }
+            }
+
+            .shipping_submit {
+                border: none;
+                max-width: 5.6rem;
+                width: 100%;
+                border-radius: 0rem 100px 100px 0rem;
+                background: var(--dark-blue);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                padding: 1.4rem;
+                height: 4.2rem;
+                transition: all .3s ease-in-out;
+
+                @media screen and (min-width: 768px) {
+                    height: 4.6rem;
+                }
+
+                &:hover {
+                    /* :is(svg) {
+                        :is(path) {
+                             stroke: var(--pink); 
+                        }
+                    } */
+                    background-color: var(--light-blue);
+                }
+
+                &.loading {
+                    opacity: 0.7;
+                    cursor: not-allowed;
+                }
+
+                :is(svg) {
+                    width: clamp(2rem, 3vw, 2.8rem);
+                    height: clamp(2rem, 3vw, 2.8rem);
+                    display: block;
+
+                    :is(path) {
+                        transition: .3s stroke;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .shipping__response {
+        margin-top: 1rem;
+
+        &:empty {
+            display: none;
+        }
+
+        .shipping__rates {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 0.8rem;
+                color: var(--dark-blue);
+                font-size: clamp(1.2rem, 2vw, 1.4rem);
+                font-family: var(--font-rebond);
+
+                span {
+                    display: block;
+
+                    &:first-child {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        .shipping__error {
+            color: var(--error-color, #ff0000);
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+        }
+    }
+}

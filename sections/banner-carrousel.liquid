@@ -1,0 +1,196 @@
+{% liquid
+  assign blocks = section.blocks
+%}
+
+<banner-carrousel>
+  <div class="blaze-slider">
+    <div class="blaze-container">
+      <div class="blaze-track-container">
+        <div class="blaze-track">
+          {% for block in blocks %}
+            <div class="blaze-slide banner_slide {% if forloop.first == true %}first_banner{% endif %}">
+              <div class="content_banner_text">
+                <h3 class="banner_subtitle">{{ block.settings.subtitle }}</h3>
+                <h2 class="banner_title">{{ block.settings.title }}</h2>
+                {% if block.settings.text_button != blank %}
+                  <a href="{{ block.settings.url_button }}" class="banner_button">{{ block.settings.text_button }}</a>
+                {% endif %}
+              </div>
+              {% if block.type == 'image' %}
+                <img
+                  src="{{ block.settings.image_desktop | image_url: width: 1920 }}"
+                  width="100%"
+                  height="auto"
+                  alt="{{ block.settings.alt }}"
+                  class="banner_image desktop"
+                >
+                <img
+                  src="{{ block.settings.image_mobile | image_url: width: 390 }}"
+                  width="100%"
+                  height="auto"
+                  alt="{{ block.settings.alt }}"
+                  class="banner_image mobile"
+                >
+              {% else %}
+                <div
+                  class="banner_video_play"
+                  {% if block.settings.autoplay == false %}
+                    active
+                  {% endif %}
+                >
+                  {{ 'play.svg' | inline_asset_content }}
+                </div>
+                <video
+                  width="1920"
+                  {% if block.settings.autoplay == true %}
+                    autoplay
+                  {% endif %}
+                  loop
+                  muted
+                  playsinline
+                  class="banner_video desktop"
+                >
+                  <source src="{{ block.settings.video_desktop.sources[1].url }}" type="video/mp4">
+                </video>
+                <video
+                  width="390"
+                  {% if block.settings.autoplay == true %}
+                    autoplay
+                  {% endif %}
+                  loop
+                  muted
+                  playsinline
+                  class="banner_video mobile"
+                >
+                  <source src="{{ block.settings.video_mobile.sources[1].url }}" type="video/mp4">
+                </video>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="blaze-pagination blaze-pagination-banner-carrousel"></div>
+      </div>
+    </div>
+  </div>
+</banner-carrousel>
+
+{% schema %}
+{
+  "name": "t:sections.banner-carrousel.name",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:sections.banner-carrousel.blocks.image.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.banner-carrousel.blocks.image.settings.header.content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.image_desktop.label",
+          "info": "t:sections.banner-carrousel.blocks.image.settings.image_desktop.info"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.image_mobile.label",
+          "info": "t:sections.banner-carrousel.blocks.image.settings.image_mobile.info"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.alt.label",
+          "info": "t:sections.banner-carrousel.blocks.image.settings.alt.info",
+          "default": "Kuf"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.subtitle.label",
+          "default": "NEW COLLECTION"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.title.label",
+          "default": "Barbara Labres"
+        },
+        {
+          "type": "text",
+          "id": "text_button",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.text_button.label",
+          "default": "Descobrir"
+        },
+        {
+          "type": "url",
+          "id": "url_button",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.url_button.label"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "t:sections.banner-carrousel.blocks.video.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.banner-carrousel.blocks.video.settings.header.content"
+        },
+        {
+          "type": "video",
+          "id": "video_desktop",
+          "label": "t:sections.banner-carrousel.blocks.video.settings.video_desktop.label",
+          "info": "t:sections.banner-carrousel.blocks.video.settings.video_desktop.info"
+        },
+        {
+          "type": "video",
+          "id": "video_mobile",
+          "label": "t:sections.banner-carrousel.blocks.video.settings.video_mobile.label",
+          "info": "t:sections.banner-carrousel.blocks.video.settings.video_mobile.info"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.banner-carrousel.blocks.video.settings.video_settings_header.content"
+        },
+        {
+          "type": "checkbox",
+          "id": "autoplay",
+          "label": "t:sections.banner-carrousel.blocks.video.settings.autoplay.label",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.subtitle.label",
+          "default": "NEW COLLECTION"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.title.label",
+          "default": "Barbara Labres"
+        },
+        {
+          "type": "text",
+          "id": "text_button",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.text_button.label",
+          "default": "Descobrir"
+        },
+        {
+          "type": "url",
+          "id": "url_button",
+          "label": "t:sections.banner-carrousel.blocks.image.settings.url_button.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.banner-carrousel.presets.name"
+    }
+  ]
+}
+{% endschema %}

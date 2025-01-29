@@ -1,0 +1,362 @@
+about-product {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    width: 100%; 
+    padding-block: clamp(5rem, 10vw, 9rem);
+    margin: 0 auto;
+    gap: 2.4rem;
+
+    @media screen and (min-width: 768px) {
+        max-width: var(--page-width);
+        gap: 5rem;
+        grid-template-columns: 1.5fr auto;
+
+        @media screen and (min-width: 1440px) {
+            gap: 9rem;
+            max-width: calc(var(--page-width)* 0.9);
+        }
+    }
+
+    .container-main-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 2rem;
+        overflow: hidden;
+
+        @media screen and (min-width: 768px) {
+            gap: 6rem;
+            overflow: unset;
+        }
+
+        .title-about-product {
+            color: var(--dark-blue);
+            text-align: center;
+            font-family: var(--font-rebond);
+            font-size: clamp(2rem, 3vw, 3.2rem);
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            max-width: var(--page-width);
+            margin: 0 auto;
+
+
+            @media screen and (min-width: 768px) {
+                text-align: left;
+            }
+        }
+
+        .container-options-content-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 5rem;
+            max-width: var(--page-width);
+            margin: 0 auto;
+
+            @media screen and (min-width: 768px) {
+                gap: 2rem;
+
+                @media screen and (min-width: 1440px) {
+                    gap: 5rem;
+
+                }
+            }
+
+            .container-options {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                gap: 1.2rem;   
+                overflow: hidden; 
+                overflow-x: scroll; 
+                -ms-overflow-style: none;
+                scrollbar-width: none; 
+                        
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                @media screen and (min-width: 768px) {
+                    gap: 2rem;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: fit-content;
+                    overflow: unset;
+                }
+
+                .option {
+                    color: var(--dark-blue);
+                    text-align: center;
+                    font-family: var(--font-rebond);
+                    font-size: clamp(1.2rem, 2vw, 1.8rem);
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    padding: clamp(1.2rem, 2vw, 1.6rem) clamp(2.4rem, 4vw, 3.2rem);
+                    border-radius: 10rem;
+                    border: 1px solid var(--light-gray);
+                    background-color: var(--white);
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                    width: max-content;
+
+                    &.active {
+                        border: 1px solid var(--dark-blue);
+                        background-color: var(--dark-blue);
+                        color: var(--white);
+                    }
+
+                    &:hover {
+                        border: 1px solid var(--dark-blue);
+                        background-color: var(--dark-blue);
+                        color: var(--white);
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+            .container-content-option {
+
+                &.desktop {
+                    display: none;
+
+                    @media screen and (min-width: 768px) {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 3.2rem;
+                        width: 100%;
+                    }
+                }
+
+                .title_option {
+                    color: var(--dark-blue);
+                    text-align: center;
+                    font-family: var(--font-rebond);
+                    font-size: clamp(2rem, 3vw, 3.2rem);
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+
+                    @media screen and (min-width: 768px) {
+                        text-align: left;
+                    }
+
+                    &.hidden {
+                        display: none;
+                    }
+                }
+
+                .container-container-content-option-texts-main {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    row-gap: 4rem;
+                    column-gap: 4.3rem;
+
+                    &.hidden {
+                        display: none;
+                    }
+
+                    .container-content-option-texts {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.6rem;
+
+                        &:has(.image_item) {
+                            align-items: center;
+
+                            .text {
+                                text-align: center;
+                            }
+                        }
+
+                        .image_item {
+                            width: clamp(4rem, 10vw, 6rem);
+                            height: clamp(4rem, 10vw, 6rem);
+                            display: block;
+                        }
+
+                        .title_item {
+                            color: var(--dark-blue);
+                            text-align: center;
+                            font-family: var(--font-rebond);
+                            font-size: clamp(2.8rem, 4vw, 4rem);
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+
+                            @media screen and (min-width: 768px) {
+                                text-align: left;
+                            }
+                        }
+
+                        .text {
+                            color: var(--dark-gray);
+                            text-align: center;
+                            font-family: var(--font-rebond);
+                            font-size: clamp(1.2rem, 2vw, 1.6rem);
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+
+                            @media screen and (min-width: 768px) {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .container-content-image {
+            &.mobile {
+                display: block;
+                width: 100%;
+                height: clamp(25rem, 40vw, 30rem);
+
+                @media screen and (min-width: 768px) {
+                    display: none;
+                }
+            }
+
+            .image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+
+                @media screen and (min-width: 768px) {
+                    border-radius: 1.2rem;
+                    
+                }
+
+                &.hidden {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .container-content-image {
+        &.desktop {
+            display: none;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+                max-width: 47.5rem;
+                width: 100%;
+                height: 47.5rem;
+                border-radius: 1.6rem;
+            }
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+
+            @media screen and (min-width:768px){
+                border-radius: 1.6rem;
+            }
+
+            &.hidden {
+                display: none;
+            }
+        }
+    }
+
+    .container-content-option {
+
+        &.mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 100%;
+            max-width: var(--page-width);
+            margin: 0 auto;
+
+            @media screen and (min-width: 768px) {
+                display: none;
+            }
+        }
+
+        .title_option {
+            color: var(--dark-blue);
+            text-align: center;
+            font-family: var(--font-rebond);
+            font-size: clamp(2rem, 3vw, 3.2rem);
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+
+            @media screen and (min-width: 768px) {
+                text-align: left;
+            }
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        .container-container-content-option-texts-main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 2rem;
+            column-gap: 3.2rem;
+
+            &.hidden {
+                display: none;
+            }
+
+            .container-content-option-texts {
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+
+
+                &:has(.image_item) {
+                    align-items: center;
+
+                    .text {
+                        text-align: center;
+                    }
+                }
+
+                .image_item {
+                    width: clamp(4rem, 10vw, 6rem);
+                    height: clamp(4rem, 10vw, 6rem);
+                    display: block;
+                }
+
+                .title_item {
+                    color: var(--dark-blue);
+                    text-align: center;
+                    font-family: var(--font-rebond);
+                    font-size: clamp(2.8rem, 4vw, 4rem);
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+
+                    @media screen and (min-width: 768px) {
+                        text-align: left;
+                    }
+                }
+
+                .text {
+                    color: var(--dark-gray);
+                    text-align: center;
+                    font-family: var(--font-rebond);
+                    font-size: clamp(1.2rem, 2vw, 1.6rem);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+
+                    @media screen and (min-width: 768px) {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+<div class="grid-main-product">
+  {% for image in product.images %}
+    <div class="container-item-image">
+      <img src="{{ image.src | image_url: width: 360, height: 444 }}" alt="{{ image.alt | escape }}" height="auto" width="auto" loading="lazy">
+    </div>
+  {% endfor %}
+</div>

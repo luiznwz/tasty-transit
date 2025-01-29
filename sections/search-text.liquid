@@ -1,0 +1,20 @@
+<div class="search_text__container">
+    <h2 class="search_text_title">
+        <p>{{ 'sections.search-text.search_results' | t }} "{{ search.terms }}"</p>
+    </h2>
+    <div class="search_text_subtitle">
+        <p>{{ search.results_count }} {{ 'sections.search-text.search_numbers' | t }}</p>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "t:sections.search-text.name",
+        "settings": [],
+        "presets": [
+            {
+                "name": "t:sections.search-text.name"
+            }
+        ]
+    }
+{% endschema %}

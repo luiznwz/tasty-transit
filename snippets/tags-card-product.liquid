@@ -1,0 +1,37 @@
+{% liquid
+    assign has_new_tag = false
+    assign has_discount = false
+    assign discount_percentage = 0
+
+    if product_tag.tags
+        for tag in product_tag.tags
+            assign tag_adjusted = tag | downcase
+            if tag_adjusted == 'new'
+                assign has_new_tag = true
+            endif
+        endfor
+    endif
+
+    if product_tag.compare_at_price > product_tag.price
+        assign has_discount = true
+        assign has_new_tag = false
+
+        assign discount_difference = product_tag.compare_at_price | minus: product_tag.price
+        assign discount_percentage = discount_difference | times: 100 | divided_by: product_tag.compare_at_price
+    endif
+%}
+         
+{% if has_new_tag or has_discount %}
+    <div class="container-tag">  
+        {% if show_new_tag %}           
+            {% if has_new_tag  %}
+                <span class="tag">{{ tag_adjusted | upcase }}</span>
+            {% endif %}
+        {% endif %}
+        {% if show_discount_tag %}
+            {% if has_discount %}
+                <span class="tag">-{{ discount_percentage | round }}%</span>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endif %}

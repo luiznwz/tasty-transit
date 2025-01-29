@@ -1,0 +1,41 @@
+<collection-grid data-section-id="{{ section.id }}" data-is-search="{% if search.results %}true{% else %}false{% endif %}">
+  <div id="collection_loader">
+    <span class="loader"></span>
+  </div>
+  <div class="collection_grid__container">
+    {% if search.results != blank and search.results_count != 0 %}
+      {% paginate search.results by 16 %}
+        {% for product in search.results %}
+          {% if product.object_type == 'product' %}
+            {% render 'product-card', product: product %}
+          {% endif %}
+        {% endfor %}
+      {% endpaginate %}
+    {% elsif collection.products != blank and collection.products.size != 0 %}
+      {% paginate collection.products by 16 %}
+        {% for product in collection.products %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      {% endpaginate %}
+    {% else %}
+      <div class="collection_empty__container">
+        <h3 class="collection_empty_title">{{ 'collections.empty.title' | t }}</h3>
+        <p class="collection_empty_text">{{ 'collections.empty.subtext' | t }}</p>
+        {% assign text_btn = 'collections.empty.see_products' | t %}
+        {% render 'btn-link', text: text_btn, link: '/collections' %}
+      </div>
+    {% endif %}
+  </div>
+</collection-grid>
+
+{% schema %}
+{
+  "name": "t:sections.collection-grid.name",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:sections.collection-grid.name"
+    }
+  ]
+}
+{% endschema %}

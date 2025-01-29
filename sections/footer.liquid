@@ -1,0 +1,191 @@
+<footer-component>
+  <footer class="main-footer">
+    <div class="container-brand-links">
+      <div class="brand-information">
+        <a href="{{ shop.url }}" class="link-logo-footer">
+          <img
+            src="{{ section.settings.logo |  image_url: width: nil }}"
+            alt="{{ shop.name }}"
+            class="logo-store"
+            height="auto"
+            width="auto"
+          >
+        </a>
+
+        <div class="container-info-content">
+          {% assign info_separator = section.settings.info_brand | split: ',' %}
+          {% for info in info_separator %}
+            <p>{{ info }}</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="container-newsletter-social first">
+        <div class="newsletter">
+          <p class="title-newsletter">{{ section.settings.title_newsletter }}</p>
+          {% form 'customer' %}
+            {{ form.errors | default_errors }}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input
+              type="email"
+              name="contact[email]"
+              id="Email"
+              value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+              placeholder="{{ section.settings.placeholder_newsletter }}"
+              required
+            >
+            <button type="submit" name="commit" id="Subscribe">
+              <span class="button-text">{{ section.settings.text_newsletter }}</span>
+            </button>
+          {% endform %}
+        </div>
+
+        {% if section.settings.show_social_media == true %}
+          <div class="social-media">
+            {% render 'icons-social-media' %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="menu-links">
+        {% for main_link in section.settings.footer_links.links %}
+          <nav>
+            <div class="heading-links">
+              <p>{{ main_link.title }}</p>
+              {{ 'arrow-down.svg' | inline_asset_content }}
+            </div>
+
+            <ul>
+              {% for sub_link in main_link.links %}
+                <li>
+                  <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endfor %}
+      </div>
+
+      <div class="container-newsletter-social last">
+        <div class="newsletter">
+          <p class="title-newsletter">{{ section.settings.title_newsletter }}</p>
+          {% form 'customer' %}
+            {{ form.errors | default_errors }}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input
+              type="email"
+              name="contact[email]"
+              id="Email"
+              value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+              placeholder="{{ section.settings.placeholder_newsletter }}"
+              required
+            >
+            <button type="submit" name="commit" id="Subscribe">
+              <span class="button-text">{{ section.settings.text_newsletter }}</span>
+            </button>
+          {% endform %}
+        </div>
+
+        {% if section.settings.show_social_media == true %}
+          <div class="social-media">
+            {% render 'icons-social-media' %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="container-payments-stamp-information">
+      <div class="container-payments-stamp">
+        {% if section.settings.show_payment_methods == true %}
+          <div class="payment-methods-main">
+            {% render 'icons-payment-methods' %}
+          </div>
+        {% endif %}
+
+        <div class="stamps-shakers-shopify">
+          <a href="https://shakersagencia.com.br/" target="_blank">
+            <img
+              src="{{ 'selo-shakers.png' | asset_url }}"
+              alt="Selo Shakers"
+              height="auto"
+              width="auto"
+              loading="lazy"
+            >
+          </a>
+
+          {{ 'shopify-secure-selo.svg' | inline_asset_content }}
+        </div>
+      </div>
+
+      <div class="information">
+        {{ section.settings.information_bottom }}
+      </div>
+    </div>
+  </footer>
+</footer-component>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:sections.footer.settings.logo.label"
+    },
+    {
+      "type": "textarea",
+      "id": "info_brand",
+      "label": "t:sections.footer.settings.info_brand.label",
+      "default": "sac@kufbrand.com.br, (11) XXXXX-XXXX, De segunda a sexta das 9h às 18h",
+      "info": "t:sections.footer.settings.info_brand.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_media",
+      "label": "t:sections.footer.settings.show_social_media.label",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "information_bottom",
+      "label": "t:sections.footer.settings.information_bottom.label",
+      "default": "<p>LAZU FRAGRANCE & COSMETICS LTDA | 53.179.848/0001-96 | R. Jandiatuba, 506, Bloco A, CJ 205, Vila Andrade, São Paulo - SP, 05716-150</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_methods",
+      "label": "t:sections.footer.settings.show_payment_methods.label",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "footer_links",
+      "label": "t:sections.footer.settings.footer_links.label"
+    },
+    {
+      "type": "text",
+      "id": "title_newsletter",
+      "label": "t:sections.footer.settings.title_newsletter.label",
+      "default": "Assine nossa Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_newsletter",
+      "label": "t:sections.footer.settings.placeholder_newsletter.label",
+      "default": "Digite seu e-mail"
+    },
+    {
+      "type": "text",
+      "id": "text_newsletter",
+      "label": "t:sections.footer.settings.text_newsletter.label",
+      "default": "Assinar"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.footer.name"
+    }
+  ]
+}
+{% endschema %}

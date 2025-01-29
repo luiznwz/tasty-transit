@@ -1,67 +1,84 @@
-:root {
-  font-family: var(--font-body-family);
-  line-height: 1.5;
-  font-weight: var(--font-body-weight);
-  font-size: var(--font-size-base);
-  color: hsla(var(--color-accent) / 1);
-  background-color: hsla(var(--color-surface) / 1);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@import url("../components/HelloWorld/hello-world.css");
+@import url("../components/Footer/footer.css");
+@import url("../components/AnnoucementBar/annoucement-bar.css");
+@import url("../components/Header/header.css");
+@import url("../components/ProductCard/product-card.css");
+@import url("../components/CarouselProducts/carousel-products.css");
+@import url("../components/MainProduct/main-product.css");
+@import url("../components/Breadcrumb/breadcrumb.css");
+@import url("../components/ShippingCalculator/shipping-calculator.css");
+@import url("../components/SectionGrid/section-grid.css");
+@import url("../components/BannerCarouselProducts/banner-carousel-products.css");
+@import url("../components/Suggestion/suggestion.css");
+@import url("../components/BannerBenefits/banner-benefits.css");
+@import url("../components/MiniBanner/mini-banner.css");
+@import url("../components/Influencers/influencers.css");
+@import url("../components/ProductReviews/product-reviews.css");
+@import url("../components/BannerCarrousel/banner-carrousel.css");
+@import url("../components/AboutProduct/about-product.css");
+@import url("../components/WishlistGrid/wishlist-grid.css");
+@import url("../components/TextSection/text-section.css");
+@import url("../components/ImageGridCarousel/image-grid-carousel.css");
+@import url("../components/TextImage/text-image.css");
+@import url("../components/CartDrawer/cart-drawer.css");
+@import url("../components/CartItem/cart-item.css");
+@import url('../components/Popup/popup.css');
+@import url("../components/LookBook/look-book.css");
+@import url('../components/CartRelatedProducts/cart-related-products.css');
+@import url('../components/DiscountCoupon/discount-coupon.css');
+@import url('../components/CartSection/cart-section.css');
+@import url('../components/ShippingCalculatorCartDrawer/shipping-calculator-cart-drawer.css');
+@import url("../components/CollectionBanner/collection-banner.css");
+@import url("../components/CollectionGrid/collection-grid.css");
+@import url("../components/BtnLink/btn-link.css");
+@import url("../components/CollectionFilter/collection-filter.css");
+@import url("../components/DescriptionSEO/description-seo.css");
+@import url("../components/RelatedProductsSection/related-products.css");
+@import url("../components/Alert/alert.css");
+@import url("../components/Shopbar/shopbar.css");
+@import url("../components/Main404/main-404.css");
+@import url("../components/SearchText/search-text.css");
+@import url("../components/Account/account.css");
+@import url("../components/AccountAccess/account-access.css");
+@import url("../components/GridArticles/grid-articles.css");
+@import url("../components/ArticleComponent/article-component.css");
+@import url("../components/MainOrder/main-order.css");
+@import url("../components/MainPage/main-page.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--off-white);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--dark-blue);
+    border-radius: 10px;
+    border: 3px solid transparent;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-blue, .8);
+  }
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  display: grid;
-  place-items: center;
+  font-size: 1.6rem;
   min-height: 100vh;
+  font-family: var(--font-rebond);
 }
 
-a {
-  color: hsla(var(--color-accent) / 1);
-  text-decoration: none;
-}
-
-h1,
-h2,
-p {
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  font-family: var(--font-heading-family);
-  font-size: calc(2.5 * var(--font-size-xl));
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 0.5rem;
-  border: 1px solid transparent;
-  padding: 0.75rem 1.5rem;
-  font-size: var(--font-size-base);
-  font-weight: bold;
-  font-family: var(--font-body-family);
-  background-color: hsla(var(--color-contrast) / 1);
-  color: hsla(var(--color-primary) / 1);
-  cursor: pointer;
-  margin: 2rem 0;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto hsla(var(--color-primary) / 1);
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-footer {
-  opacity: 0.6;
+.no-scroll {
+  overflow: hidden;
 }

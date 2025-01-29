@@ -1,0 +1,49 @@
+{% if settings.show_popup == true %}
+    <popup-component>
+        <div class="popup__overlay">
+        </div>
+        <div class="popup__content">
+            <div class="popup_close">
+                {{ 'close.svg' | inline_asset_content }}
+            </div>
+            <div class="popup__texts">
+                {% if settings.popup_logo != blank %}
+                    <img 
+                        src="{{ settings.popup_logo | image_url: width: 148 }}" 
+                        alt="{{ settings.popup_logo }}" 
+                        class="popup__logo"
+                        width="auto" height="auto"
+                    >
+                {% endif %}
+                {% if settings.popup_title != blank %}
+                    <h2 class="popup_title">{{ settings.popup_title }}</h2>
+                {% endif %}
+                {% if settings.popup_description != blank %}
+                    <p class="popup_text">{{ settings.popup_description }}</p>
+                {% endif %}
+                {% form 'customer' %}
+                    <div class="popup__newsletter">
+                        <input type="email" name="contact[email]" placeholder="{{ 'sections.popup.type_your_email' | t }}"/>
+                      </div>
+                    
+                      <div class="submit_popup">
+                        <input type="submit" value="{{ settings.popup_button_text }}" />
+                      </div>
+                {% endform %}
+                {% if settings.popup_terms != blank %}
+                    <p class="popup_terms">{{ settings.popup_terms }}</p>
+                {% endif %}
+            </div>
+            {% if settings.popup_image != blank %}
+                <div class="popup_image">
+                    <img 
+                        src="{{ settings.popup_image | image_url: width: 600 }}" 
+                        alt="{{ settings.popup_title }}" 
+                        class="popup__image"
+                        width="auto" height="auto"
+                    >
+                </div>
+            {% endif %}
+        </div>
+    </popup-component>
+{% endif %}

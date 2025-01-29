@@ -1,0 +1,107 @@
+{% liquid 
+    assign lookbook = product.metafields.custom.lookbook.value
+
+    assign text_motion = lookbook.texto_motion
+
+    assign texto_motion = text_motion | split: ','
+    assign position_y = lookbook.posicao_y | split: ','
+    assign position_x = lookbook.posicao_x | split: ','
+    assign position_y_desktop = lookbook.posicao_y_desktop | split: ','
+    assign position_x_desktop = lookbook.posicao_x_desktop | split: ','
+%}
+
+{% if lookbook != blank %}
+    <look-book>
+        <div class="lookbook__content">
+            <div class="lookbook__motion">
+                {% for i in (1..3) %}
+                    <div class="lookbook__slide">
+                        {% for text in texto_motion %}
+                            {{ 'circle-lookbook.svg' | inline_asset_content }}
+                            <p class="lookbook__text_motion">
+                                {{ text }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="lookbook_image__container">
+                {% for produto in lookbook.produtos.value %}
+                    {% assign loopNumber = forloop.index0 %}
+                    <div 
+                        class="lookbook__button lookbook__button--{{loopNumber}}" 
+                        data-index="{{ loopNumber }}"
+                    >
+                        {{ 'plus-lookbook.svg' | inline_asset_content }}
+                    </div>
+
+                    <style>
+                        .lookbook__button--{{loopNumber}} {
+                            top: {{ position_y[loopNumber] }}%;
+                            left: {{ position_x[loopNumber] }}%;
+
+                            @media screen and (min-width: 768px) {
+                                top: {{ position_y_desktop[loopNumber] }}%;
+                                left: {{ position_x_desktop[loopNumber] }}%;
+                            }
+                        }
+                    </style>
+                {% endfor %}
+
+                <div class="lookbook__image">
+                    <img src="{{ lookbook.image_look |  image_url: width: 960 }}" alt="{{ texto_motion[0] }}" width="auto" height="auto">
+                </div>
+            </div>
+
+            <div class="lookbook__modal_products">
+                <div class="lookbook__modal_products__content">
+                    <div class="lookbook__modal_close">
+                        {{ 'close-lookbook.svg' | inline_asset_content }}
+                    </div>
+                    <h2 class="lookbook__title">
+                        {{ 'sections.lookbook.shop_the_look' | t }}
+                    </h2>
+                    <div class="blaze-slider product__carrousel">
+                        <div class="blaze-container">
+                            <div class="blaze-track-container">
+                                <div class="blaze-track">
+                                    {% for produto in lookbook.produtos.value %}
+                                        <div class="product__item" data-index="{{ forloop.index0 }}">
+                                            <img src="{{ produto.images[0] | image_url: width: 271 }}" alt="{{ produto.title }}" width="auto" height="auto">
+                                            <h3 class="product__title">{{ produto.title }}</h3>
+                                            <p class="product__price">{{ produto.price | money }}</p>
+                                            <a href="{{ produto.url }}" class="product__link">
+                                                {{ 'sections.lookbook.add_to_cart' | t }}
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                
+                                <div class="blaze-pagination"></div>
+                            </div>
+                        </div>
+                        <button class="blaze-prev lookbook--prev" aria-label="Previous Slide">
+                            {{ 'icon-arrow.svg' | inline_asset_content }}
+                        </button>
+                        <button class="blaze-next lookbook--next" aria-label="Next Slide">
+                            {{ 'icon-arrow.svg' | inline_asset_content }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </look-book>
+{% endif %}
+
+{% schema %}
+    {
+      "name": "t:sections.lookbook.name",
+      "settings": [],
+      "presets": [
+        {
+          "name": "t:sections.lookbook.presets.name"
+        }
+      ]
+    }
+{% endschema %}

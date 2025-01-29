@@ -1,19 +1,23 @@
 {
-  "name": "with-gsap",
-  "version": "0.0.0",
+  "name": "kuf-gapfy",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "adastra dev",
+    "dev": "adastra dev -s tasty-transit",
     "build": "adastra build",
     "preview": "adastra preview",
     "check": "adastra check"
   },
-  "dependencies": {
-    "gsap": "^3.11.4"
-  },
   "devDependencies": {
+    "@shopify/cli": "latest",
+    "@shopify/theme": "latest",
     "adastra-cli": "latest",
     "adastra-plugin": "latest",
+    "git-commit-msg-linter": "^5.0.8",
+    "typescript": "^5.6.3",
     "vite": "^4.1.4"
+  },
+  "dependencies": {
+    "blaze-slider": "^1.9.3"
   }
 }

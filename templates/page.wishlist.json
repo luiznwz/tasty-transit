@@ -1,0 +1,55 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner_carrousel_RPfGE6": {
+      "type": "banner-carrousel",
+      "blocks": {
+        "image_ybfUbi": {
+          "type": "image",
+          "settings": {
+            "image_desktop": "shopify://shop_images/banner.png",
+            "image_mobile": "shopify://shop_images/banner_mobile.png",
+            "alt": "Kuf",
+            "subtitle": "",
+            "title": "Lista de Desejos",
+            "text_button": "",
+            "url_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_ybfUbi"
+      ],
+      "settings": {}
+    },
+    "wishlist_grid_VH9WhV": {
+      "type": "wishlist-grid",
+      "settings": {}
+    },
+    "carousel_products_JzQDrB": {
+      "type": "carousel-products",
+      "settings": {
+        "collection": "frontpage",
+        "title_section": "<p>Best Sellers</p>",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/9004759_star_favorite_award_like_icon_ec9e4d71-2d5d-4857-a706-a8d7568eb057.png",
+        "text_button": "Ver Todos",
+        "show_discount_tag": false,
+        "show_new_tag": true
+      }
+    }
+  },
+  "order": [
+    "banner_carrousel_RPfGE6",
+    "wishlist_grid_VH9WhV",
+    "carousel_products_JzQDrB"
+  ]
+}

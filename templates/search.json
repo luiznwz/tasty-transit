@@ -1,8 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": {
-      "type": "hello-world"
+    "collection_filter_nH7PCX": {
+      "type": "collection-filter",
+      "settings": {
+        "title": "Do que sua pele precisa"
+      }
+    },
+    "collection_grid_gPbxNU": {
+      "type": "collection-grid",
+      "settings": {}
+    },
+    "carousel_products_MAeW63": {
+      "type": "carousel-products",
+      "settings": {
+        "collection": "frontpage",
+        "title_section": "<p>Best Sellers</p>",
+        "show_icon": true,
+        "icon_title": "shopify://shop_images/9004759_star_favorite_award_like_icon_ec9e4d71-2d5d-4857-a706-a8d7568eb057.png",
+        "text_button": "Ver Todos",
+        "show_discount_tag": true,
+        "show_new_tag": true
+      }
+    },
+    "search_text_HGVdPf": {
+      "type": "search-text",
+      "settings": {}
     }
   },
-  "order": ["main"]
+  "order": [
+    "search_text_HGVdPf",
+    "collection_filter_nH7PCX",
+    "collection_grid_gPbxNU",
+    "carousel_products_MAeW63"
+  ]
 }

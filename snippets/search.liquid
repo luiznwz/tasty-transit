@@ -1,0 +1,22 @@
+<form class="header__search" action="{{ routes.search_url }}">
+    <div class="search_input__container">
+        <input 
+            type="text" 
+            class="search_input" 
+            placeholder="{{ 'sections.header.search_placeholder' | t }}"
+            name="q"
+            value="{{ search.terms | escape }}"
+        >
+        <button type="submit">
+            {{ 'search.svg' | inline_asset_content }}
+        </button>
+    </div>
+    <div class="btn-search">
+        <div class="search_btn">
+            {{ 'search.svg' | inline_asset_content }}
+        </div>
+        <div class="close_btn">
+            {{ 'close.svg' | inline_asset_content }}
+        </div>
+    </div>
+</form>

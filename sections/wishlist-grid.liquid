@@ -1,0 +1,26 @@
+<wishlist-grid>
+  <div class="loader_container">
+    <div class="loader"></div>
+  </div>
+  <div class="wishlist-grid-container">
+    <div class="wishlist-grid__content"></div>
+    <div class="wishlist-empty__content">
+      <h3 class="wishlist-empty__title">{{ 'wishlist.empty.title' | t }}</h3>
+      <p class="wishlist-empty__text">{{ 'wishlist.empty.subtext' | t }}</p>
+      {% assign text_btn = 'wishlist.empty.see_products' | t %}
+      <a href="{{ shop.url }}" class="wishlist-empty__btn">{{ text_btn }}</a>
+    </div>
+  </div>
+</wishlist-grid>
+
+{% schema %}
+  {
+    "name": "t:sections.wishlist-grid.name",
+    "settings": [],
+    "presets": [
+      {
+        "name": "t:sections.wishlist-grid.presets.name"
+      }
+    ]
+  }
+{% endschema %}

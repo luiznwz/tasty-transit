@@ -1,0 +1,132 @@
+<main-order>
+  <div class="container-heading">
+    <a href="/account/orders" class="back-to-orders-link">
+      {{ 'arrow-order.svg' | inline_asset_content }}
+    </a>
+    <div class="content-heading">
+      <h2 class="title-order-name">
+        {{ 'order.title' | t }}
+        {{ order.name }}
+      </h2>
+      {%- assign order_date = order.created_at | time_tag: format: 'date_at_time' -%}
+      <p>
+        {{ 'order.placed_on' | t }}
+        {{ order_date }}
+      </p>
+    </div>
+  </div>
+
+  <div class="container-order-adress">
+    <div class="container-order">
+      <div class="order-heading">
+        <h3 class="order-heading-content-title">
+          {{ 'order.title' | t }}
+          {{ order.name }}
+        </h3>
+
+        {%- assign order_date = order.created_at | time_tag: format: 'date_at_time' -%}
+        <p>
+          {{ 'order.placed_on' | t }}
+          {{ order_date }}
+        </p>
+      </div>
+
+      <div class="order-details">
+        <table class="order-details-table">
+          <thead class="desktop-only">
+            <tr>
+              <th>{{ 'order.table.products' | t }}</th>
+              <th>{{ 'order.table.sku' | t }}</th>
+              <th>{{ 'order.table.price' | t }}</th>
+              <th>{{ 'order.table.quantity' | t }}</th>
+              <th>{{ 'order.table.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for line_item in order.line_items -%}
+              <tr class="order-row">
+                <td data-label="{{ 'order.table.products' | t }}">
+                  {{ line_item.title }}
+                </td>
+                <td data-label="{{ 'order.table.sku' | t }}">{{ line_item.sku }}</td>
+                <td data-label="{{ 'order.table.price' | t }}">{{ line_item.original_price | money }}</td>
+                <td data-label="{{ 'order.table.quantity' | t }}">{{ line_item.quantity }}</td>
+                <td data-label="{{ 'order.table.total' | t }}">{{ line_item.final_line_price | money }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td>{{ 'order.subtotal' | t }}</td>
+              <td>{{ order.line_items_subtotal_price | money }}</td>
+            </tr>
+
+            {%- if order.cart_level_discount_applications != blank -%}
+              {%- for discount_application in order.cart_level_discount_applications -%}
+                <tr>
+                  <td>
+                    {{ 'order.discount' | t }}
+                    {{ discount_application.title }}
+                  </td>
+                  <td>-{{ discount_application.total_allocated_amount | money }}</td>
+                </tr>
+              {%- endfor -%}
+            {%- endif -%}
+
+            {%- for shipping_method in order.shipping_methods -%}
+              <tr>
+                <td>
+                  {{ 'order.shipping' | t }}
+                  {{ shipping_method.title }}
+                </td>
+                <td>{{ shipping_method.price | money }}</td>
+              </tr>
+            {%- endfor -%}
+
+            {%- for tax_line in order.tax_lines -%}
+              <tr>
+                <td>
+                  {{ 'order.tax' | t }}
+                  {{ tax_line.title }} ({{ tax_line.rate | times: 100 }}%)
+                </td>
+                <td>{{ tax_line.price | money }}</td>
+              </tr>
+            {%- endfor -%}
+
+            <tr>
+              <td>{{ 'order.total_price' | t }}</td>
+              <td>
+                {{ order.total_price | money }}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="container-address">
+      <div class="container-address-content">
+        <h3 class="address-title">{{ 'order.billing_address.title' | t }}</h3>
+
+        <div class="address-content">
+          <p class="address-status">
+            {{ 'order.billing_address.payment_status' | t }}
+            {{ order.financial_status_label }}
+          </p>
+          {{ order.billing_address | format_address }}
+        </div>
+      </div>
+      <div class="container-address-content">
+        <h3 class="address-title">{{ 'order.shipping_address.title' | t }}</h3>
+
+        <div class="address-content">
+          <p class="address-status">
+            {{ 'order.shipping_address.fulfillment_status' | t }}
+            {{ order.fulfillment_status_label }}
+          </p>
+          {{ order.shipping_address | format_address }}
+        </div>
+      </div>
+    </div>
+  </div>
+</main-order>

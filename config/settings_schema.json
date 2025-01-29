@@ -1,194 +1,216 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Adastra",
-    "theme_version": "0.0.0",
-    "theme_author": "You Astronaut",
+    "theme_name": "Kuf Gapfy",
+    "theme_version": "1.0.0",
+    "theme_author": "Gappers",
     "theme_documentation_url": "https://docs.odestry.com",
     "theme_support_url": "https://help.odestry.com"
   },
   {
-    "name": "Brand",
+    "name": "t:settings_schema.social_media.name",
     "settings": [
       {
         "type": "header",
-        "content": "Assets"
-      },
-      {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Logo image",
-        "info": "Recommended width: 512 pixels minimum."
-      },
-      {
-        "type": "range",
-        "id": "logo_width",
-        "min": 50,
-        "max": 200,
-        "step": 5,
-        "unit": "px",
-        "label": "Logo width",
-        "default": 120
-      },
-      {
-        "type": "image_picker",
-        "id": "favicon",
-        "label": "Favicon",
-        "info": "PNG, or JPG. Recommended: 512x512 pixels minimum."
-      },
-      {
-        "type": "header",
-        "content": "Social links"
+        "content": "t:settings_schema.social_media.settings.social_links_header.content"
       },
       {
         "type": "url",
         "id": "social_instagram_link",
-        "label": "Instagram",
-        "info": "https://instagram.com/shopify"
+        "label": "t:settings_schema.social_media.settings.social_instagram_link.label",
+        "info": "t:settings_schema.social_media.settings.social_instagram_link.info"
       },
       {
         "type": "url",
         "id": "social_tiktok_link",
-        "label": "Tiktok",
-        "info": "https://tiktok.com/@shopify"
+        "label": "t:settings_schema.social_media.settings.social_tiktok_link.label",
+        "info": "t:settings_schema.social_media.settings.social_tiktok_link.info"
       },
       {
         "type": "url",
         "id": "social_facebook_link",
-        "label": "Facebook",
-        "info": "https://facebook.com/shopify"
+        "label": "t:settings_schema.social_media.settings.social_facebook_link.label",
+        "info": "t:settings_schema.social_media.settings.social_facebook_link.info"
       },
       {
         "type": "url",
         "id": "social_pinterest_link",
-        "label": "Pinterest",
-        "info": "https://pinterest.com/shopify"
+        "label": "t:settings_schema.social_media.settings.social_pinterest_link.label",
+        "info": "t:settings_schema.social_media.settings.social_pinterest_link.info"
       },
       {
         "type": "url",
         "id": "social_twitter_link",
-        "label": "Twitter",
-        "info": "https://twitter.com/shopify"
+        "label": "t:settings_schema.social_media.settings.social_twitter_link.label",
+        "info": "t:settings_schema.social_media.settings.social_twitter_link.info"
       },
       {
         "type": "url",
         "id": "social_youtube_link",
-        "label": "Youtube",
-        "info": "https://www.youtube.com/@shopify"
+        "label": "t:settings_schema.social_media.settings.social_youtube_link.label",
+        "info": "t:settings_schema.social_media.settings.social_youtube_link.info"
       },
       {
         "type": "url",
         "id": "social_linkedin_link",
-        "label": "Linkedin",
-        "info": "https://linkedin.com/company/shopify"
+        "label": "t:settings_schema.social_media.settings.social_linkedin_link.label",
+        "info": "t:settings_schema.social_media.settings.social_linkedin_link.info"
       },
       {
         "type": "url",
         "id": "social_vimeo_link",
-        "label": "Vimeo",
-        "info": "https://vimeo.com/shopify"
+        "label": "t:settings_schema.social_media.settings.social_vimeo_link.label",
+        "info": "t:settings_schema.social_media.settings.social_vimeo_link.info"
       }
     ]
   },
   {
-    "name": "Colors",
+    "name": "t:settings_schema.page_dimensions.name",
     "settings": [
       {
-        "type": "paragraph",
-        "content": "Use colors to communicate meaning and create meaningful experiences while also expressing hierarchy, state, and brand identity."
-      },
-      {
-        "type": "color",
-        "id": "colors_accent",
-        "label": "Accent",
-        "default": "#0E2700"
-      },
-      {
-        "type": "color",
-        "id": "colors_surface",
-        "label": "Surface",
-        "default": "#F0F2F4"
-      },
-      {
         "type": "header",
-        "content": "Primary colors",
-        "info": "Use it to derive roles for key components such as prominent buttons."
+        "content": "t:settings_schema.page_dimensions.settings.page_dimensions_header.content"
       },
       {
-        "type": "color",
-        "id": "colors_primary",
-        "label": "Accent",
-        "default": "#1C1E21"
+        "type": "range",
+        "id": "page_width_desktop",
+        "label": "t:settings_schema.page_dimensions.settings.page_width_desktop.label",
+        "default": 90,
+        "min": 80,
+        "max": 100,
+        "step": 1,
+        "unit": "vw"
       },
       {
-        "type": "color",
-        "id": "colors_contrast",
-        "label": "Contrast",
-        "default": "#C5FC81"
-      },
-      {
-        "type": "header",
-        "content": "Secondary colors",
-        "info": "Use it to derive roles for less prominent components in the UI."
-      },
-      {
-        "type": "color",
-        "id": "colors_secondary",
-        "label": "Accent",
-        "default": "#543C6E"
-      },
-      {
-        "type": "color_background",
-        "id": "colors_gradient",
-        "label": "Gradient",
-        "default": "linear-gradient(45deg, rgba(206, 241, 65, 1), rgba(133, 232, 254, 1) 30%, rgba(226, 199, 255, 1) 50%, rgba(255, 255, 255, 1) 60%)"
+        "type": "range",
+        "id": "page_width_mobile",
+        "label": "t:settings_schema.page_dimensions.settings.page_width_mobile.label",
+        "default": 90,
+        "min": 80,
+        "max": 100,
+        "step": 1,
+        "unit": "vw"
       }
     ]
   },
   {
-    "name": "Typography",
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "Use typography to present your design and content as clearly and efficiently as possible."
-      },
-      {
-        "type": "header",
-        "content": "Headings"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_heading",
-        "default": "inter_n7",
-        "label": "Font",
-        "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
-      },
-      {
-        "type": "header",
-        "content": "Body"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_body",
-        "default": "inter_n4",
-        "label": "Font",
-        "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
-      }
-    ]
-  },
-  {
-    "name": "Currency format",
+    "name": "t:settings_schema.whatsapp-button.name",
     "settings": [
       {
         "type": "header",
-        "content": "Currency codes"
+        "content": "t:settings_schema.whatsapp-button.settings.header.content"
       },
       {
         "type": "checkbox",
-        "id": "currency_code_enabled",
-        "label": "Show currency codes",
-        "info": "Cart and checkout prices always show currency codes. Example: $1.00 USD.",
+        "id": "whatsapp_button",
+        "label": "t:settings_schema.whatsapp-button.settings.whatsapp_button.label",
         "default": true
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "t:settings_schema.whatsapp-button.settings.whatsapp_number.label",
+        "placeholder": "t:settings_schema.whatsapp-button.settings.whatsapp_number.placeholder"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.installments.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.installments.settings.installments_header.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_installments",
+        "label": "t:settings_schema.installments.settings.show_installments.label",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "installments_count",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "label": "t:settings_schema.installments.settings.installments_count.label",
+        "default": 3
+      },
+      {
+        "type": "number",
+        "id": "installments_min_price",
+        "label": "t:settings_schema.installments.settings.installments_min_price.label",
+        "default": 50
+      },
+      {
+        "type": "checkbox",
+        "id": "show_interest_free",
+        "label": "t:settings_schema.installments.settings.show_interest_free.label",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.shipping.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.shipping.settings.shipping_header.content"
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_price",
+        "label": "t:settings_schema.shipping.settings.free_shipping_price.label",
+        "default": 350
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.popup_settings.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.popup_settings.settings.header.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_popup",
+        "label": "t:settings_schema.popup_settings.settings.show_popup.label",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_logo",
+        "label": "t:settings_schema.popup_settings.settings.popup_logo.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_image",
+        "label": "t:settings_schema.popup_settings.settings.popup_image.label"
+      },
+      {
+        "type": "text",
+        "id": "popup_title",
+        "label": "t:settings_schema.popup_settings.settings.popup_title.label",
+        "default": "Assine e ganhe 15% OFF"
+      },
+      {
+        "type": "text",
+        "id": "popup_description",
+        "label": "t:settings_schema.popup_settings.settings.popup_description.label",
+        "default": "Assine nossa newsletter para ganhar 15% OFF em sua primeira compra!"
+      },
+      {
+        "type": "text",
+        "id": "popup_button_text",
+        "label": "t:settings_schema.popup_settings.settings.popup_button_text.label",
+        "default": "Assinar Agora"
+      },
+      {
+        "type": "text",
+        "id": "popup_terms",
+        "label": "t:settings_schema.popup_settings.settings.popup_terms.label",
+        "default": "Ao fornecer seu endereço de e-mail, você concorda com nossa Política de Privacidade"
       }
     ]
   }

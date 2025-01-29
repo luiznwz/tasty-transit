@@ -1,0 +1,135 @@
+<div class="header-address">
+  <h3>{{ 'account.address.edit-address.title' | t }}</h3>
+  <div class="close">
+    {{ 'icon-close.svg' | inline_asset_content }}
+  </div>
+</div>
+{% form 'customer_address', address, class: 'address-fields' %}
+  <div class="name">
+    <div class="field-custom">
+      <input
+        type="text"
+        id="AddressFirstName"
+        name="address[first_name]"
+        value="{{ form.first_name }}"
+        placeholder="{{ 'account.address.edit-address.form.first_name_placeholder' | t }}"
+        required
+      >
+      <label for="AddressFirstName">{{ 'account.address.edit-address.form.first_name' | t }}</label>
+    </div>
+    <div class="field-custom">
+      <input
+        type="text"
+        id="AddressLastName"
+        name="address[last_name]"
+        value="{{ form.last_name }}"
+        placeholder="{{ 'account.address.edit-address.form.last_name_placeholder' | t }}"
+        required
+      >
+      <label for="AddressLastName">{{ 'account.address.edit-address.form.last_name' | t }}</label>
+    </div>
+  </div>
+
+  <div class="field-custom">
+    <input
+      type="text"
+      id="AddressCompany"
+      name="address[company]"
+      value="{{ form.company }}"
+      placeholder="{{ 'account.address.edit-address.form.company_placeholder' | t }}"
+    >
+    <label for="AddressCompany">{{ 'account.address.edit-address.form.company' | t }}</label>
+  </div>
+
+  <div class="field-custom">
+    <input
+      type="text"
+      id="Address1"
+      name="address[address1]"
+      value="{{ form.address1 }}"
+      placeholder="{{ 'account.address.edit-address.form.address1_placeholder' | t }}"
+      required
+    >
+    <label for="Address1">{{ 'account.address.edit-address.form.address1' | t }}</label>
+  </div>
+
+  <div class="field-custom">
+    <input
+      type="text"
+      id="Address2"
+      name="address[address2]"
+      value="{{ form.address2 }}"
+      placeholder="{{ 'account.address.edit-address.form.address2_placeholder' | t }}"
+    >
+    <label for="Address2">{{ 'account.address.edit-address.form.address2' | t }}</label>
+  </div>
+
+  <div class="field-custom">
+    <input
+      type="text"
+      id="AddressCity"
+      name="address[city]"
+      value="{{ form.city }}"
+      placeholder="{{ 'account.address.edit-address.form.city_placeholder' | t }}"
+      required
+    >
+    <label for="AddressCity">{{ 'account.address.edit-address.form.city' | t }}</label>
+  </div>
+
+  <div class="field-custom select">
+    <select
+      name="address[country]"
+      class="country-select"
+      id="AddressCountry"
+      data-country="{{ form.country | default: 'Brazil' }}"
+    >
+      {{ all_country_option_tags }}
+    </select>
+    <label for="AddressCountry">{{ 'account.address.edit-address.form.country' | t }}</label>
+  </div>
+
+  <div class="field-custom select">
+    <select
+      name="address[province]"
+      class="province-select"
+      data-provincedefault="{{ form.province }}"
+      id="AddressProvince"
+    >
+      <option value="">{{ 'account.address.edit-address.form.province_placeholder' | t }}</option>
+    </select>
+    <label for="AddressProvince">{{ 'account.address.edit-address.form.province' | t }}</label>
+  </div>
+
+  <div class="field-custom">
+    <input
+      type="text"
+      id="AddressPostalCode"
+      name="address[zip]"
+      value="{{ form.zip }}"
+      placeholder="{{ 'account.address.edit-address.form.zip_placeholder' | t }}"
+      required
+    >
+    <label for="AddressPostalCode">{{ 'account.address.edit-address.form.zip' | t }}</label>
+  </div>
+
+  <div class="field-custom">
+    <input
+      type="number"
+      id="AddressPhoneNumber"
+      name="address[phone]"
+      value="{{ form.phone }}"
+      placeholder="{{ 'account.address.edit-address.form.phone_placeholder' | t }}"
+      required
+    >
+    <label for="AddressPhoneNumber">{{ 'account.address.edit-address.form.phone' | t }}</label>
+  </div>
+
+  <div class="buttons-address-modal">
+    <button class="submit" type="submit">{{ 'account.address.edit-address.form.submit' | t }}</button>
+    {% if address != customer.new_address %}
+      <button class="define" type="submit" name="address[default]" value="1">
+        {{ 'account.address.edit-address.form.define' | t }}
+      </button>
+    {% endif %}
+  </div>
+{% endform %}

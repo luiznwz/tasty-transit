@@ -1,0 +1,64 @@
+alert-component {
+    background: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    color: var(--white);
+    padding: 1.2rem 2.4rem;
+    position: fixed;
+    z-index: 999999999999999;
+    max-width: var(--page-width);
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 100%;
+    bottom: 15vh;
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    text-align: center;
+    animation: alertEntry .6s ease-in-out;
+
+    @media screen and (min-width: 600px) {
+        max-width: 400px;
+    }
+
+    &[hidden] {
+        animation: alertExit .6s ease-in-out;
+        display: none;
+        opacity: 0;
+        transform: translate(-50%, 100%);
+    }
+}
+
+@keyframes alertEntry {
+    0% {
+        transform: translate(-50%, 100%);
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        transform: translate(-50%, 100%);
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, 0%);
+        opacity: 1;
+    }
+}
+
+@keyframes alertExit {
+    0% {
+        transform: translate(-50%, 0%);
+        opacity: 1;
+        display: block;
+    }
+
+    99% {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        display: none;
+    }
+}

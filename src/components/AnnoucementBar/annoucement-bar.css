@@ -1,0 +1,24 @@
+.annoucement_bar__container {
+    background: var(--light-gray);
+    width: 100%;
+    z-index: 1000;
+
+    .annoucement_bar__content {
+        max-width: var(--page-width);
+        padding-block: .8rem;
+        margin-inline: auto;
+
+        .annoucement_bar__text {
+            color: var(--dark-blue);
+            text-align: center;
+            font-family: var(--font-rebond);
+            font-size: clamp(1rem, 2vw, 1.6rem);
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

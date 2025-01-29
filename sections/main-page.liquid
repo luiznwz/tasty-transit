@@ -1,0 +1,23 @@
+<div class="main-page-container">
+  <h1 class="main-page-title">
+    {{ page.title | escape }}
+  </h1>
+  <div class="main-page-content">
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+  ],
+  "presets": [
+    {
+      "name": "t:sections.main-page.name"
+    }
+  ]
+}
+{% endschema %}

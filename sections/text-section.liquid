@@ -1,0 +1,99 @@
+<text-section class="text-section--{{ section.id }}">
+  {% for block in section.blocks %}
+    {% if block.type == 'text' %}
+      {% if block.settings.text != blank %}
+        <div class="content-text content-text--{{ forloop.index }}">{{ block.settings.text }}</div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</text-section>
+
+<style>
+  .text-section--{{ section.id }} {
+    {% for block in section.blocks %}
+      .content-text--{{forloop.index}} {
+        :is(p) {
+          text-align: {{ block.settings.text_align_mobile }};
+
+          @media (min-width: 768px) {
+            text-align: {{ block.settings.text_align }};
+          }
+        }
+      }
+    {% endfor %}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.text-section.name",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "t:sections.text-section.blocks.text.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.text-section.blocks.text.settings.text.label",
+          "default": "t:sections.text-section.blocks.text.settings.text.default"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "t:sections.text-section.blocks.text.settings.text_align.label",
+          "default": "justify",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.text-section.blocks.text.settings.text_align.options.left"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.text-section.blocks.text.settings.text_align.options.center"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.text-section.blocks.text.settings.text_align.options.right"
+            },
+            {
+              "value": "justify",
+              "label": "t:sections.text-section.blocks.text.settings.text_align.options.justify"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_align_mobile",
+          "label": "t:sections.text-section.blocks.text.settings.text_align.label_mobile",
+          "default": "justify",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.text-section.blocks.text.settings.text_align.options.left"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.text-section.blocks.text.settings.text_align.options.center"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.text-section.blocks.text.settings.text_align.options.right"
+            },
+            {
+              "value": "justify",
+              "label": "t:sections.text-section.blocks.text.settings.text_align.options.justify"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.text-section.presets.name"
+    }
+  ]
+}
+{% endschema %}

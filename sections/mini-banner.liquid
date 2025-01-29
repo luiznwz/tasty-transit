@@ -1,0 +1,141 @@
+{% liquid
+    assign mini_banner_metafields = product.metafields.custom.mini_banner.value
+
+    if mini_banner_metafields != blank 
+        if mini_banner_metafields.position  == true
+            assign mini_banner_position = 'mini-banner-left'
+        else
+            assign mini_banner_position = 'mini-banner-right'
+        endif
+
+        assign mini_banner_title = mini_banner_metafields.title
+        assign mini_banner_image = mini_banner_metafields.image_banner
+        assign mini_banner_logo = mini_banner_metafields.logo
+        assign mini_banner_content = mini_banner_metafields.content
+        assign mini_banner_link = mini_banner_metafields.link.value.url
+        assign mini_banner_button = mini_banner_metafields.text_button 
+    else
+        if template.name != 'product'
+            assign mini_banner_title = section.settings.mini_banner_title
+            assign mini_banner_image = section.settings.mini_banner_image
+            assign mini_banner_logo = section.settings.mini_banner_logo
+            assign mini_banner_content = section.settings.mini_banner_content
+            assign mini_banner_link = section.settings.mini_banner_link
+            assign mini_banner_button = section.settings.mini_banner_button
+            
+            if section.settings.mini_banner_position == 'left'
+                assign mini_banner_position = 'mini-banner-left'
+            else
+                assign mini_banner_position = 'mini-banner-right'
+            endif
+
+            assign show_section = true 
+        endif
+    endif
+
+    render 'variables.mini-banner'
+%}
+
+{% if mini_banner_metafields != blank or show_section %}
+    <div class="mini-banner mini-banner--{{ section.id }}">
+        <div class="mini-banner-container {{ mini_banner_position }}">
+            <div class="mini-banner-image">            
+                <img src="{{ mini_banner_image | image_url: width: nil }}" alt="{{ mini_banner_title }}" width="auto" height="auto">
+            </div>
+            <div class="mini-banner-content">  
+                <div class="mini-banner-logo-title">
+                    {% if mini_banner_title %}
+                        <div class="mini-banner-title">
+                            <h2>{{ mini_banner_title }}</h2>
+                        </div>
+                    {% endif %}
+                    <img src="{{ mini_banner_logo | image_url: width: nil }}" alt="Logo" width="auto" height="auto">
+                </div>
+                <div class="mini-banner-info">
+                    <p>{{ mini_banner_content }}</p>
+                    <a href="{{ mini_banner_link }}" class="mini-banner-btn">{{ mini_banner_button }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% schema %}
+    {
+      "name": "t:sections.mini-banner.name",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "template_mini_banner",
+          "label": "t:sections.mini-banner.settings.template_mini_banner.label",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "mini_banner_position",
+          "label": "t:sections.mini-banner.settings.mini_banner_position.label",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.mini-banner.settings.mini_banner_position.options.left"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.mini-banner.settings.mini_banner_position.options.right"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "mini_banner_title",
+          "label": "t:sections.mini-banner.settings.mini_banner_title.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "mini_banner_image",
+          "label": "t:sections.mini-banner.settings.mini_banner_image.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "mini_banner_logo",
+          "label": "t:sections.mini-banner.settings.mini_banner_logo.label"
+        },
+        {
+          "type": "textarea",
+          "id": "mini_banner_content",
+          "label": "t:sections.mini-banner.settings.mini_banner_content.label"
+        },
+        {
+          "type": "url",
+          "id": "mini_banner_link",
+          "label": "t:sections.mini-banner.settings.mini_banner_link.label"
+        },
+        {
+          "type": "text",
+          "id": "mini_banner_button",
+          "label": "t:sections.mini-banner.settings.mini_banner_button.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.mini-banner.settings.styles_color.content"
+        },
+        {
+          "type": "color",
+          "id": "primary_color",
+          "label": "t:sections.mini-banner.settings.primary_color.label",
+          "default": "#181D23"
+        },
+        {
+          "type": "color",
+          "id": "secondary_color",
+          "label": "t:sections.mini-banner.settings.secondary_color.label",
+          "default": "#FFFFFF"
+        }
+      ],
+      "presets": [
+        {
+          "name": "t:sections.mini-banner.presets.name"
+        }
+      ]
+    }
+{% endschema %}

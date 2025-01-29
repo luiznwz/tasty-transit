@@ -1,0 +1,49 @@
+:root {
+    --collection-banner-title: clamp(2.4rem, 5vw, 4.8rem);
+    --collection-banner-desc: clamp(1.4rem, 2vw, 1.6rem);
+}
+
+.collection_banner__container {
+    position: relative;
+
+    .banner__desktop {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
+    }
+
+    .banner__mobile {
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    .collection_banner_texts__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        .collection_banner_title {
+            font-size: var(--collection-banner-title);
+            color: var(--white);
+            text-align: center;
+            font-family: var(--font-rebond);
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            line-height: 140%;
+        }
+
+        :is(p) {
+            font-size: var(--collection-banner-desc);
+            color: var(--white);
+            text-align: center;
+            font-family: var(--font-rebond);
+            font-weight: 300;
+        }
+    }
+}

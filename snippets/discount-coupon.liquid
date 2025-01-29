@@ -1,0 +1,16 @@
+<discount-coupon>
+    <div class="discount_coupon__heading">
+        <div class="discount_coupon__heading_btn">
+            <p class="discount_cupom_text">{{ 'sections.cart-drawer.discount_cupom' | t }}</p>
+            {{ 'add.svg' | inline_asset_content }}
+        </div>
+        <p class="discount_coupon__error"></p>
+        <p class="discount_coupon__success"></p>
+    </div>
+    <form class="discount_coupon__form" closed>
+        <input type="text" class="discount_coupon__input" placeholder="{{ 'sections.discount_coupon.code' | t }}">
+        <button type="submit" class="discount_coupon__button">{{ 'arrow-right.svg' | inline_asset_content }}</button>
+    </form>
+
+    <p class="discount_coupon__applied"></p>
+</discount-coupon>
