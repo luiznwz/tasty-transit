@@ -7,7 +7,7 @@
 {% if path == "/src/entrypoints/base.css" or path == "base.css" %}
   {{ 'base-59ea9455.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
 {% elsif path == "/src/entrypoints/index.ts" or path == "index.ts" %}
-  <link rel="modulepreload" href="{{ 'index-981fb4ed.js' | asset_url | split: '?' | first }}" as="script" crossorigin="anonymous">
-  <script src="{{ 'index-981fb4ed.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
+  <link rel="modulepreload" href="{{ 'index-ae6fb7b7.js' | asset_url | split: '?' | first }}" as="script" crossorigin="anonymous">
+  <script src="{{ 'index-ae6fb7b7.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
   {{ 'index-ff02310a.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload }}
 {% endif %}

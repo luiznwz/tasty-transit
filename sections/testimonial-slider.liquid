@@ -1,0 +1,263 @@
+<section class="testimonial-section" data-section-id="{{ section.id }}">
+  <div class="testimonial-container">
+    <testimonial-slider class="testimonial-wrapper">
+      <div class="testimonial-controls">
+        <button class="testimonial-nav testimonial-nav--prev" aria-label="Previous testimonial">
+          <img
+            src="{{ 'arrow-prev.svg' | asset_url }}"
+            alt="Previous"
+            width="24"
+            height="24"
+            loading="lazy">
+        </button>
+        <button class="testimonial-nav testimonial-nav--next" aria-label="Next testimonial">
+          <img
+            src="{{ 'arrow-next.svg' | asset_url }}"
+            alt="Next"
+            width="24"
+            height="24"
+            loading="lazy">
+        </button>
+      </div>
+      <div class="testimonial-slider" role="region" aria-label="Testimonial Slider">
+    {%- for block in section.blocks -%}
+      <div class="testimonial-slide{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
+        <div class="testimonial-video-wrapper">
+          {%- if block.settings.video_url != blank -%}
+            <video
+              class="testimonial-video"
+              src="{{ block.settings.video_url }}"
+              loop
+              muted
+              playsinline
+              poster="{{ block.settings.video_poster | image_url: width: 800 }}"></video>
+          {%- endif -%}
+        </div>
+        <div class="testimonial-content">
+          <div class="testimonial-tag">{{ block.settings.tag }}</div>
+          <h3 class="testimonial-name">{{ block.settings.name }}</h3>
+          <p class="testimonial-text">{{ block.settings.text }}</p>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</testimonial-slider>
+
+{% schema %}
+  {
+    "name": "Testimonial Slider",
+    "tag": "section",
+    "class": "section",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "url",
+            "id": "video_url",
+            "label": "Video URL"
+          },
+          {
+            "type": "image_picker",
+            "id": "video_poster",
+            "label": "Video Poster"
+          },
+          {
+            "type": "text",
+            "id": "tag",
+            "label": "Tag",
+            "default": "Tech & Digital"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          }, {
+            "type": "textarea",
+            "id": "text",
+            "label": "Testimonial Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonial Slider",
+        "blocks": [
+          {
+            "type": "testimonial"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .testimonial-section {
+    padding: 6rem 0;
+    overflow: hidden;
+    background-color: #f9fafb;
+  }
+
+  .testimonial-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .testimonial-wrapper {
+    position: relative;
+    display: block;
+  }
+
+  .testimonial-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .testimonial-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+    pointer-events: auto;
+  }
+
+  .testimonial-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .testimonial-nav:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  }
+
+  .testimonial-nav--prev {
+    left: 1rem;
+  }
+
+  .testimonial-nav--next {
+    right: 1rem;
+  }
+
+  .testimonial-slider {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+  }
+
+  .testimonial-slide {
+    flex: 0 0 300px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-slide.is-active {
+    flex: 0 0 600px;
+    flex-direction: row;
+    gap: 2rem;
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .testimonial-slide:not(.is-active) {
+    transform: scale(0.95);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-slide.is-active .testimonial-video-wrapper {
+    flex: 0 0 60%;
+  }
+
+  .testimonial-slide.is-active .testimonial-content {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    .testimonial-slide {
+      flex: 0 0 400px;
+    }
+  }
+
+  .testimonial-video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+
+  .testimonial-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testimonial-content {
+    padding: 1.5rem;
+  }
+
+  .testimonial-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #f3f4f6;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #6b7280;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('testimonial-slider')) {
+    customElements.define('testimonial-slider', class extends HTMLElement {
+      connectedCallback() {
+        import ('/src/components/TestimonialSlider/TestimonalSlider.js').then(module => {
+          new module.default(this);
+        });
+      }
+    });
+  }
+{% endjavascript %}

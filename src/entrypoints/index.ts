@@ -31,6 +31,7 @@ import TextSection from "@/components/TextSection/TextSection";
 import WishlistGrid from "@/components/WishlistGrid/WishlistGrid";
 import "../components/PageTransition/PageTransition";
 import "../components/PageTransition/PageTransition.css";
+import TestimonialSlider from '../components/TestimonialSlider/TestimonalSlider';
 
 window.customElements.define("hello-world", HelloWorld);
 window.customElements.define("footer-component", Footer);
@@ -69,3 +70,4 @@ window.customElements.define("account-access", AccountAccess);
 window.customElements.define("grid-articles", GridArticles);
 window.customElements.define("article-component", ArticleComponent);
 window.customElements.define("main-order", MainOrder);
+window.customElements.define("testimonial-slider", TestimonialSlider as unknown as CustomElementConstructor);
