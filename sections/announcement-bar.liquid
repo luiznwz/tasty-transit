@@ -1,0 +1,39 @@
+<div class="announcement-bar" style="background-color: {{ section.settings.background_color }}">
+  <div class="container">
+    {% if section.settings.text != blank %}
+      <p class="announcement-bar__text" style="color: {{ section.settings.text_color }}">
+        {{ section.settings.text }}
+      </p>
+    {% endif %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Announcement Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Announcement text",
+        "default": "Welcome to our store!"
+      }, {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#000000"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#FFFFFF"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Announcement Bar"
+      }
+    ]
+  }
+{% endschema %}
